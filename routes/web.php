@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    
+return Inertia::render('Users/Index', [
+        'name' => 'miGo',
+    ]);
+
 });
+
+Route::get('/second-link', fn () => 'Second link')->name('second');
