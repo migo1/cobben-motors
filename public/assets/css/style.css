@@ -1,0 +1,171 @@
+/*================================================================================
+	Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.vertical-layout.vertical-menu-modern.menu-expanded .main-menu .navigation li.has-sub>a:after {
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%236e6b7b\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\' class=\'feather feather-chevron-right\'%3E%3Cpolyline points=\'9 18 15 12 9 6\'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.1rem;
+  height: 1.1rem;
+  width: 1.1rem;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+html .content.app-content{
+  min-height: calc(100vh - 3.35rem);
+}
+
+.errorbadge{
+    width: 100%;
+    white-space: pre-wrap;
+    line-height: 20px;
+}
+.dark-layout .table-striped tbody tr:nth-of-type(odd)
+{
+background-color: #242B3D;
+}
+.dark-layout .table-hover tbody tr:hover {
+    background-color: #242B3D;
+}
+
+.poscart .media-body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.poscart .media-heading{
+    width: 8rem;
+
+}
+.poscart .cart-item-qty{
+    line-height: 1.5;
+}
+.poscart .cart-item-price{
+    margin-bottom: 0;
+    width: 5rem;
+    text-align: right;
+}
+.imagepos{
+        height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+}
+.blob.red {
+    background: rgba(255, 82, 82, 1);
+    box-shadow: 0 0 0 0 rgb(255 82 82);
+    animation: pulse-red 2s infinite;
+}
+.blob {
+    background: black;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgb(0 0 0);
+    margin: 10px;
+    height: 10px;
+    width: 10px;
+    transform: scale(1);
+    animation: pulse-black 2s infinite;
+}
+.blob.green {
+    background: rgba(51, 217, 178, 1);
+    box-shadow: 0 0 0 0 rgb(51 217 178);
+    animation: pulse-green 2s infinite;
+}
+
+.blob.orange {
+    background: rgba(255, 121, 63, 1);
+    box-shadow: 0 0 0 0 rgb(255 121 63);
+    animation: pulse-orange 2s infinite;
+}
+
+.blob.blue {
+    background: rgba(33, 102, 157, 1);
+    box-shadow: 0 0 0 0 rgb(33, 102, 157);
+    animation: pulse-blue 2s infinite;
+}
+.mt_17_rem{
+    margin-top: 1.7rem;;
+}
+
+@keyframes pulse-red {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+}
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, .7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+}
+
+@keyframes pulse-orange {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 121, 63, .7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+}
+
+@keyframes pulse-blue {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(33, 102, 157, .7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+    }
+}
