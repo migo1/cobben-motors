@@ -14,12 +14,22 @@ use Inertia\Inertia;
 |
 */
 
+
+Route::get('admin-login', function () {
+    return Inertia::render('Login');
+})->name('adminLogin');
+
+
 Route::get('/', function () {
     
-return Inertia::render('Users/Index', [
+return Inertia::render('LandingPage/Index', [
         'name' => 'miGo',
     ]);
 
 });
 
-Route::get('/second-link', fn () => 'Second link')->name('second');
+// Route::get('/second-link', fn () => 'Second link')->name('second');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
