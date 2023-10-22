@@ -2,6 +2,19 @@ import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 
+
+import store from "./store.js";
+
+import LeftsideBar from "./Shared/Partials/LeftSideBar.vue";
+import Navbar from "./Shared/Partials/Navbar.vue";
+import Footer from "./Shared/Partials/Footer.vue";
+import Customizer from "./Shared/Partials/Customizer.vue";
+// import Chatbox from "./Shared/Partials/Chatbox.vue";
+import SuccessToast from "./Shared/Global/SuccessToast.vue";
+import ErrorToast from "./Shared/Global/ErrorToast.vue";
+// import Pagination from "./Shared/Global/pagination/Pagination.vue";
+
+
 createInertiaApp({
     resolve: (name) =>
         resolvePageComponent(
@@ -10,7 +23,23 @@ createInertiaApp({
         ),
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
+            .use(store)
             .use(plugin)
+            .mixin({
+                methods: {
+                    route,
+                },
+                components: {
+                    LeftsideBar,
+                    Navbar,
+                    Footer,
+                    Customizer,
+                    // Chatbox,
+                    SuccessToast,
+                    ErrorToast,
+                    // Pagination,
+                },
+            })
             .mount(el);
     },
 });

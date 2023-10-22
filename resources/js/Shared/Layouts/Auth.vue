@@ -1,7 +1,7 @@
 <template>
     <div>
-        <!-- <SuccessToast></SuccessToast>
-        <ErrorToast></ErrorToast> -->
+        <SuccessToast></SuccessToast>
+        <ErrorToast></ErrorToast>
         <div>
             <slot />
         </div>
