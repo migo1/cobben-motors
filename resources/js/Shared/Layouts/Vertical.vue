@@ -9,7 +9,7 @@
             <div class="header-navbar-shadow"></div>
             <slot />
         </div>
-        <Customizer />
+        <!-- <Customizer /> -->
         <Footer />
     </div>
 </template>
@@ -51,16 +51,16 @@ export default {
                     })
                 );
             $(".modern-nav-toggle").on("click", function (event) {
-                if (that.$store.state.ifcollapses) {
+                if (store.state.ifcollapses) {
                     $("body")
                         .removeClass("menu-collapsed")
                         .addClass("menu-expanded");
-                    that.$store.commit("toggleCollapse");
+                    store.commit("toggleCollapse");
                 } else {
                     $("body")
                         .removeClass("menu-expanded")
                         .addClass("menu-collapsed");
-                    that.$store.commit("toggleCollapse");
+                    store.commit("toggleCollapse");
                 }
             });
 
@@ -92,7 +92,7 @@ export default {
                 .on("mouseenter", function () {
                     if (
                         !$(this).hasClass("menu-expanded") &&
-                        that.$store.state.ifcollapses == true
+                        store.state.ifcollapses == true
                     ) {
                         $(".navigation-main li.has-sub > a")
                             .parent()
@@ -106,7 +106,7 @@ export default {
                 .on("mouseleave", function (event) {
                     if (
                         !$(this).hasClass("menu-expanded") &&
-                        that.$store.state.ifcollapses == true
+                        store.state.ifcollapses == true
                     ) {
                         $(".navigation-main li.has-sub > a")
                             .parent()

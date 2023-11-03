@@ -19,7 +19,9 @@
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/vue3": "^1.0.12",
+        "feather-icons": "^4.29.1",
         "vue": "^3.3.4",
+        "vue-feather": "^2.0.0",
         "vuex": "^4.1.0",
         "vuex-persistedstate": "^4.1.0"
     }
