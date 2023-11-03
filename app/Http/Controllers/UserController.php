@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
-use App\Imports\UserImport;
+// use App\Imports\UserImport;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
@@ -175,29 +175,29 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 
-    public function export()
-    {
-        return Excel::download(new UserExport(), 'Usersexport-' . date('d-m-y h:i') . '.xlsx');
-    }
+    // public function export()
+    // {
+    //     return Excel::download(new UserExport(), 'Usersexport-' . date('d-m-y h:i') . '.xlsx');
+    // }
 
-    public function import(Request $request)
-    {
-        $this->validate($request, [
-            'upload' => 'required|mimes:xlsx'
-        ]);
+    // public function import(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'upload' => 'required|mimes:xlsx'
+    //     ]);
 
-        $upload = $request->file('upload');
-        $filename = 'pcwd-' . Str::random(32) . time() . '.' . $upload->getClientOriginalExtension();
+    //     $upload = $request->file('upload');
+    //     $filename = 'pcwd-' . Str::random(32) . time() . '.' . $upload->getClientOriginalExtension();
 
-        Storage::disk('local')->putFileAs(
-            'uploads',
-            $upload,
-            $filename
-        );
+    //     Storage::disk('local')->putFileAs(
+    //         'uploads',
+    //         $upload,
+    //         $filename
+    //     );
 
-        $url = base_path('storage/app/uploads/' . $filename);
-        Excel::import(new UserImport(), $url);
+    //     $url = base_path('storage/app/uploads/' . $filename);
+    //     Excel::import(new UserImport(), $url);
 
-        return redirect()->route('users.index')->with('success', 'User Data Has Been Succesfully Been Uploaded');
-    }
+    //     return redirect()->route('users.index')->with('success', 'User Data Has Been Succesfully Been Uploaded');
+    // }
 }

@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\{
     RolesController,
-    HomeController
+    HomeController,
+    UserController
 };
 
 /*
@@ -44,5 +45,12 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('roles')->group(function () {
         Route::get('permissions/{id}', [RolesController::class, 'show'])->name('roles.ajax.permissions');
     });
+    
+Route::resource('users', UserController::class);
+Route::prefix('users')->group(function () {
+    Route::get('export/toexcel', [UserController::class, 'export'])->name('users.export');
+    Route::post('import/toexcel', [UserController::class, 'import'])->name('users.import');
+});
+
 
 });

@@ -13,7 +13,7 @@
                         ><span class="brand-logo">
                             <Logo />
                         </span>
-                        <h2 class="brand-text">Vuexy</h2>
+                        <h2 class="brand-text">Cobben Motors</h2>
                     </a>
                 </li>
                 <li class="nav-item nav-toggle">
@@ -35,12 +35,12 @@
         </div>
         <div class="shadow-bottom"></div>
         <div class="main-menu-content">
-            <!-- <ul
+            <ul
                 class="navigation navigation-main"
                 id="main-menu-navigation"
                 data-menu="menu-navigation"
             >
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <Link
                         :href="route('pos.index')"
                         class="d-flex align-items-center childlist"
@@ -70,7 +70,7 @@
                         <feather type="package"></feather>
                         <span class="menu-item text-truncate">Orders</span>
                     </Link>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
                     <Link
@@ -83,7 +83,7 @@
                     </Link>
                 </li>
 
-                <li class="has-sub nav-item">
+                <!-- <li class="has-sub nav-item">
                     <a
                         class="d-flex align-items-center"
                         href="javascript:void(0);"
@@ -281,7 +281,7 @@
                             >
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li class="has-sub nav-item">
                     <a
@@ -322,7 +322,7 @@
                         </li>
                     </ul>
                 </li>
-            </ul> -->
+            </ul>
         </div>
     </div>
 </template>

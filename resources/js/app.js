@@ -1,7 +1,9 @@
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import feather from "vue-feather";
 
+// Vue.use(VueFeather);
 
 import store from "./store.js";
 
@@ -37,6 +39,7 @@ createInertiaApp({
                     // Chatbox,
                     SuccessToast,
                     ErrorToast,
+                    feather
                     // Pagination,
                 },
             })
