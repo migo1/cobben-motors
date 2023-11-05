@@ -20,7 +20,7 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
 
     return Inertia::render('LandingPage/Index', [
             'name' => 'miGo',

@@ -1,4 +1,5 @@
 <template>
+    <div class="container">
     <div class="content-wrapper">
         <div class="content-header row"></div>
         <div class="content-body">
@@ -109,6 +110,7 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -131,7 +133,7 @@ export default {
         });
 
         let submit = () => {
-            state.form.post("/login");
+            state.form.post("/admin/login");
         };
 
         onMounted(() => {});
