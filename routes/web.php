@@ -25,16 +25,6 @@ Route::get('admin-login', function () {
     return Inertia::render('Login');
 })->name('adminLogin');
 
-
-Route::get('/', function () {
-
-    return Inertia::render('LandingPage/Index', [
-            'name' => 'miGo',
-        ]);
-
-});
-
-
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
