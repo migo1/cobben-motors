@@ -19,7 +19,19 @@
     <link href="{{ asset('/customer/css/animate.css')}}" rel="stylesheet">
     <link href="{{ asset('/customer/css/select2.css')}}" rel="stylesheet">
     <link href="{{ asset('/customer/css/style.css')}}" rel="stylesheet">
-    <script src="{{ asset('/customer/js/jquery.js')}}"></script>
+   
+
+
+    @routes
+    @vite('resources/js/app.js')
+    @inertiaHead
+</head>
+
+<body class="front" data-spy="scroll" data-target="#top1" data-offset="96">
+    @inertia
+</body>
+ <script src="{{ asset('/customer/js/jquery.js')}}"></script>
+<script src="{{ asset('/customer/js/bootstrap.min.js')}}"></script>
     <script src="{{ asset('/customer/js/jquery-ui.js')}}"></script>
     <script src="{{ asset('/customer/js/jquery-migrate-1.2.1.min.js')}}"></script>
     <script src="{{ asset('/customer/js/jquery.easing.1.3.js')}}"></script>
@@ -43,16 +55,4 @@
     <script src="{{ asset('/customer/js/SmoothScroll.js')}}"></script>
 
     <script src="{{ asset('/customer/js/scripts.js')}}"></script>
-
-
-    @routes
-    @vite('resources/js/app.js')
-    @inertiaHead
-</head>
-
-<body class="front" data-spy="scroll" data-target="#top1" data-offset="96">
-    @inertia
-</body>
-<script src="{{ asset('/customer/js/bootstrap.min.js')}}"></script>
-
 </html>

@@ -444,7 +444,7 @@ export default {
     setup() {
         return {
             logout() {
-                router.post("/logout");
+                router.post("/admin/logout");
             },
         };
     },
