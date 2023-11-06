@@ -1213,6 +1213,37 @@ export default {
       $( "#amount2" ).val( "$" + ui.values[ 1 ] );
     }
   });
+
+  var o = $('#review .carousel.main ul');
+  if (o.length > 0) {
+    o.carouFredSel({
+      auto: {
+        timeoutDuration: 8000
+      },
+      responsive: true,
+      pagination: '.review_pagination',
+      width: '100%',
+      scroll: {
+        // fx : "crossfade",
+        items: 1,
+        duration: 1000,
+        easing: "easeOutExpo"
+      },
+      items: {
+            width: '600',
+        height: 'variable', //  optionally resize item-height
+        visible: {
+          min: 1,
+          max: 1
+        }
+      },
+      mousewheel: false,
+      swipe: {
+        onMouse: true,
+        onTouch: true
+        }
+    });
+  };
     });
 
     return {};
