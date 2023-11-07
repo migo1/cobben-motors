@@ -10,7 +10,7 @@
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <!-- <NuxtLink to="/dashboard">Dashboard </NuxtLink> -->
+                                    <!-- <NuxtLink to="/admin/home">Dashboard </NuxtLink> -->
                                 </li>
                                 <li class="breadcrumb-item active">Roles</li>
                             </ol>
@@ -52,9 +52,9 @@
                             </div>
                         </div>
 
-                        <!-- <div v-show="displaySearch">
-                            <RolesSearch></RolesSearch>
-                        </div> -->
+                        <div v-show="state.displaySearch">
+                            <RolesSearch ></RolesSearch>
+                        </div>
 
                         <div class="table-responsive table-hover table-striped">
                             <table class="table">
@@ -143,7 +143,7 @@
 
 <script>
 import MainLayout from "../../Shared/Layouts/Vertical.vue";
-// import RolesSearch from "../../components/Roles/RolesSearch.vue";
+import RolesSearch from "../../components/Roles/Search.vue";
 import RolesCreate from "../../components/Roles/Create.vue";
 // import RolesEdit from "../../components/Roles/RolesEditModal.vue";
 import { useStore } from "vuex";
@@ -154,33 +154,21 @@ import { router } from '@inertiajs/vue3'
 export default {
     layout: MainLayout,
     components: {
-        // RolesSearch,
+        RolesSearch,
         RolesCreate,
         // RolesEdit,
     },
     props: ["roles", "permissions"],
-    // computed: {
-    //     displaySearch() {
-    //         return this.$store.state.displaysearch;
-    //     },
-    //     searchState() {
-    //         return this.$store.state.search;
-    //     },
-    // },
 
     setup() {
         const store = useStore();
           const state = reactive({
-            displaySearch: computed(() => store.state.displaySearch),
+            displaySearch: computed(() => store.state.displaysearch),
             searchState: computed(() => store.state.SuccesssearchState),
         })
 
-
-        // displaySearch = computed(() => store.state.displaysearch);
-        // searchState = computed(() => store.state.search);
-
         let getFun = () => {
-            router.get("/roles");
+            router.get("/admin/roles");
         };
         let editFun = (data) => {
             store.commit("editDataState", data);
@@ -201,7 +189,7 @@ export default {
             editFun,
             toggleSearchForm,
             deleteFun,
-            // state
+            state
         };
     },
 };
