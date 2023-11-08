@@ -41,7 +41,7 @@ class UserController extends Controller
 
         $roles = Role::all();
 
-        return Inertia::render('Users/index', [
+        return Inertia::render('Users/Index', [
             'users' => UserResource::collection($data)->response()->getData(true),
             'roles' => $roles,
         ]);
