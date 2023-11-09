@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\{
+    CarBrandController,
     RolesController,
     HomeController,
     UserController
@@ -41,6 +42,6 @@ Route::prefix('users')->group(function () {
     Route::get('export/toexcel', [UserController::class, 'export'])->name('users.export');
     Route::post('import/toexcel', [UserController::class, 'import'])->name('users.import');
 });
-
+Route::resource('car_brands', CarBrandController::class);
 
 });
