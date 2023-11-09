@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\CarModel;
 use Inertia\Inertia;
 use App\Models\CarBrand;
+use Illuminate\Support\Facades\Log;
 
 class CarModelController extends Controller
 {
@@ -26,7 +27,9 @@ class CarModelController extends Controller
             return $query->where(function ($q) use ($search) {
                 return $q->where('name', 'LIKE', '%' . $search . '%');
             });
-        })
+        })->when($brand, function ($query) use ($brand) {
+                return $query->where('car_brand_id',  $brand);
+            })
         ->orderBy('id', 'DESC')
         ->paginate(10)
         ->withQueryString();

@@ -55,7 +55,7 @@
                         </div>
 
                         <div v-show="state.displaySearch">
-                            <!-- <Search></Search> -->
+                            <Search :car_brands="car_brands"></Search>
                         </div>
 
                         <div class="table-responsive table-hover table-striped">
@@ -77,7 +77,7 @@
                                         <td>{{ index + 1 }}</td>
                                         <td>{{ item.name }}</td>
                                         <td>
-                                        {{ item.carBrand.name }}
+                                        {{ item.car_brand.name }}
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -142,8 +142,8 @@
                 </div>
             </div>
         </div>
-        <!-- <Create ></Create>
-        <Edit ></Edit> -->
+         <Create :car_brands="car_brands"></Create>
+        <Edit :car_brands="car_brands"></Edit>
     </div>
 </template>
 
@@ -172,7 +172,7 @@ export default {
             searchState: computed(() => store.state.SuccesssearchState),
         })
 
-         let getFun = () => {
+        let getFun = () => {
             router.get("/admin/car_models");
         };
         let editFun = (data) => {

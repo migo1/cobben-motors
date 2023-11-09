@@ -35,7 +35,7 @@
 
 <script>
 import { reactive } from "vue";
-import { router } from "@inertiajs/vue3";
+import { router } from "@inertiajs/vue3"
 export default {
     layout: "Vertical",
     setup() {
