@@ -79,7 +79,7 @@
                         <li class="level2">
                             <Link
                                 class="d-flex align-items-center"
-                                :href="route('roles.index')"
+                                :href="route('car_models.index')"
                                 ><feather type="hash" :size="60"></feather
                                 ><span
                                     class="menu-item text-truncate"

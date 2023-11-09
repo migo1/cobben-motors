@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\{
     CarBrandController,
+    CarModelController,
     RolesController,
     HomeController,
     UserController
@@ -43,5 +44,6 @@ Route::prefix('users')->group(function () {
     Route::post('import/toexcel', [UserController::class, 'import'])->name('users.import');
 });
 Route::resource('car_brands', CarBrandController::class);
+Route::resource('car_models', CarModelController::class);
 
 });

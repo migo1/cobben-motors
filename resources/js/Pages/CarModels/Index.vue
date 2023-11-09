@@ -5,13 +5,13 @@
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
                         <h2 class="content-header-title float-left mb-0">
-                            Car Brands
+                            Car Models
                         </h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                 </li>
-                                <li class="breadcrumb-item active">Car Brands</li>
+                                <li class="breadcrumb-item active">Car Models</li>
                             </ol>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header py-1">
-                            <h4 class="card-title">Car Brands</h4>
+                            <h4 class="card-title">Car Models</h4>
 
                             <div class="float-right">
                                 <button
@@ -55,7 +55,7 @@
                         </div>
 
                         <div v-show="state.displaySearch">
-                            <Search></Search>
+                            <!-- <Search></Search> -->
                         </div>
 
                         <div class="table-responsive table-hover table-striped">
@@ -64,20 +64,20 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Logo</th>
+                                        <th>Brand</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <tr
-                                        v-for="(item, index) in car_brands.data"
+                                        v-for="(item, index) in car_models.data"
                                         :key="index"
                                     >
                                         <td>{{ index + 1 }}</td>
                                         <td>{{ item.name }}</td>
                                         <td>
-                                        <!-- {{ item.email }} -->
+                                        {{ item.carBrand.name }}
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -126,7 +126,7 @@
                                 </tbody>
                             </table>
                             <div class="mx-2 mt-3">
-                                <pagination :data="car_brands" :limit="1">
+                                <pagination :data="car_models" :limit="1">
                                     <span slot="prev-nav"
                                         ><feather type="arrow-left"></feather
                                     ></span>
@@ -135,15 +135,15 @@
                                     ></span>
                                 </pagination>
 
-                                <pagination class="mt-6" :links="car_brands.links" />
+                                <pagination class="mt-6" :links="car_models.links" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <Create ></Create>
-        <Edit ></Edit>
+        <!-- <Create ></Create>
+        <Edit ></Edit> -->
     </div>
 </template>
 
@@ -153,9 +153,9 @@ import { useStore } from "vuex";
 import { router } from "@inertiajs/vue3";
 
 import MainLayout from "../../Shared/Layouts/Vertical.vue";
-import Search from "../../components/CarBrands/Search.vue";
-import Create from "../../components/CarBrands/Create.vue";
-import Edit from "../../components/CarBrands/Edit.vue";
+import Search from "../../components/CarModels/Search.vue";
+import Create from "../../components/CarModels/Create.vue";
+import Edit from "../../components/CarModels/Edit.vue";
 export default {
     layout: MainLayout,
     components: {
@@ -163,7 +163,7 @@ export default {
         Create,
         Edit,
     },
-    props: ["car_brands"],
+    props: ["car_models", "car_brands"],
 
     setup() {
    const store = useStore();
@@ -173,7 +173,7 @@ export default {
         })
 
          let getFun = () => {
-            router.get("/admin/car_brands");
+            router.get("/admin/car_models");
         };
         let editFun = (data) => {
             store.commit("editDataState", data);
@@ -186,7 +186,7 @@ export default {
                 "Are you sure You Want to Delete This Record?"
             );
             if (getconfirmation == true) {
-                router.delete(route("car_brands.destroy", id));
+                router.delete(route("car_models.destroy", id));
             }
         };
           return {
