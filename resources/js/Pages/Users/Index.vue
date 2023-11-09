@@ -175,6 +175,7 @@
 </template>
 
 <script>
+
 import { reactive, computed } from "vue";
 import { useStore } from "vuex";
 import { router } from "@inertiajs/vue3";
