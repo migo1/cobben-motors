@@ -5,13 +5,13 @@
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
                         <h2 class="content-header-title float-left mb-0">
-                            Users
+                            Car Models
                         </h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                 </li>
-                                <li class="breadcrumb-item active">Users</li>
+                                <li class="breadcrumb-item active">Car Models</li>
                             </ol>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header py-1">
-                            <h4 class="card-title">Users</h4>
+                            <h4 class="card-title">Car Models</h4>
 
                             <div class="float-right">
                                 <button
@@ -36,35 +36,7 @@
                                     <feather type="plus"></feather>
                                 </button>
                                 <div class="btn-group dropstart float-right">
-                                    <!-- <a
-                                        class="btn btn-outline-success dropdown-toggle btn-sm mr-1"
-                                        type="button"
-                                        id="dropdownMenuButton701"
-                                        data-toggle="dropdown"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        href="javascript:void(0);"
-                                    >
-                                        <feather type="file-text"></feather>
-                                    </a> -->
-                                    <!-- <div
-                                        class="dropdown-menu"
-                                        aria-labelledby="dropdownMenuButton701"
-                                    >
-                                        <a
-                                            class="dropdown-item"
-                                            href="javascript:void(0);"
-                                            @click="exportFun"
-                                            >Export</a
-                                        >
-                                        <a
-                                            class="dropdown-item"
-                                            href="javascript:void(0);"
-                                            data-toggle="modal"
-                                            data-target="#importexcel"
-                                            >Import</a
-                                        >
-                                    </div> -->
+                        
                                 </div>
                                 <button
                                     class="btn btn-outline-primary float-right mr-1 btn-sm"
@@ -83,7 +55,7 @@
                         </div>
 
                         <div v-show="state.displaySearch">
-                            <UserSearch></UserSearch>
+                            <Search :car_brands="car_brands"></Search>
                         </div>
 
                         <div class="table-responsive table-hover table-striped">
@@ -92,19 +64,21 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Email Address</th>
+                                        <th>Brand</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <tr
-                                        v-for="(item, index) in users.data"
+                                        v-for="(item, index) in car_models.data"
                                         :key="index"
                                     >
                                         <td>{{ index + 1 }}</td>
                                         <td>{{ item.name }}</td>
-                                        <td>{{ item.email }}</td>
+                                        <td>
+                                        {{ item.car_brand.name }}
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button
@@ -152,7 +126,7 @@
                                 </tbody>
                             </table>
                             <div class="mx-2 mt-3">
-                                <pagination :data="users" :limit="1">
+                                <pagination :data="car_models" :limit="1">
                                     <span slot="prev-nav"
                                         ><feather type="arrow-left"></feather
                                     ></span>
@@ -161,37 +135,35 @@
                                     ></span>
                                 </pagination>
 
-                                <!-- <pagination class="mt-6" :links="users.links" /> -->
+                                <pagination class="mt-6" :links="car_models.links" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <UserCreate :roles="roles"></UserCreate>
-        <UserEdit :roles="roles"></UserEdit>
-        <!-- <UserImport></UserImport> -->
+         <Create :car_brands="car_brands"></Create>
+        <Edit :car_brands="car_brands"></Edit>
     </div>
 </template>
 
 <script>
-
 import { reactive, computed } from "vue";
 import { useStore } from "vuex";
 import { router } from "@inertiajs/vue3";
 
 import MainLayout from "../../Shared/Layouts/Vertical.vue";
-import UserSearch from "../../components/Users/Search.vue";
-import UserCreate from "../../components/Users/Create.vue";
-import UserEdit from "../../components/Users/Edit.vue";
+import Search from "../../components/CarModels/Search.vue";
+import Create from "../../components/CarModels/Create.vue";
+import Edit from "../../components/CarModels/Edit.vue";
 export default {
     layout: MainLayout,
     components: {
-        UserSearch,
-        UserCreate,
-        UserEdit,
+        Search,
+        Create,
+        Edit,
     },
-    props: ["users","roles"],
+    props: ["car_models", "car_brands"],
 
     setup() {
    const store = useStore();
@@ -200,8 +172,8 @@ export default {
             searchState: computed(() => store.state.SuccesssearchState),
         })
 
-         let getFun = () => {
-            router.get("/admin/users");
+        let getFun = () => {
+            router.get("/admin/car_models");
         };
         let editFun = (data) => {
             store.commit("editDataState", data);
@@ -214,7 +186,7 @@ export default {
                 "Are you sure You Want to Delete This Record?"
             );
             if (getconfirmation == true) {
-                router.delete(route("users.destroy", id));
+                router.delete(route("car_models.destroy", id));
             }
         };
           return {

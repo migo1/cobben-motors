@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
 // use App\Imports\UserImport;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -78,6 +79,7 @@ class UserController extends Controller
         );
 
         $input = $request->all();
+        Log::info($input);
         $input['password'] = Hash::make($input['password']);
 
         $user = User::create($input);
@@ -130,7 +132,7 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'same:confirm-password',
+            'password' => 'same:confirm_password',
             'role_id' => 'required'
         ]);
 

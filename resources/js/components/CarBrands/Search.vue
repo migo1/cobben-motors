@@ -35,7 +35,7 @@
 
 <script>
 import { reactive } from "vue";
-import { router } from "@inertiajs/vue3";
+import { router } from "@inertiajs/vue3"
 export default {
     layout: "Vertical",
     setup() {
@@ -52,7 +52,7 @@ export default {
             state.submitdata.search = null;
         };
         let searchFun = async () => {
-            await router.get(route("users.index"), state.submitdata, {
+            await router.get(route("car_brands.index"), state.submitdata, {
                 preserveState: true,
             });
         };

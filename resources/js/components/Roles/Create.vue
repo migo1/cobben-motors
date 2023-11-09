@@ -19,7 +19,7 @@
                         class="close"
                         data-dismiss="modal"
                         aria-label="Close"
-                        @click="clearData"
+                        @click="clearData()"
                     >
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -111,15 +111,15 @@ import { reactive } from "vue";
 import { useForm } from "@inertiajs/vue3";
 
 export default {
-    data: () => ({
-        name: "",
-        permission: [],
-    }),
+
     props: ["permissions"],
 
     setup() {
         const state = reactive({
-            form: {},
+            form: {
+                name: "",
+                permission: [],
+            },
         });
         let saveFun = () => {
             var submitdata = useForm(state.form);
@@ -128,25 +128,14 @@ export default {
             clearData();
         };
         let clearData = () => {
-            state.form = {};
+            state.form = {
+                name: "",
+                permission: [],
+            };
         };
 
         return { state, saveFun, clearData };
     },
-    // methods: {
-    //     saveFun() {
-    //         var submitdata = Inertia.form({
-    //             name: this.name,
-    //             permission: this.permission,
-    //         });
-    //         submitdata.post(route("roles.store"));
-    //         $("#large").modal("toggle");
-    //         this.clearData();
-    //     },
-    //     clearData() {
-    //         this.name = "";
-    //         this.permission = [];
-    //     },
-    // },
+
 };
 </script>

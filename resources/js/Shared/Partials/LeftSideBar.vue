@@ -40,38 +40,6 @@
                 id="main-menu-navigation"
                 data-menu="menu-navigation"
             >
-                <!-- <li class="nav-item">
-                    <Link
-                        :href="route('pos.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="monitor"></feather>
-                        <span class="menu-item text-truncate">POS</span>
-                    </Link>
-                </li>
-                <li class="nav-item">
-                    <Link
-                        :href="route('orders.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="package"></feather>
-                        <span class="menu-item text-truncate">Live Orders</span>
-                        <div class="blob red"></div>
-                    </Link>
-                </li>
-                <li class="nav-item">
-                    <Link
-                        :href="route('orders.retrieve')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="package"></feather>
-                        <span class="menu-item text-truncate">Orders</span>
-                    </Link>
-                </li> -->
-
                 <li class="nav-item">
                     <Link
                         :href="route('home')"
@@ -83,205 +51,45 @@
                     </Link>
                 </li>
 
-                <!-- <li class="has-sub nav-item">
-                    <a
-                        class="d-flex align-items-center"
-                        href="javascript:void(0);"
-                        target="_self"
-                        ><feather type="box"></feather
-                        ><span
-                            class="menu-title text-truncate"
-                            data-i18n="Menu Levels"
-                            >Inventory Mgnt.</span
-                        ></a
-                    >
-                    <ul class="menu-content">
-                        <li class="level2">
-                            <Link
-                                class="d-flex align-items-center"
-                                :href="route('categories.index')"
-                                ><feather type="list"></feather
-                                ><span
-                                    class="menu-item text-truncate"
-                                    data-i18n="Second Level"
-                                    >Categories</span
-                                ></Link
-                            >
-                        </li>
-
-                        <li class="level2">
-                            <Link
-                                class="d-flex align-items-center"
-                                :href="route('products.index')"
-                                ><feather type="table"></feather
-                                ><span
-                                    class="menu-item text-truncate"
-                                    data-i18n="Second Level"
-                                    >Products</span
-                                ></Link
-                            >
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <Link
-                        :href="route('menu_categories.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="clipboard"></feather>
-                        <span class="menu-item text-truncate"
-                            >Menu Categories</span
-                        >
-                    </Link>
-                </li>
-                <li class="nav-item">
-                    <Link
-                        :href="route('menues.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="message-square"></feather>
-                        <span class="menu-item text-truncate">Menues</span>
-                    </Link>
-                </li>
-                <li class="nav-item">
-                    <Link
-                        :href="route('suppliers.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="truck"></feather>
-                        <span class="menu-item text-truncate">Suppliers</span>
-                    </Link>
-                </li>
-
-                <li class="nav-item">
-                    <Link
-                        :href="route('purchases.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="book"></feather>
-                        <span class="menu-item text-truncate">Purchases</span>
-                    </Link>
-                </li>
                 <li class="has-sub nav-item">
                     <a
                         class="d-flex align-items-center"
                         href="javascript:void(0);"
                         target="_self"
-                        ><feather type="dollar-sign"></feather
+                        ><feather type="truck"></feather
                         ><span
                             class="menu-title text-truncate"
                             data-i18n="Menu Levels"
-                            >Expenses</span
+                            >Cars</span
                         ></a
                     >
                     <ul class="menu-content">
                         <li class="level2">
                             <Link
                                 class="d-flex align-items-center"
-                                :href="route('expense_categories.index')"
-                                ><feather type="list"></feather
+                                :href="route('car_brands.index')"
+                                ><feather type="bold" :size="60"></feather
                                 ><span
                                     class="menu-item text-truncate"
                                     data-i18n="Second Level"
-                                    >Categories</span
+                                    >Brands</span
                                 ></Link
                             >
                         </li>
-
                         <li class="level2">
                             <Link
                                 class="d-flex align-items-center"
-                                :href="route('expenses.index')"
-                                ><feather type="table"></feather
+                                :href="route('car_models.index')"
+                                ><feather type="hash" :size="60"></feather
                                 ><span
                                     class="menu-item text-truncate"
                                     data-i18n="Second Level"
-                                    >Expenses</span
+                                    >Models</span
                                 ></Link
                             >
                         </li>
                     </ul>
                 </li>
-
-                <li class="nav-item">
-                    <Link
-                        :href="route('production.index')"
-                        class="d-flex align-items-center childlist"
-                        active-class="active"
-                    >
-                        <feather type="file-text"></feather>
-                        <span class="menu-item text-truncate">Production</span>
-                    </Link>
-                </li>
-
-                <li class="has-sub nav-item">
-                    <a
-                        class="d-flex align-items-center"
-                        href="javascript:void(0);"
-                        target="_self"
-                        ><feather type="activity"></feather
-                        ><span
-                            class="menu-title text-truncate"
-                            data-i18n="Menu Levels"
-                            >Reports</span
-                        ></a
-                    >
-                    <ul class="menu-content">
-                        <li class="level2">
-                            <Link
-                                class="d-flex align-items-center"
-                                :href="route('reports.sales')"
-                                ><feather type="shopping-bag"></feather
-                                ><span
-                                    class="menu-item text-truncate"
-                                    data-i18n="Second Level"
-                                    >Sales Reports</span
-                                ></Link
-                            >
-                        </li>
-                        <li class="level2">
-                            <Link
-                                class="d-flex align-items-center"
-                                :href="route('reports.menus')"
-                                ><feather type="menu"></feather
-                                ><span
-                                    class="menu-item text-truncate"
-                                    data-i18n="Second Level"
-                                    >Top Menus Reports</span
-                                ></Link
-                            >
-                        </li>
-                        <li class="level2">
-                            <Link
-                                class="d-flex align-items-center"
-                                :href="route('reports.purchases')"
-                                ><feather type="credit-card"></feather
-                                ><span
-                                    class="menu-item text-truncate"
-                                    data-i18n="Second Level"
-                                    >Purchase Reports</span
-                                ></Link
-                            >
-                        </li>
-
-                        <li class="level2">
-                            <Link
-                                class="d-flex align-items-center"
-                                :href="route('reports.expenses')"
-                                ><feather type="table"></feather
-                                ><span
-                                    class="menu-item text-truncate"
-                                    data-i18n="Second Level"
-                                    >Expenses Reports</span
-                                ></Link
-                            >
-                        </li>
-                    </ul>
-                </li> -->
 
                 <li class="has-sub nav-item">
                     <a
