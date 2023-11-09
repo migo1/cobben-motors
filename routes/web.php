@@ -39,10 +39,10 @@ Route::middleware(['auth'])->group(function () {
     });
     
 Route::resource('users', UserController::class);
-Route::prefix('users')->group(function () {
-    Route::get('export/toexcel', [UserController::class, 'export'])->name('users.export');
-    Route::post('import/toexcel', [UserController::class, 'import'])->name('users.import');
-});
+// Route::prefix('users')->group(function () {
+//     Route::get('export/toexcel', [UserController::class, 'export'])->name('users.export');
+//     Route::post('import/toexcel', [UserController::class, 'import'])->name('users.import');
+// });
 Route::resource('car_brands', CarBrandController::class);
 Route::resource('car_models', CarModelController::class);
 

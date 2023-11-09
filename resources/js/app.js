@@ -1,3 +1,8 @@
+import axios from "axios";
+window.axios = axios;
+
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+
 import { createApp, h } from "vue";
 import { createInertiaApp } from "@inertiajs/vue3";
 import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
@@ -15,7 +20,6 @@ import Customizer from "./Shared/Partials/Customizer.vue";
 import SuccessToast from "./Shared/Global/SuccessToast.vue";
 import ErrorToast from "./Shared/Global/ErrorToast.vue";
 // import Pagination from "./Shared/Global/pagination/Pagination.vue";
-
 
 createInertiaApp({
     resolve: (name) =>
@@ -39,7 +43,7 @@ createInertiaApp({
                     // Chatbox,
                     SuccessToast,
                     ErrorToast,
-                    feather
+                    feather,
                     // Pagination,
                 },
             })

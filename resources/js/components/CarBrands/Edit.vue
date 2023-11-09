@@ -67,7 +67,6 @@ export default {
     setup() {
         let store = useStore();
         const state = reactive({
-            name:'',
             form: {},
             editdata: computed(() => {
                 return store.state.editData
@@ -82,7 +81,6 @@ export default {
         };
 
         let clearData = () => {
-             state.name = "";
             store.commit("clearEditData");
         };
 

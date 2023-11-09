@@ -137,7 +137,7 @@
             </div>
         </div>
         <RolesCreate :permissions="permissions"></RolesCreate>
-        <!-- <RolesEdit :permissions="permissions"></RolesEdit> -->
+        <RolesEdit :permissions="permissions"></RolesEdit>
     </div>
 </template>
 
@@ -145,7 +145,7 @@
 import MainLayout from "../../Shared/Layouts/Vertical.vue";
 import RolesSearch from "../../components/Roles/Search.vue";
 import RolesCreate from "../../components/Roles/Create.vue";
-// import RolesEdit from "../../components/Roles/RolesEditModal.vue";
+import RolesEdit from "../../components/Roles/Edit.vue";
 import { useStore } from "vuex";
 import { reactive, computed } from "vue";
 import { router } from '@inertiajs/vue3'
@@ -156,7 +156,7 @@ export default {
     components: {
         RolesSearch,
         RolesCreate,
-        // RolesEdit,
+        RolesEdit,
     },
     props: ["roles", "permissions"],
 
