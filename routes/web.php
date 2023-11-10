@@ -45,5 +45,6 @@ Route::resource('users', UserController::class);
 // });
 Route::resource('car_brands', CarBrandController::class);
 Route::resource('car_models', CarModelController::class);
+Route::post('upload-logo', [CarBrandController::class, 'uploadLogo'])->name('car_brands.upload_logo');
 
 });

@@ -41,7 +41,44 @@
                                         required
                                     />
                                 </div>
-                            </div>                            
+                            </div>   
+                                <div class="col-12">
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <file-pond
+                                        name="logo"
+                                        v-model="state.form.logo"
+                                        ref="pond"
+                                        v-bind:allow-multiple="false"
+                                        accepted-file-types="image/jpeg, image/png"
+                                        v-bind:server="{
+                                            url: '',
+                                            timeout: 7000,
+                                            process: {
+                                                url: '/admin/upload-logo',
+                                                method: 'POST',
+                                                headers:{
+                                                    'X-CSRF-TOKEN': $page.props.csrf_token,
+                                                },
+                                                withCredentials: false,
+                               
+                                                onload: handleFilePondLoad,
+                                             //   onerror: () => {}
+                                            },
+                                        }"
+                                        v-bind:files="state.myFiles"
+                                        v-on:init="handleFilePondInit"
+                                    >
+                                    </file-pond>
+                                    <!-- <input
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Name"
+                                        v-model="state.form.name"
+                                        required
+                                    /> -->
+                                </div>
+                            </div>                          
                             <div class="col-12">
                                 <button
                                     type="submit"
@@ -64,7 +101,8 @@ import { useForm } from "@inertiajs/vue3";
 export default {
     setup() {
         const state = reactive({
-            form: {}
+            form: {},
+            myFiles: [],
         });
 
         let saveFun = () => {
@@ -74,11 +112,31 @@ export default {
             clearData();
         };
 
+        //used when filepond plugin in initialized
+        let handleFilePondInit = () => {
+            console.log("FilePond has initialised", pond);
+        };
+
+        //call back when image is loaded
+        let handleFilePondLoad = (response) => {
+            // save path to the uploaded file
+            console.log("first", response);
+            state.form.logo = response;
+            console.log("second", state.form.logo);
+            // console.log("A file was added", event);
+        };
+
         let clearData = () => {
             state.form = {};
         };
 
-        return { state, saveFun, clearData };
+        return { state, saveFun, clearData, handleFilePondLoad, handleFilePondInit };
     },
 };
 </script>
+
+<style scoped>
+a.filepond--credits {
+    display: none;
+}
+</style>

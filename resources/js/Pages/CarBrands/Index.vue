@@ -9,9 +9,10 @@
                         </h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
+                                <li class="breadcrumb-item"></li>
+                                <li class="breadcrumb-item active">
+                                    Car Brands
                                 </li>
-                                <li class="breadcrumb-item active">Car Brands</li>
                             </ol>
                         </div>
                     </div>
@@ -35,9 +36,9 @@
                                 >
                                     <feather type="plus"></feather>
                                 </button>
-                                <div class="btn-group dropstart float-right">
-                        
-                                </div>
+                                <div
+                                    class="btn-group dropstart float-right"
+                                ></div>
                                 <button
                                     class="btn btn-outline-primary float-right mr-1 btn-sm"
                                     @click="getFun"
@@ -77,7 +78,14 @@
                                         <td>{{ index + 1 }}</td>
                                         <td>{{ item.name }}</td>
                                         <td>
-                                        <!-- {{ item.email }} -->
+                                            <img
+                                                :src="item.logo"
+                                                alt="Car Logo"
+                                                style="
+                                                    max-width: 50px;
+                                                    max-height: 50px;
+                                                "
+                                            />
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -135,15 +143,18 @@
                                     ></span>
                                 </pagination>
 
-                                <pagination class="mt-6" :links="car_brands.links" />
+                                <pagination
+                                    class="mt-6"
+                                    :links="car_brands.links"
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <Create ></Create>
-        <Edit ></Edit>
+        <Create></Create>
+        <Edit></Edit>
     </div>
 </template>
 
@@ -166,13 +177,13 @@ export default {
     props: ["car_brands"],
 
     setup() {
-   const store = useStore();
-          const state = reactive({
+        const store = useStore();
+        const state = reactive({
             displaySearch: computed(() => store.state.displaysearch),
             searchState: computed(() => store.state.SuccesssearchState),
-        })
+        });
 
-         let getFun = () => {
+        let getFun = () => {
             router.get("/admin/car_brands");
         };
         let editFun = (data) => {
@@ -189,15 +200,13 @@ export default {
                 router.delete(route("car_brands.destroy", id));
             }
         };
-          return {
+        return {
             getFun,
             editFun,
             toggleSearchForm,
             deleteFun,
-            state
+            state,
         };
-
     },
-
 };
 </script>
