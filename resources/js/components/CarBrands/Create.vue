@@ -70,13 +70,6 @@
                                         v-on:init="handleFilePondInit"
                                     >
                                     </file-pond>
-                                    <!-- <input
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="Name"
-                                        v-model="state.form.name"
-                                        required
-                                    /> -->
                                 </div>
                             </div>                          
                             <div class="col-12">
@@ -114,16 +107,31 @@ export default {
 
         //used when filepond plugin in initialized
         let handleFilePondInit = () => {
-            console.log("FilePond has initialised", pond);
+            // check if logo is set
+            if (state.form.logo) {
+                // set initial values for filepond
+                state.myFiles = [
+                    {
+                        source: '/' +  state.form.logo,
+                        options: {
+                            type: "local",
+                            metadata: {
+                                poster: '/' + state.form.logo,
+                            },
+                        },
+                    },
+                ];
+            }else{
+                state.myFiles = [];
+            }
+
         };
 
         //call back when image is loaded
         let handleFilePondLoad = (response) => {
-            // save path to the uploaded file
             console.log("first", response);
-            state.form.logo = response;
+            state.form.logo = response; 
             console.log("second", state.form.logo);
-            // console.log("A file was added", event);
         };
 
         let clearData = () => {

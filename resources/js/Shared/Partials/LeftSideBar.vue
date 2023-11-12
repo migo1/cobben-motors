@@ -64,6 +64,18 @@
                         ></a
                     >
                     <ul class="menu-content">
+                         <li class="level2">
+                            <Link
+                                class="d-flex align-items-center"
+                                :href="route('cars.index')"
+                                ><feather type="truck" :size="60"></feather
+                                ><span
+                                    class="menu-item text-truncate"
+                                    data-i18n="Second Level"
+                                    >Our Cars</span
+                                ></Link
+                            >
+                        </li>
                         <li class="level2">
                             <Link
                                 class="d-flex align-items-center"
