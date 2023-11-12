@@ -14,6 +14,12 @@ class CarResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+
+        $array = parent::toArray($request);
+        $getmedia = $this->getFirstMedia("thumbnails");
+        $array['thumbnail'] = (($getmedia) ? $getmedia->getUrl() : asset('images/default_logo.png')) ;
+        $array['thumbstatus'] = (($getmedia) ? true : false);
+        return $array;
+
     }
 }

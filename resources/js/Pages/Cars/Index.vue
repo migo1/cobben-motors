@@ -67,6 +67,7 @@
                                         <th>Color</th>
                                         <th>Brand</th>
                                         <th>Model</th>
+                                        <th>Thumbnail</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -85,6 +86,15 @@
                                         <td>
                                         {{ item.car_model.name }}
                                         </td>
+                                        <td>
+                                          <img
+                                                :src="item.thumbnail"
+                                                alt="Car Logo"
+                                                style="
+                                                    max-width: 70px;
+                                                    max-height: 70px;
+                                                "
+                                            /></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button
