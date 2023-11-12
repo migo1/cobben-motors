@@ -5,14 +5,13 @@
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
                         <h2 class="content-header-title float-left mb-0">
-                            Car Brands
+                           Our Cars
                         </h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"></li>
-                                <li class="breadcrumb-item active">
-                                    Car Brands
+                                <li class="breadcrumb-item">
                                 </li>
+                                <li class="breadcrumb-item active">Our Cars</li>
                             </ol>
                         </div>
                     </div>
@@ -25,7 +24,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header py-1">
-                            <h4 class="card-title">Car Brands</h4>
+                            <h4 class="card-title">Our Cars</h4>
 
                             <div class="float-right">
                                 <button
@@ -36,9 +35,9 @@
                                 >
                                     <feather type="plus"></feather>
                                 </button>
-                                <div
-                                    class="btn-group dropstart float-right"
-                                ></div>
+                                <div class="btn-group dropstart float-right">
+                        
+                                </div>
                                 <button
                                     class="btn btn-outline-primary float-right mr-1 btn-sm"
                                     @click="getFun"
@@ -56,7 +55,7 @@
                         </div>
 
                         <div v-show="state.displaySearch">
-                            <Search></Search>
+                            <Search :car_brands="car_brands" :car_models="car_models"></Search>
                         </div>
 
                         <div class="table-responsive table-hover table-striped">
@@ -64,29 +63,38 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Logo</th>
+                                        <th>Year</th>
+                                        <th>Color</th>
+                                        <th>Brand</th>
+                                        <th>Model</th>
+                                        <th>Thumbnail</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     <tr
-                                        v-for="(item, index) in car_brands.data"
+                                        v-for="(item, index) in cars.data"
                                         :key="index"
                                     >
                                         <td>{{ index + 1 }}</td>
-                                        <td>{{ item.name }}</td>
+                                        <td>{{ item.year }}</td>
+                                        <td>{{ item.color }}</td>
                                         <td>
-                                            <img
-                                                :src="item.logo"
+                                        {{ item.car_brand.name }}
+                                        </td>
+                                        <td>
+                                        {{ item.car_model.name }}
+                                        </td>
+                                        <td>
+                                          <img
+                                                :src="item.thumbnail"
                                                 alt="Car Logo"
                                                 style="
-                                                    max-width: 50px;
-                                                    max-height: 50px;
+                                                    max-width: 70px;
+                                                    max-height: 70px;
                                                 "
-                                            />
-                                        </td>
+                                            /></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button
@@ -134,7 +142,7 @@
                                 </tbody>
                             </table>
                             <div class="mx-2 mt-3">
-                                <pagination :data="car_brands" :limit="1">
+                                <pagination :data="car_models" :limit="1">
                                     <span slot="prev-nav"
                                         ><feather type="arrow-left"></feather
                                     ></span>
@@ -143,18 +151,15 @@
                                     ></span>
                                 </pagination>
 
-                                <pagination
-                                    class="mt-6"
-                                    :links="car_brands.links"
-                                />
+                                <pagination class="mt-6" :links="car_models.links" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <Create></Create>
-        <Edit></Edit>
+         <Create :car_brands="car_brands"></Create>
+        <Edit :car_brands="car_brands"></Edit>
     </div>
 </template>
 
@@ -164,9 +169,9 @@ import { useStore } from "vuex";
 import { router } from "@inertiajs/vue3";
 
 import MainLayout from "../../Shared/Layouts/Vertical.vue";
-import Search from "../../components/CarBrands/Search.vue";
-import Create from "../../components/CarBrands/Create.vue";
-import Edit from "../../components/CarBrands/Edit.vue";
+import Search from "../../components/Cars/Search.vue";
+import Create from "../../components/Cars/Create.vue";
+import Edit from "../../components/Cars/Edit.vue";
 export default {
     layout: MainLayout,
     components: {
@@ -174,17 +179,17 @@ export default {
         Create,
         Edit,
     },
-    props: ["car_brands"],
+    props: ["cars","car_models", "car_brands"],
 
     setup() {
-        const store = useStore();
-        const state = reactive({
+   const store = useStore();
+          const state = reactive({
             displaySearch: computed(() => store.state.displaysearch),
             searchState: computed(() => store.state.SuccesssearchState),
-        });
+        })
 
         let getFun = () => {
-            router.get("/admin/car_brands");
+            router.get("/admin/cars");
         };
         let editFun = (data) => {
             store.commit("editDataState", data);
@@ -197,16 +202,18 @@ export default {
                 "Are you sure You Want to Delete This Record?"
             );
             if (getconfirmation == true) {
-                router.delete(route("car_brands.destroy", id));
+                router.delete(route("cars.destroy", id));
             }
         };
-        return {
+          return {
             getFun,
             editFun,
             toggleSearchForm,
             deleteFun,
-            state,
+            state
         };
+
     },
+
 };
 </script>

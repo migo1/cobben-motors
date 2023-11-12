@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Resources\CarBrandResource;
 use App\Models\CarBrand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class CarBrandController extends Controller
 {
@@ -56,6 +58,10 @@ class CarBrandController extends Controller
         $carBrand->name = $request->input('name');
         $carBrand->save();
 
+        if ($request->has('logo')) {
+            $carBrand->addMedia(storage_path('app/public/'.$request->logo))->toMediaCollection('logos');
+        }
+
         return redirect()->back()->with('success', 'Car Brand created successfully');
 
     }
@@ -96,5 +102,23 @@ class CarBrandController extends Controller
         CarBrand::find($id)->delete();
 
         return back()->with('success', 'car brand deleted successfully');
+    }
+
+    public function uploadLogo(Request $request)
+    {
+        
+        if ($request->hasFile('logo')) {
+            $path = $request->file('logo')->store('uploads/logos', 'public');
+            return $path;
+            // $path = str_replace('public/', '', $path);
+            // return response()->json(['path' => $path]);
+        };
+        return '';
+        // $path = request()->file('icon')->store('public/icons');
+        // $path = str_replace('public/', '', $path);
+
+        // return response()->json(['path' => $path]);
+
+
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CarBrandResource extends JsonResource
+class CarResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,9 @@ class CarBrandResource extends JsonResource
     {
 
         $array = parent::toArray($request);
-        $getmedia = $this->getFirstMedia("logos");
-        $array['logo'] = (($getmedia) ? $getmedia->getUrl() : asset('images/default_logo.png')) ;
-        $array['imgstatus'] = (($getmedia) ? true : false);
+        $getmedia = $this->getFirstMedia("thumbnails");
+        $array['thumbnail'] = (($getmedia) ? $getmedia->getUrl() : asset('images/default_logo.png')) ;
+        $array['thumbstatus'] = (($getmedia) ? true : false);
         return $array;
 
     }
