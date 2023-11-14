@@ -11,7 +11,7 @@
                             <a href="javascript:void(0);" class="brand-logo">
                                 <!-- <Logo /> -->
                                 <h2 class="brand-text text-primary ml-1">
-                                    Vuexy
+                                    Cobben Motors
                                 </h2>
                             </a>
                             <br/>
@@ -20,11 +20,10 @@
               }}</span> -->
 
                             <h4 class="card-title mb-1">
-                                Welcome to Vuexy! 👋
+                                Welcome to Back 👋
                             </h4>
                             <p class="card-text mb-2">
-                                Please sign-in to your account and start the
-                                adventure
+                                Please sign-in to your account 
                             </p>
 
                             <form
@@ -142,3 +141,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.text-primary {
+    color: #48ba7e !important;
+}
+</style>

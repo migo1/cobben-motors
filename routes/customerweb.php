@@ -26,4 +26,13 @@ Route::get('/', function () {
             'name' => 'miGo',
         ]);
 
-});
+})->name('landing_page');
+
+
+Route::get('our_cars', function () {
+
+    return Inertia::render('LandingPage/OurCars', [
+            'name' => 'miGo',
+        ]);
+
+})->name('our_cars');

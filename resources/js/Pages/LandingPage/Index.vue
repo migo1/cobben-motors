@@ -4,12 +4,12 @@
             <div class="container">
                 <div class="block-left">
                     <div class="address1">
-                        <span aria-hidden="true" class="ei icon_pin"></span>39TH
-                        ROAD ST, NEW-YORK, US 00123
+                        <span aria-hidden="true" class="ei icon_pin"></span
+                        >WESTLANDS NAIROBI KENYA
                     </div>
                     <div class="phone1">
-                        <span aria-hidden="true" class="ei icon_phone"></span>1
-                        - 917 - 338 - 6823
+                        <span aria-hidden="true" class="ei icon_phone"></span
+                        >0700.....
                     </div>
                     <div class="social_wrapper">
                         <ul class="social clearfix">
@@ -28,29 +28,10 @@
                     </div>
                 </div>
                 <div class="block-right">
-                    <div class="signin1"><a href="#">SIGN IN</a></div>
-                    <div class="register1"><a href="#">REGISTER</a></div>
-                    <div class="lang1">
-                        <div class="dropdown">
-                            <button
-                                class="btn btn-default dropdown-toggle"
-                                type="button"
-                                id="dropdownMenu1"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="true"
-                            >
-                                EN<span class="caret"></span>
-                            </button>
-                            <ul
-                                class="dropdown-menu"
-                                aria-labelledby="dropdownMenu1"
-                            >
-                                <li><a class="ge" href="#">DE</a></li>
-                                <li><a class="ru" href="#">RU</a></li>
-                            </ul>
-                        </div>
+                    <div class="signin1">
+                        <a :href="route('adminLogin')">SIGN IN</a>
                     </div>
+                    <!-- <div class="register1"><a href="#">REGISTER</a></div> -->
                 </div>
             </div>
         </div>
@@ -61,13 +42,14 @@
                     <div class="top2 clearfix">
                         <header>
                             <div class="logo_wrapper">
-                                <a href="index.html" class="logo scroll-to">
+                                COBBEN MOTORS
+                                <!-- <a href="index.html" class="logo scroll-to">
                                     <img
                                         src="/customer/images/logo.png"
                                         alt=""
                                         class="img-responsive"
                                     />
-                                </a>
+                                </a> -->
                             </div>
                         </header>
 
@@ -87,73 +69,15 @@
                                 class="navbar-collapse navbar-collapse_ collapse"
                             >
                                 <ul class="nav navbar-nav sf-menu clearfix">
-                                    <li class="sub-menu sub-menu-1">
-                                        <a href="#home"
-                                            >Home<i class="fa fa-caret-down"></i
-                                        ></a>
-                                        <ul>
-                                            <li>
-                                                <a href="index.html"
-                                                    >Home version 1</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="index-1.html"
-                                                    >Home version 2</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="sub-menu sub-menu-1">
-                                        <a href="#"
-                                            >Pages<i
-                                                class="fa fa-caret-down"
-                                            ></i
-                                        ></a>
-                                        <ul>
-                                            <li>
-                                                <a href="listing.html"
-                                                    >Car Listing (right
-                                                    sidebar)</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="listing-left.html"
-                                                    >Car Listing (left
-                                                    sidebar)</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="listing-without-shadow.html"
-                                                    >Car Listing (without
-                                                    shadow)</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="details.html"
-                                                    >Car Details (right
-                                                    sidebar)</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a href="details-left.html"
-                                                    >Car Details (left
-                                                    sidebar)</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </li>
+                               
+                                    <li><a :href="route('landing_page')">HOME</a></li>
+                                    <li><a :href="route('our_cars')">OUR CARS</a></li>
                                     <li><a href="#welcome">About</a></li>
                                     <li><a href="#best">Best offers</a></li>
                                     <li>
                                         <a href="#testimonials">Testimonial</a>
                                     </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li>
-                                        <a :href="route('adminLogin')">Login</a>
-                                    </li>
+                            
                                 </ul>
                             </div>
                         </div>
@@ -402,9 +326,9 @@
                                     </div>
                                 </div>
                                 <div class="col3">
-                                    <div class="adv-serach">
+                                    <!-- <div class="adv-serach">
                                         <a href="#">ADVANCED SEARCH</a>
-                                    </div>
+                                    </div> -->
                                     <button
                                         type="submit"
                                         class="btn-default btn-form1-submit1"
@@ -417,7 +341,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm-4">
                         <div class="thumb1">
                             <div class="thumbnail clearfix">
@@ -597,11 +521,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
-        <div id="welcome">
+        <!-- <div id="welcome">
             <div id="parallax1" class="parallax">
                 <div class="bg1 parallax-bg"></div>
                 <div class="parallax-content">
@@ -637,7 +561,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div id="best">
             <div class="container">
@@ -667,160 +591,6 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best01.jpg"
-                                                                alt=""
-                                                                class="img-responsive"
-                                                            />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="caption">
-                                                        <div class="txt1">
-                                                            REGISTERED 2015
-                                                        </div>
-                                                        <div class="txt2">
-                                                            BCD M6 Sport Hybrid
-                                                        </div>
-                                                        <div
-                                                            class="info clearfix"
-                                                        >
-                                                            <span class="price"
-                                                                >$24,380</span
-                                                            >
-                                                            <span class="speed"
-                                                                >35,000 KM</span
-                                                            >
-                                                        </div>
-                                                        <div class="txt3">
-                                                            Used • 2015 •
-                                                            Automatic • White •
-                                                            Petrol
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="thumb2">
-                                                <div class="thumbnail clearfix">
-                                                    <figure>
-                                                        <a href="details.html">
-                                                            <img
-                                                                src="/customer/images/best02.jpg"
-                                                                alt=""
-                                                                class="img-responsive"
-                                                            />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="caption">
-                                                        <div class="txt1">
-                                                            REGISTERED 2016
-                                                        </div>
-                                                        <div class="txt2">
-                                                            2016 Morraro
-                                                            Tittarosa
-                                                        </div>
-                                                        <div
-                                                            class="info clearfix"
-                                                        >
-                                                            <span class="price"
-                                                                >$95,900</span
-                                                            >
-                                                            <span class="speed"
-                                                                >99,000 KM</span
-                                                            >
-                                                        </div>
-                                                        <div class="txt3">
-                                                            Used • 2016 • Manual
-                                                            • Red • Petrol
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="thumb2">
-                                                <div class="thumbnail clearfix">
-                                                    <figure>
-                                                        <a href="details.html">
-                                                            <img
-                                                                src="/customer/images/best03.jpg"
-                                                                alt=""
-                                                                class="img-responsive"
-                                                            />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="caption">
-                                                        <div class="txt1">
-                                                            REGISTERED 2015
-                                                        </div>
-                                                        <div class="txt2">
-                                                            2016 Brisatti Vooron
-                                                        </div>
-                                                        <div
-                                                            class="info clearfix"
-                                                        >
-                                                            <span class="price"
-                                                                >$98,995</span
-                                                            >
-                                                            <span class="speed"
-                                                                >95,000 KM</span
-                                                            >
-                                                        </div>
-                                                        <div class="txt3">
-                                                            Used • 2015 •
-                                                            Automatic • Blue •
-                                                            Petrol
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="thumb2">
-                                                <div class="thumbnail clearfix">
-                                                    <figure>
-                                                        <a href="details.html">
-                                                            <img
-                                                                src="/customer/images/best04.jpg"
-                                                                alt=""
-                                                                class="img-responsive"
-                                                            />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="caption">
-                                                        <div class="txt1">
-                                                            REGISTERED 2017
-                                                        </div>
-                                                        <div class="txt2">
-                                                            2017 Luxus-AMD C63
-                                                        </div>
-                                                        <div
-                                                            class="info clearfix"
-                                                        >
-                                                            <span class="price"
-                                                                >$31,900</span
-                                                            >
-                                                            <span class="speed"
-                                                                >12,000 KM</span
-                                                            >
-                                                        </div>
-                                                        <div class="txt3">
-                                                            Used • 2017 •
-                                                            Automatic • Dark Red
-                                                            • Petrol
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="thumb2">
-                                                <div class="thumbnail clearfix">
-                                                    <figure>
-                                                        <a href="details.html">
-                                                            <img
                                                                 src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
@@ -829,10 +599,10 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2016
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            Marodess - AMG
+                                                            Benzo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
@@ -859,7 +629,7 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best06.jpg"
+                                                                src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
                                                             />
@@ -867,24 +637,178 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2017
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            2017 Marodess - AMG
+                                                            Benxo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
                                                         >
                                                             <span class="price"
-                                                                >$64,380</span
+                                                                >$18,995</span
                                                             >
                                                             <span class="speed"
-                                                                >210 KM</span
+                                                                >52,000 KM</span
                                                             >
                                                         </div>
                                                         <div class="txt3">
-                                                            New • 2017 •
-                                                            Automatic • Green •
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="thumb2">
+                                                <div class="thumbnail clearfix">
+                                                    <figure>
+                                                        <a href="details.html">
+                                                            <img
+                                                                src="/customer/images/best05.jpg"
+                                                                alt=""
+                                                                class="img-responsive"
+                                                            />
+                                                        </a>
+                                                    </figure>
+                                                    <div class="caption">
+                                                        <div class="txt1">
+                                                            REGISTERED 2023
+                                                        </div>
+                                                        <div class="txt2">
+                                                            benzo
+                                                        </div>
+                                                        <div
+                                                            class="info clearfix"
+                                                        >
+                                                            <span class="price"
+                                                                >$18,995</span
+                                                            >
+                                                            <span class="speed"
+                                                                >52,000 KM</span
+                                                            >
+                                                        </div>
+                                                        <div class="txt3">
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="thumb2">
+                                                <div class="thumbnail clearfix">
+                                                    <figure>
+                                                        <a href="details.html">
+                                                            <img
+                                                                src="/customer/images/best05.jpg"
+                                                                alt=""
+                                                                class="img-responsive"
+                                                            />
+                                                        </a>
+                                                    </figure>
+                                                    <div class="caption">
+                                                        <div class="txt1">
+                                                            REGISTERED 2023
+                                                        </div>
+                                                        <div class="txt2">
+                                                            benzo
+                                                        </div>
+                                                        <div
+                                                            class="info clearfix"
+                                                        >
+                                                            <span class="price"
+                                                                >$18,995</span
+                                                            >
+                                                            <span class="speed"
+                                                                >52,000 KM</span
+                                                            >
+                                                        </div>
+                                                        <div class="txt3">
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="thumb2">
+                                                <div class="thumbnail clearfix">
+                                                    <figure>
+                                                        <a href="details.html">
+                                                            <img
+                                                                src="/customer/images/best05.jpg"
+                                                                alt=""
+                                                                class="img-responsive"
+                                                            />
+                                                        </a>
+                                                    </figure>
+                                                    <div class="caption">
+                                                        <div class="txt1">
+                                                            REGISTERED 2023
+                                                        </div>
+                                                        <div class="txt2">
+                                                            benzo
+                                                        </div>
+                                                        <div
+                                                            class="info clearfix"
+                                                        >
+                                                            <span class="price"
+                                                                >$18,995</span
+                                                            >
+                                                            <span class="speed"
+                                                                >52,000 KM</span
+                                                            >
+                                                        </div>
+                                                        <div class="txt3">
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="thumb2">
+                                                <div class="thumbnail clearfix">
+                                                    <figure>
+                                                        <a href="details.html">
+                                                            <img
+                                                                src="/customer/images/best05.jpg"
+                                                                alt=""
+                                                                class="img-responsive"
+                                                            />
+                                                        </a>
+                                                    </figure>
+                                                    <div class="caption">
+                                                        <div class="txt1">
+                                                            REGISTERED 2023
+                                                        </div>
+                                                        <div class="txt2">
+                                                            benzo
+                                                        </div>
+                                                        <div
+                                                            class="info clearfix"
+                                                        >
+                                                            <span class="price"
+                                                                >$18,995</span
+                                                            >
+                                                            <span class="speed"
+                                                                >52,000 KM</span
+                                                            >
+                                                        </div>
+                                                        <div class="txt3">
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
                                                             Diesel
                                                         </div>
                                                     </div>
@@ -898,17 +822,17 @@
                                         <li>
                                             <a href="#">All manufacturers</a>
                                         </li>
-                                        <li><a href="#">ASTIN KARTON</a></li>
-                                        <li><a href="#">ALPHA MGM</a></li>
-                                        <li><a href="#">AVDI</a></li>
-                                        <li><a href="#">BNQ</a></li>
-                                        <li><a href="#">LAND QRUVER</a></li>
-                                        <li><a href="#">MARODESS</a></li>
-                                        <li><a href="#">PURCHE</a></li>
-                                        <li><a href="#">SALAKI</a></li>
+                                        <li><a href="#">BENZO</a></li>
+                                        <li><a href="#">TOYOTA</a></li>
+                                        <li><a href="#">RANGE ROVER</a></li>
+                                        <li><a href="#">MITSUBISHI</a></li>
+                                        <li><a href="#">LAND ROVER</a></li>
+                                        <li><a href="#">FORD</a></li>
+                                        <li><a href="#">JEEP</a></li>
+                                        <!-- <li><a href="#">SALAKI</a></li>
                                         <li><a href="#">TINOTA</a></li>
                                         <li><a href="#">VURVU</a></li>
-                                        <li><a href="#">HOSHAGEN</a></li>
+                                        <li><a href="#">HOSHAGEN</a></li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -923,44 +847,6 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best04.jpg"
-                                                                alt=""
-                                                                class="img-responsive"
-                                                            />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="caption">
-                                                        <div class="txt1">
-                                                            REGISTERED 2017
-                                                        </div>
-                                                        <div class="txt2">
-                                                            2017 Luxus-AMD C63
-                                                        </div>
-                                                        <div
-                                                            class="info clearfix"
-                                                        >
-                                                            <span class="price"
-                                                                >$31,900</span
-                                                            >
-                                                            <span class="speed"
-                                                                >12,000 KM</span
-                                                            >
-                                                        </div>
-                                                        <div class="txt3">
-                                                            Used • 2017 •
-                                                            Automatic • Dark Red
-                                                            • Petrol
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="thumb2">
-                                                <div class="thumbnail clearfix">
-                                                    <figure>
-                                                        <a href="details.html">
-                                                            <img
                                                                 src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
@@ -969,10 +855,10 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2016
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            Marodess - AMG
+                                                            benzo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
@@ -999,7 +885,7 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best06.jpg"
+                                                                src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
                                                             />
@@ -1007,24 +893,62 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2017
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            2017 Marodess - AMG
+                                                            benzo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
                                                         >
                                                             <span class="price"
-                                                                >$64,380</span
+                                                                >$18,995</span
                                                             >
                                                             <span class="speed"
-                                                                >210 KM</span
+                                                                >52,000 KM</span
                                                             >
                                                         </div>
                                                         <div class="txt3">
-                                                            New • 2017 •
-                                                            Automatic • Green •
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="thumb2">
+                                                <div class="thumbnail clearfix">
+                                                    <figure>
+                                                        <a href="details.html">
+                                                            <img
+                                                                src="/customer/images/best05.jpg"
+                                                                alt=""
+                                                                class="img-responsive"
+                                                            />
+                                                        </a>
+                                                    </figure>
+                                                    <div class="caption">
+                                                        <div class="txt1">
+                                                            REGISTERED 2023
+                                                        </div>
+                                                        <div class="txt2">
+                                                            benzo
+                                                        </div>
+                                                        <div
+                                                            class="info clearfix"
+                                                        >
+                                                            <span class="price"
+                                                                >$18,995</span
+                                                            >
+                                                            <span class="speed"
+                                                                >52,000 KM</span
+                                                            >
+                                                        </div>
+                                                        <div class="txt3">
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
                                                             Diesel
                                                         </div>
                                                     </div>
@@ -1039,7 +963,7 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best01.jpg"
+                                                                src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
                                                             />
@@ -1047,25 +971,25 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2015
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            BMQ M6 Sport Hybrid
+                                                            benzo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
                                                         >
                                                             <span class="price"
-                                                                >$24,380</span
+                                                                >$18,995</span
                                                             >
                                                             <span class="speed"
-                                                                >35,000 KM</span
+                                                                >52,000 KM</span
                                                             >
                                                         </div>
                                                         <div class="txt3">
-                                                            Used • 2015 •
-                                                            Automatic • White •
-                                                            Petrol
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1077,7 +1001,7 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best02.jpg"
+                                                                src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
                                                             />
@@ -1085,25 +1009,25 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2016
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            2016 Torrari
-                                                            Prestalosa
+                                                            benzo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
                                                         >
                                                             <span class="price"
-                                                                >$95,900</span
+                                                                >$18,995</span
                                                             >
                                                             <span class="speed"
-                                                                >99,000 KM</span
+                                                                >52,000 KM</span
                                                             >
                                                         </div>
                                                         <div class="txt3">
-                                                            Used • 2016 • Manual
-                                                            • Red • Petrol
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1115,7 +1039,7 @@
                                                     <figure>
                                                         <a href="details.html">
                                                             <img
-                                                                src="/customer/images/best03.jpg"
+                                                                src="/customer/images/best05.jpg"
                                                                 alt=""
                                                                 class="img-responsive"
                                                             />
@@ -1123,25 +1047,25 @@
                                                     </figure>
                                                     <div class="caption">
                                                         <div class="txt1">
-                                                            REGISTERED 2015
+                                                            REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            2016 Busalti Vuron
+                                                            benzo
                                                         </div>
                                                         <div
                                                             class="info clearfix"
                                                         >
                                                             <span class="price"
-                                                                >$98,995</span
+                                                                >$18,995</span
                                                             >
                                                             <span class="speed"
-                                                                >95,000 KM</span
+                                                                >52,000 KM</span
                                                             >
                                                         </div>
                                                         <div class="txt3">
-                                                            Used • 2015 •
-                                                            Automatic • Blue •
-                                                            Petrol
+                                                            Used • 2016 •
+                                                            Automatic • Yellow •
+                                                            Diesel
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1154,17 +1078,17 @@
                                         <li>
                                             <a href="#">All manufacturers</a>
                                         </li>
-                                        <li><a href="#">ASTIN KARTON</a></li>
-                                        <li><a href="#">ALPHA MGM</a></li>
-                                        <li><a href="#">AVDI</a></li>
-                                        <li><a href="#">BNQ</a></li>
-                                        <li><a href="#">LAND QRUVER</a></li>
-                                        <li><a href="#">MARODESS</a></li>
-                                        <li><a href="#">PURCHE</a></li>
-                                        <li><a href="#">SALAKI</a></li>
+                                        <li><a href="#">BENZO</a></li>
+                                        <li><a href="#">TOYOTA</a></li>
+                                        <li><a href="#">RANGE ROVER</a></li>
+                                        <li><a href="#">MITSUBISHI</a></li>
+                                        <li><a href="#">LAND ROVER</a></li>
+                                        <li><a href="#">FORD</a></li>
+                                        <li><a href="#">JEEP</a></li>
+                                        <!-- <li><a href="#">SALAKI</a></li>
                                         <li><a href="#">TINOTA</a></li>
                                         <li><a href="#">VURVU</a></li>
-                                        <li><a href="#">HOSHAGEN</a></li>
+                                        <li><a href="#">HOSHAGEN</a></li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -1182,7 +1106,7 @@
                             <div class="txt1">
                                 <span>WORLD’S LEADING CAR DEALER</span>
                             </div>
-                            <div class="txt2">WELCOME TO CAR MARKETPLACE</div>
+                            <div class="txt2">WELCOME TO COBBEN MOTORS</div>
                             <div class="txt3">
                                 <p>
                                     Curabitur libero. Donec facilisis velit
@@ -1343,11 +1267,12 @@
                                                                     class="txt1"
                                                                 >
                                                                     <b
-                                                                        >GEORGE
-                                                                        SMITH,</b
+                                                                        >JOHN
+                                                                        DOE,</b
                                                                     >
                                                                     Customer,
                                                                     BANGE RUVER
+                                                                    DISCOVERY
                                                                     Owner
                                                                 </div>
                                                                 <div
@@ -1357,7 +1282,7 @@
                                                                         class="img-wrapper"
                                                                     >
                                                                         <img
-                                                                            src="/customer/images/testimonial-author.png"
+                                                                            src="/customer/images/testimonial-author1.png"
                                                                             alt=""
                                                                             class="img-responsive"
                                                                         />
@@ -1480,12 +1405,13 @@
                                                                     class="txt1"
                                                                 >
                                                                     <b
-                                                                        >AMANDA
-                                                                        RICHARDSON,</b
+                                                                        >JOHN
+                                                                        DOE,</b
                                                                     >
                                                                     Customer,
                                                                     BANGE RUVER
-                                                                    Evoque
+                                                                    DISCOVERY
+                                                                    Owner
                                                                 </div>
                                                                 <div
                                                                     class="txt2"
@@ -1494,7 +1420,7 @@
                                                                         class="img-wrapper"
                                                                     >
                                                                         <img
-                                                                            src="/customer/images/testimonial-author2.png"
+                                                                            src="/customer/images/testimonial-author1.png"
                                                                             alt=""
                                                                             class="img-responsive"
                                                                         />
@@ -1548,7 +1474,7 @@
             </div>
         </div>
 
-        <div class="bot1-wrapper">
+        <!-- <div class="bot1-wrapper">
             <div class="container">
                 <div class="bot1 clearfix">
                     <div class="row">
@@ -1723,7 +1649,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="bot2-wrapper">
             <div class="container">
@@ -1792,7 +1718,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="left-block">
+                    <!-- <div class="left-block">
                         <div class="logo2_wrapper">
                             <a href="index.html" class="logo2">
                                 <img
@@ -1805,7 +1731,7 @@
                         <div class="copyrights">
                             &copy; 2017 Designed &amp; Powered by Mecovache
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -1925,3 +1851,11 @@ export default {
     },
 };
 </script>
+<style scoped>
+.logo_wrapper {
+    font-size: x-large;
+    font-weight: 700;
+    color: #48ba7e;
+    padding-top: 8px;
+}
+</style>
