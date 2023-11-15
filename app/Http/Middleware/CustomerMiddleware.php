@@ -40,6 +40,7 @@ class CustomerMiddleware extends HandleInertiaRequests
         return array_merge(parent::share($request), [
              'user' => auth()->user(),
             'success' => session()->get('success'),
+            'csrf_token' => csrf_token(),
         ]);
     }
 }

@@ -46,6 +46,8 @@ import Customizer from "./Shared/Partials/Customizer.vue";
 // import Chatbox from "./Shared/Partials/Chatbox.vue";
 import SuccessToast from "./Shared/Global/SuccessToast.vue";
 import ErrorToast from "./Shared/Global/ErrorToast.vue";
+import CustomerNav from "./Shared/Partials/CustomerNav.vue";
+import CustomerFooter from "./Shared/Partials/CustomerFooter.vue"
 // import Pagination from "./Shared/Global/pagination/Pagination.vue";
 
 createInertiaApp({
@@ -72,6 +74,8 @@ createInertiaApp({
                     ErrorToast,
                     feather,
                     FilePond,
+                    CustomerNav,
+                    CustomerFooter,
                     // Pagination,
                 },
             })

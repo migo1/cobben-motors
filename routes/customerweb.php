@@ -22,17 +22,17 @@ use App\Http\Controllers\{
 
 Route::get('/', function () {
 
-    return Inertia::render('LandingPage/Index', [
-            'name' => 'miGo',
-        ]);
+    return Inertia::render('LandingPage/Index');
 
 })->name('landing_page');
 
 
 Route::get('our_cars', function () {
 
-    return Inertia::render('LandingPage/OurCars', [
-            'name' => 'miGo',
-        ]);
+    return Inertia::render('LandingPage/OurCars');
 
 })->name('our_cars');
+
+Route::get('car_details', function() {
+    return Inertia::render('LandingPage/CarDetail');
+})->name('car_details');
