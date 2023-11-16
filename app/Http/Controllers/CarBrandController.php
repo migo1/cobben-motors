@@ -110,7 +110,10 @@ class CarBrandController extends Controller
      */
     public function destroy(string $id)
     {
-        CarBrand::find($id)->delete();
+        // first delete the logo if exists then deletye the car brand
+        $carBrand = CarBrand::find($id);
+        $carBrand->clearMediaCollection('logos');
+        $carBrand->delete();
 
         return back()->with('success', 'car brand deleted successfully');
     }
