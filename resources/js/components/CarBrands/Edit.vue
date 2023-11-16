@@ -41,7 +41,38 @@
                                         required
                                     />
                                 </div>
-                            </div>                            
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <file-pond
+                                        name="logo"
+                                        v-model="state.form.logo"
+                                        ref="pond"
+                                        v-bind:allow-multiple="false"
+                                        accepted-file-types="image/jpeg, image/png"
+                                        v-bind:server="{
+                                            url: '',
+                                            timeout: 7000,
+                                            process: {
+                                                url: '/admin/upload-logo',
+                                                method: 'POST',
+                                                headers: {
+                                                    'X-CSRF-TOKEN':
+                                                        $page.props.csrf_token,
+                                                },
+                                                withCredentials: false,
+
+                                                onload: handleFilePondLoad,
+                                                //   onerror: () => {}
+                                            },
+                                        }"
+                                        v-bind:files="state.myFiles"
+                                        v-on:init="handleFilePondInit"
+                                    >
+                                    </file-pond>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <button
                                     type="submit"
@@ -69,13 +100,15 @@ export default {
         const state = reactive({
             form: {},
             editdata: computed(() => {
-                return store.state.editData
-            })
+                return store.state.editData;
+            }),
         });
 
-        let udpateFun = async() => {
+        let udpateFun = async () => {
             var submitdata = useForm(state.form);
-            submitdata.patch(route("car_brands.update", {car_brand: state.form.id}));
+            submitdata.patch(
+                route("car_brands.update", { car_brand: state.form.id })
+            );
             $("#editmodal").modal("toggle");
             clearData();
         };
@@ -83,8 +116,35 @@ export default {
         let clearData = () => {
             store.commit("clearEditData");
         };
+   let handleFilePondLoad = (response) => {
+            console.log("first", response);
+            state.form.logo = response; 
+            console.log("second", state.form.logo);
+        };
 
-         watch(
+                //used when filepond plugin in initialized
+        let handleFilePondInit = () => {
+            // check if logo is set
+            // if (state.form.logo) {
+            //     // set initial values for filepond
+            //     state.myFiles = [
+            //         {
+            //             source: '/' +  state.form.logo,
+            //             options: {
+            //                 type: "local",
+            //                 metadata: {
+            //                     poster: '/' + state.form.logo,
+            //                 },
+            //             },
+            //         },
+            //     ];
+            // }else{
+            //     state.myFiles = [];
+            // }
+
+        };
+
+        watch(
             () => state.editdata,
             (newval) => {
                 if (newval !== null) {
@@ -93,7 +153,7 @@ export default {
             }
         );
 
-        return { state, udpateFun, clearData };
+        return { state, udpateFun, clearData, handleFilePondLoad, handleFilePondInit };
     },
 };
 </script>

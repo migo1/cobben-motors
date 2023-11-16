@@ -108,22 +108,22 @@ export default {
         //used when filepond plugin in initialized
         let handleFilePondInit = () => {
             // check if logo is set
-            if (state.form.logo) {
-                // set initial values for filepond
-                state.myFiles = [
-                    {
-                        source: '/' +  state.form.logo,
-                        options: {
-                            type: "local",
-                            metadata: {
-                                poster: '/' + state.form.logo,
-                            },
-                        },
-                    },
-                ];
-            }else{
-                state.myFiles = [];
-            }
+            // if (state.form.logo) {
+            //     // set initial values for filepond
+            //     state.myFiles = [
+            //         {
+            //             source: '/' +  state.form.logo,
+            //             options: {
+            //                 type: "local",
+            //                 metadata: {
+            //                     poster: '/' + state.form.logo,
+            //                 },
+            //             },
+            //         },
+            //     ];
+            // }else{
+            //     state.myFiles = [];
+            // }
 
         };
 

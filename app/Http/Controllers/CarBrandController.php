@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
+use Illuminate\Support\Facades\Storage;
+
 class CarBrandController extends Controller
 {
     /**
@@ -62,6 +64,8 @@ class CarBrandController extends Controller
             $carBrand->addMedia(storage_path('app/public/'.$request->logo))->toMediaCollection('logos');
         }
 
+        Storage::disk('local')->delete('uploads/logos/'.$request->logo);
+
         return redirect()->back()->with('success', 'Car Brand created successfully');
 
     }
@@ -88,6 +92,13 @@ class CarBrandController extends Controller
     public function update(Request $request, string $id)
     {
         $carBrand = CarBrand::find($id);
+        // first delete the old logo if exists then store the new logo if the request has logo
+        if ($request->has('logo')) {
+            $carBrand->clearMediaCollection('logos');
+            $carBrand->addMedia(storage_path('app/public/'.$request->logo))->toMediaCollection('logos');
+            Storage::disk('local')->delete('uploads/logos/'.$request->logo);
+        }
+
         $carBrand->name = $request->input('name');
         $carBrand->update();
 
@@ -110,15 +121,9 @@ class CarBrandController extends Controller
         if ($request->hasFile('logo')) {
             $path = $request->file('logo')->store('uploads/logos', 'public');
             return $path;
-            // $path = str_replace('public/', '', $path);
-            // return response()->json(['path' => $path]);
+
         };
         return '';
-        // $path = request()->file('icon')->store('public/icons');
-        // $path = str_replace('public/', '', $path);
-
-        // return response()->json(['path' => $path]);
-
 
     }
 }
