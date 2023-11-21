@@ -48,12 +48,11 @@
                                     <file-pond
                                         name="logo"
                                         v-model="state.form.logo"
-                                        ref="pond"
                                         v-bind:allow-multiple="false"
                                         accepted-file-types="image/jpeg, image/png"
                                         v-bind:server="{
                                             url: '',
-                                            timeout: 7000,
+                                            timeout: 3000,
                                             process: {
                                                 url: '/admin/upload-logo',
                                                 method: 'POST',
@@ -129,13 +128,15 @@ export default {
 
         //call back when image is loaded
         let handleFilePondLoad = (response) => {
-            console.log("first", response);
             state.form.logo = response; 
-            console.log("second", state.form.logo);
         };
 
         let clearData = () => {
-            state.form = {};
+            state.form = {
+                logo: "",
+                name: "",
+            };
+            state.myFiles = [];
         };
 
         return { state, saveFun, clearData, handleFilePondLoad, handleFilePondInit };

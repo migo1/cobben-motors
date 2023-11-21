@@ -61,10 +61,10 @@ class CarBrandController extends Controller
         $carBrand->save();
 
         if ($request->has('logo')) {
-            $carBrand->addMedia(storage_path('app/public/'.$request->logo))->toMediaCollection('logos');
+            $carBrand->addMedia(storage_path('app/public/' . $request->logo))->toMediaCollection('logos');
+            Storage::disk('local')->delete('uploads/logos/' . $request->logo);
         }
 
-        Storage::disk('local')->delete('uploads/logos/'.$request->logo);
 
         return redirect()->back()->with('success', 'Car Brand created successfully');
 
@@ -95,8 +95,8 @@ class CarBrandController extends Controller
         // first delete the old logo if exists then store the new logo if the request has logo
         if ($request->has('logo')) {
             $carBrand->clearMediaCollection('logos');
-            $carBrand->addMedia(storage_path('app/public/'.$request->logo))->toMediaCollection('logos');
-            Storage::disk('local')->delete('uploads/logos/'.$request->logo);
+            $carBrand->addMedia(storage_path('app/public/' . $request->logo))->toMediaCollection('logos');
+            Storage::disk('local')->delete('uploads/logos/' . $request->logo);
         }
 
         $carBrand->name = $request->input('name');
@@ -120,7 +120,7 @@ class CarBrandController extends Controller
 
     public function uploadLogo(Request $request)
     {
-        
+
         if ($request->hasFile('logo')) {
             $path = $request->file('logo')->store('uploads/logos', 'public');
             return $path;

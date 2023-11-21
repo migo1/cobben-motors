@@ -9,6 +9,7 @@ use App\Models\CarModel;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -58,7 +59,8 @@ class CarController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
         $this->validate(
             $request,
@@ -78,10 +80,10 @@ class CarController extends Controller
         $car->save();
 
         if ($request->has('thumbnail')) {
-            $car->addMedia(storage_path('app/public/'.$request->thumbnail))->toMediaCollection('thumbnails');
+            $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
+            Storage::disk('local')->delete('uploads/thumbnails' . $request->thumbnail);
         }
 
-        
 
         return redirect()->back()->with('success', 'Car created successfully.');
     }
@@ -107,7 +109,32 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $this->validate(
+            $request,
+            [
+                'car_brand_id' => 'required',
+                'car_model_id' => 'required',
+                'color' => 'required',
+                'year' => 'required',
+            ]
+        );
+
+
+        $car = Car::find($id);
+        $car->car_brand_id = $request->input('car_brand_id');
+        $car->car_model_id = $request->input('car_model_id');
+        $car->color = $request->input('color');
+        $car->year = $request->input('year');
+        $car->update();
+
+        if ($request->has('thumbnail')) {
+            $car->clearMediaCollection('thumbnails');
+            $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
+            Storage::disk('local')->delete('uploads/thumbnails' . $request->thumbnail);
+        }
+
+        return redirect()->back()->with('success', 'Car updated successfully.');
     }
 
     /**

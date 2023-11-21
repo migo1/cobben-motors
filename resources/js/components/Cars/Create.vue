@@ -166,6 +166,7 @@ export default {
                 car_model_id: "",
                 thumbnail: "",
             },
+            myFiles: [],
             carModels: [],
         });
 
@@ -183,11 +184,11 @@ export default {
                 car_model_id: "",
                 thumbnail: "",
             };
+            state.myFiles = [];
         };
 
         let loadCarModels = async () => {
             if (state.form.car_brand_id) {
-                // Make an asynchronous request to fetch car models based on car brand
                 try {
                     const response = await fetch(
                         `/admin/car_brand_models?car_brand_id=${state.form.car_brand_id}`

@@ -113,8 +113,27 @@ export default {
                     );
                 }, animationDelay);
             });
+            $(document).on("click", ".tabs a", function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+                    others = $this.closest("li").siblings(),
+                    target = $this.attr("href");
 
-          
+                others.removeClass("active");
+                $this.closest("li").addClass("active");
+                $(tabgroup).children("div").hide();
+                $(target).show();
+
+                // Fix for G MAP.
+                var o = $("#google_map");
+                if (o.length > 0) {
+                    googlemapinit();
+                }
+            });
+            $(".tabs .active a").trigger("click");
+
+            
         });
 
         return {};
