@@ -177,7 +177,7 @@ export default {
         let updateFun = () => {
             console.log(state.form);
             var submitdata = useForm(state.form);
-            submitdata.patch(route("cars.update", { car: state.form.id }));
+            submitdata.patch(route("cars.update", { car: state.form.slug }));
             $("#editmodal").modal("toggle");
             clearData();
         };

@@ -125,7 +125,7 @@
                                                         class="dropdown-item bg-light-danger"
                                                         href="javascript:void(0);"
                                                         @click="
-                                                            deleteFun(item.id)
+                                                            deleteFun(item.slug)
                                                         "
                                                     >
                                                         <feather
@@ -197,12 +197,12 @@ export default {
         let toggleSearchForm = () => {
             store.commit("toggleSearch");
         };
-        let deleteFun = (id) => {
+        let deleteFun = (slug) => {
             var getconfirmation = confirm(
                 "Are you sure You Want to Delete This Record?"
             );
             if (getconfirmation == true) {
-                router.delete(route("cars.destroy", id));
+                router.delete(route("cars.destroy", slug));
             }
         };
           return {

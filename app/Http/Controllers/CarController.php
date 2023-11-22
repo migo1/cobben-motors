@@ -72,12 +72,22 @@ class CarController extends Controller
             ]
         );
 
+
+        $brand = CarBrand::find($request->input('car_brand_id'));
+        $model = CarModel::find($request->input('car_model_id'));
+
+
         $car = new Car();
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
+
+        $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
+
         $car->save();
+
+
 
         if ($request->has('thumbnail')) {
             $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
@@ -107,7 +117,7 @@ class CarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Car $car)
     {
 
         $this->validate(
@@ -120,13 +130,18 @@ class CarController extends Controller
             ]
         );
 
+        $brand = CarBrand::find($request->input('car_brand_id'));
+        $model = CarModel::find($request->input('car_model_id'));
 
-        $car = Car::find($id);
+        // $car = Car::find($id);
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
+        $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
         $car->update();
+
+
 
         if ($request->has('thumbnail')) {
             $car->clearMediaCollection('thumbnails');
@@ -140,9 +155,12 @@ class CarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Car $car)
     {
-        //
+        $car->clearMediaCollection('thumbnails');
+        $car->delete();
+
+        return redirect()->back()->with('success', 'Car deleted successfully.');
     }
 
     public function getBrandModels(Request $request)
