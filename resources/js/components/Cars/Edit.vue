@@ -13,7 +13,7 @@
         >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel17">Update Car</h4>
+                    <h4 class="modal-title" id="myModalLabel17">Edit Car</h4>
                     <button
                         type="button"
                         class="close"
@@ -141,7 +141,7 @@
                                     type="submit"
                                     class="btn btn-primary mr-1"
                                 >
-                                    Save
+                                    Update
                                 </button>
                             </div>
                         </div>

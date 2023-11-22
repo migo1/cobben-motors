@@ -13,7 +13,7 @@
         >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel17">New Brand</h4>
+                    <h4 class="modal-title" id="myModalLabel17">Edit Brand</h4>
                     <button
                         type="button"
                         class="close"
@@ -67,7 +67,6 @@
                                                 //   onerror: () => {}
                                             },
                                         }"
-                                        v-bind:files="state.myFiles"
                                         v-on:init="handleFilePondInit"
                                     >
                                     </file-pond>
@@ -78,7 +77,7 @@
                                     type="submit"
                                     class="btn btn-primary mr-1"
                                 >
-                                    Save
+                                    Update
                                 </button>
                             </div>
                         </div>
@@ -113,13 +112,14 @@ export default {
             clearData();
         };
 
-        let clearData = () => {
-            store.commit("clearEditData");
+           let clearData = () => {
+            state.form = {
+                name: "",
+                logo: "",
+            };
         };
    let handleFilePondLoad = (response) => {
-            console.log("first", response);
             state.form.logo = response; 
-            console.log("second", state.form.logo);
         };
 
                 //used when filepond plugin in initialized
@@ -149,6 +149,7 @@ export default {
             (newval) => {
                 if (newval !== null) {
                     state.form = newval;
+                    state.form.logo = "";
                 }
             }
         );

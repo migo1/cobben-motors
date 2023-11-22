@@ -13,7 +13,7 @@
         >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel17">New Model</h4>
+                    <h4 class="modal-title" id="myModalLabel17">Edit Model</h4>
                     <button
                         type="button"
                         class="close"
@@ -115,7 +115,6 @@ export default {
             (newval) => {
                 if (newval !== null) {
                     state.form = newval;
-                    // state.form.car_brand_id = newval.roles.map((item) => item.id);
                 }
             }
         );
