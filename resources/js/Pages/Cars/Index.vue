@@ -107,6 +107,17 @@
                                                     ></feather>
                                                 </button>
                                                 <div class="dropdown-menu">
+                                                  <Link
+                                                        class="dropdown-item bg-light-primary"
+                                                        :href="route('cars.show', {car: item.slug})"
+                                                    >
+                                                        <feather
+                                                            type="eye"
+                                                            class="mr-50"
+                                                        ></feather>
+
+                                                        <span>View</span>
+                                                    </Link>
                                                     <a
                                                         class="dropdown-item bg-light-warning"
                                                         href="javascript:void(0);"
@@ -135,6 +146,7 @@
 
                                                         <span>Delete</span>
                                                     </a>
+                                                    
                                                 </div>
                                             </div>
                                         </td>
@@ -166,7 +178,7 @@
 <script>
 import { reactive, computed } from "vue";
 import { useStore } from "vuex";
-import { router } from "@inertiajs/vue3";
+import { router, Link } from "@inertiajs/vue3";
 
 import MainLayout from "../../Shared/Layouts/Vertical.vue";
 import Search from "../../components/Cars/Search.vue";
@@ -178,6 +190,7 @@ export default {
         Search,
         Create,
         Edit,
+        Link
     },
     props: ["cars","car_models", "car_brands"],
 
