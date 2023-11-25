@@ -94,9 +94,12 @@ class CarBrandController extends Controller
         $carBrand = CarBrand::find($id);
         // first delete the old logo if exists then store the new logo if the request has logo
         if ($request->has('logo')) {
-            $carBrand->clearMediaCollection('logos');
-            $carBrand->addMedia(storage_path('app/public/' . $request->logo))->toMediaCollection('logos');
-            Storage::disk('local')->delete('uploads/logos/' . $request->logo);
+            if($request->logo !== $carBrand->getFirstMedia("logos")->getUrl()){
+                $carBrand->clearMediaCollection('logos');
+                $carBrand->addMedia(storage_path('app/public/' . $request->logo))->toMediaCollection('logos');
+                Storage::disk('local')->delete('uploads/logos/' . $request->logo);
+            }
+
         }
 
         $carBrand->name = $request->input('name');

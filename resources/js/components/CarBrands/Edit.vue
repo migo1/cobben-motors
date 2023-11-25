@@ -67,7 +67,7 @@
                                                 //   onerror: () => {}
                                             },
                                         }"
-                                        v-on:init="handleFilePondInit"
+                                        v-bind:files="state.myFiles"
                                     >
                                     </file-pond>
                                 </div>
@@ -112,49 +112,39 @@ export default {
             clearData();
         };
 
-           let clearData = () => {
-            state.form = {
-                name: "",
-                logo: "",
-            };
+        let clearData = () => {
+            store.commit("clearEditData");
+            state.form = {};
+            state.myFiles = [];
         };
-   let handleFilePondLoad = (response) => {
-            state.form.logo = response; 
+        let handleFilePondLoad = (response) => {
+            state.form.logo = response;
         };
 
-                //used when filepond plugin in initialized
-        let handleFilePondInit = () => {
-            // check if logo is set
-            // if (state.form.logo) {
-            //     // set initial values for filepond
-            //     state.myFiles = [
-            //         {
-            //             source: '/' +  state.form.logo,
-            //             options: {
-            //                 type: "local",
-            //                 metadata: {
-            //                     poster: '/' + state.form.logo,
-            //                 },
-            //             },
-            //         },
-            //     ];
-            // }else{
-            //     state.myFiles = [];
-            // }
-
-        };
+        //used when filepond plugin in initialized
 
         watch(
             () => state.editdata,
             (newval) => {
                 if (newval !== null) {
                     state.form = newval;
-                    state.form.logo = "";
+                    // state.form.logo = "";
+                    state.myFiles = [
+                        {
+                            source: state.form.logo,
+                            options: {
+                                type: "local",
+                                metadata: {
+                                    poster: state.form.logo,
+                                },
+                            },
+                        },
+                    ];
                 }
             }
         );
 
-        return { state, udpateFun, clearData, handleFilePondLoad, handleFilePondInit };
+        return { state, udpateFun, clearData, handleFilePondLoad };
     },
 };
 </script>

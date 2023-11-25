@@ -98,7 +98,7 @@ class CarController extends Controller
         }
 
         if ($request->has('cars_display')) {
-            
+
           $images =  $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
           Log::info($images);
             foreach ($images as $image) {
@@ -122,7 +122,7 @@ class CarController extends Controller
         return Inertia::render('Cars/Show', [
             'car' => $car,
         ]);
-        
+
     }
 
     /**
@@ -138,7 +138,7 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-
+        dd($request->all());
         $this->validate(
             $request,
             [

@@ -19,6 +19,12 @@ class CarResource extends JsonResource
         $getmedia = $this->getFirstMedia("thumbnails");
         $array['thumbnail'] = (($getmedia) ? $getmedia->getUrl() : asset('images/default_logo.png')) ;
         $array['thumbstatus'] = (($getmedia) ? true : false);
+        $collection=[];
+
+        foreach ($this->getMedia("cars_display") as $key => $value) {
+            array_push($collection,$value->getUrl());
+        }
+        $array['collection']=$collection;
         return $array;
 
     }

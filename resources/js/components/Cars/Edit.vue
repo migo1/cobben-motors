@@ -130,12 +130,43 @@
                                                 //   onerror: () => {}
                                             },
                                         }"
-                                        v-bind:files="state.myFiles"
-                                        v-on:init="handleFilePondInit"
+                                        v-bind:files="state.myThumbnail"
                                     >
                                     </file-pond>
                                 </div>
                             </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Thumbnail</label>
+                                    <file-pond
+                                        name="cars_display"
+                                        v-model="state.form.cars_display"
+                                        ref="pond1"
+                                        v-bind:allow-multiple="true"
+                                        accepted-file-types="image/jpeg, image/png"
+                                        v-bind:server="{
+                                            url: '',
+                                            timeout: 7000,
+                                            process: {
+                                                url: '/admin/upload-temp-cars',
+                                                method: 'POST',
+                                                headers: {
+                                                    'X-CSRF-TOKEN':
+                                                        $page.props.csrf_token,
+                                                },
+                                                withCredentials: false,
+
+                                                onload: handleMultipleFilePondLoad,
+                                                //   onerror: () => {}
+                                            },
+                                        }"
+                                        v-bind:files="state.myFiles"
+                                    >
+                                    </file-pond>
+                                </div>
+                            </div>
+
                             <div class="col-12">
                                 <button
                                     type="submit"
@@ -166,8 +197,10 @@ export default {
                 car_brand_id: "",
                 car_model_id: "",
                 thumbnail: "",
+                cars_display: [],
             },
             myFiles: [],
+            myThumbnail: [],
             carModels: [],
             editdata: computed(() => {
                 return store.state.editData;
@@ -183,12 +216,10 @@ export default {
         };
 
         let clearData = () => {
-            state.form = {
-                car_brand_id: "",
-                car_model_id: "",
-                thumbnail: "",
-            };
+            state.form = {};
             state.myFiles = [];
+            state.myThumbnail=[];
+            store.commit("clearEditData");
         };
 
         let loadCarModels = async () => {
@@ -212,6 +243,16 @@ export default {
         let handleFilePondLoad = (response) => {
             state.form.thumbnail = response;
         };
+        let handleMultipleFilePondLoad = (response) => {
+            addCarsImage(response);
+        };
+
+        let addCarsImage = (image) => {
+            let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
+            arr.push(image);
+            state.form.cars_display = arr.join('|');
+            console.log(state.form.cars_display);
+        };
 
         watch(() => state.form.car_brand_id, loadCarModels);
         watch(
@@ -219,7 +260,36 @@ export default {
             (newval) => {
                 if (newval !== null) {
                     state.form = newval;
-                    state.form.thumbnail = "";
+
+                    state.myThumbnail = [
+                        {
+                            source: state.form.thumbnail,
+                            options: {
+                                type: "local",
+                                metadata: {
+                                    poster: state.form.thumbnail,
+                                },
+                            },
+                        },
+                    ];
+                    var collection = [];
+
+                    for (
+                        let index = 0;
+                        index < state.form.collection.length;
+                        index++
+                    ) {
+                        collection.push({
+                            source: state.form.collection[index],
+                            options: {
+                                type: "local",
+                                metadata: {
+                                    poster: state.form.collection[index],
+                                },
+                            },
+                        });
+                    }
+                    state.myFiles = collection;
                 }
             }
         );
@@ -231,6 +301,7 @@ export default {
             loadCarModels,
             handleFilePondLoad,
             handleFilePondInit,
+            handleMultipleFilePondLoad,
         };
     },
 };
