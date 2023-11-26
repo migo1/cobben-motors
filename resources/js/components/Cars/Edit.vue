@@ -158,6 +158,7 @@
                                                 withCredentials: false,
 
                                                 onload: handleMultipleFilePondLoad,
+                                               //  remove: handleFilePondRemove,
                                                 //   onerror: () => {}
                                             },
                                         }"
@@ -197,7 +198,7 @@ export default {
                 car_brand_id: "",
                 car_model_id: "",
                 thumbnail: "",
-                cars_display: [],
+                cars_display: "",
             },
             myFiles: [],
             myThumbnail: [],
@@ -254,6 +255,19 @@ export default {
             console.log(state.form.cars_display);
         };
 
+        let removeCarsImage = (image) => {
+             let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
+            arr.remove(image);
+            state.form.cars_display = arr.join('|');
+            console.log(state.form.cars_display);
+        }
+
+        let handleFilePondRemove = (source, load, error) => {
+            removeCarsImage(source.replace(/^\//, ''));
+            load();
+        };
+        
+
         watch(() => state.form.car_brand_id, loadCarModels);
         watch(
             () => state.editdata,
@@ -302,9 +316,21 @@ export default {
             handleFilePondLoad,
             handleFilePondInit,
             handleMultipleFilePondLoad,
+            handleFilePondRemove
         };
     },
 };
+
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
 </script>
 
 <style scoped>

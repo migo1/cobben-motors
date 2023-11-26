@@ -107,7 +107,7 @@
                                                     ></feather>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                  <Link
+                                                  <!-- <Link
                                                         class="dropdown-item bg-light-primary"
                                                         :href="route('cars.show', {car: item.slug})"
                                                     >
@@ -117,7 +117,7 @@
                                                         ></feather>
 
                                                         <span>View</span>
-                                                    </Link>
+                                                    </Link> -->
                                                     <a
                                                         class="dropdown-item bg-light-warning"
                                                         href="javascript:void(0);"

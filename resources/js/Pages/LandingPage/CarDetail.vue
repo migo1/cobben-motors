@@ -46,7 +46,7 @@
                             </div>
                             <div class="form-wrapper">
                                 <div id="note2"></div>
-                                <div id="fields2">
+                                <!-- <div id="fields2">
                                     <form
                                         id="ajax-contact-form2"
                                         class="form-horizontal"
@@ -92,68 +92,110 @@ Message</textarea
                                             SEND E-MAIL
                                         </button>
                                     </form>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
 
                     <!-- <div class="banner3-wrapper">
-            <div class="banner3">
-                <div class="top-info clearfix">
-                    <div class="info1">
-                        <div class="txt1">Financing Offer</div>
-                    </div>
-                </div>
-                <div class="txt2">vehicle</div>
-                <div class="txt3">RANGE ROVER</div>
-                <div class="form-wrapper">
-                    <div id="note1"></div>
-                    <div id="fields1">
-                        <form id="ajax-contact-form1" class="form-horizontal" action="javascript:;">
-
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="inputName">Credit amount ($)</label>
-                                        <input type="text" class="form-control" id="inputName" name="name" value="34990">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="inputEmail">Running time</label>
-                                        <select class="form-control">
-                                            <option>60 months</option>
-                                            <option>48 months</option>
-                                            <option>36 months</option>
-                                            <option>24 months</option>
-                                            <option>12 months</option>
-                                        </select>
-                                    </div>
+                        <div class="banner3">
+                            <div class="top-info clearfix">
+                                <div class="info1">
+                                    <div class="txt1">Financing Offer</div>
                                 </div>
                             </div>
+                            <div class="txt2">vehicle</div>
+                            <div class="txt3">RANGE ROVER</div>
+                            <div class="form-wrapper">
+                                <div id="note1"></div>
+                                <div id="fields1">
+                                    <form
+                                        id="ajax-contact-form1"
+                                        class="form-horizontal"
+                                        action="javascript:;"
+                                    >
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputName"
+                                                        >Credit amount
+                                                        ($)</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="inputName"
+                                                        name="name"
+                                                        value="34990"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="inputEmail"
+                                                        >Running time</label
+                                                    >
+                                                    <select
+                                                        class="form-control"
+                                                    >
+                                                        <option>
+                                                            60 months
+                                                        </option>
+                                                        <option>
+                                                            48 months
+                                                        </option>
+                                                        <option>
+                                                            36 months
+                                                        </option>
+                                                        <option>
+                                                            24 months
+                                                        </option>
+                                                        <option>
+                                                            12 months
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                            <div class="txt4">In corporation with CHECK24</div>
+                                        <div class="txt4">
+                                            In corporation with CHECK24
+                                        </div>
 
-                            <button type="submit" class="btn-default btn-cf-submit1">CALCULATE NOW</button>
-
-
-                        </form>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div> -->
+                                        <button
+                                            type="submit"
+                                            class="btn-default btn-cf-submit1"
+                                        >
+                                            CALCULATE NOW
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <!-- <div class="banner">
-            <figure><img src="customer/images/banner.jpg" alt="" class="img-responsive"></figure>
-            <div class="caption">
-                <div class="txt1">SELL YOUR CAR</div>
-                <div class="txt2">Nam tellus enimds eleifend dignis lsim biben edum tristique sed metus fusce Maecenas lobortis.</div>
-                <div class="txt3"><a href="#" class="btn-default btn2">REGISTER NOW</a></div>
-            </div>
-        </div> -->
+                        <figure>
+                            <img
+                                src="customer/images/banner.jpg"
+                                alt=""
+                                class="img-responsive"
+                            />
+                        </figure>
+                        <div class="caption">
+                            <div class="txt1">SELL YOUR CAR</div>
+                            <div class="txt2">
+                                Nam tellus enimds eleifend dignis lsim biben
+                                edum tristique sed metus fusce Maecenas
+                                lobortis.
+                            </div>
+                            <div class="txt3">
+                                <a href="#" class="btn-default btn2"
+                                    >REGISTER NOW</a
+                                >
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
                 <div class="col-sm-12 col-md-9 column-content">
                     <div class="gslider-wrapper">
@@ -779,6 +821,8 @@ Message</textarea
                                 dignissim magna, vel luctus magna sapien et
                                 velit. Quisque in felis odio.
                             </p>
+
+                            <!-- <div id="google_map"></div> -->
                         </div>
                         <div id="tabs3-4">
                             <div class="comment-block clearfix">
@@ -928,6 +972,113 @@ Message</textarea
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="row">
+                <div class="col-sm-3">
+                    <div class="thumb2">
+                        <div class="thumbnail clearfix">
+                            <figure>
+                                <a href="details.html">
+                                    <img
+                                        src="customer/images/best01.jpg"
+                                        alt=""
+                                        class="img-responsive"
+                                    />
+                                </a>
+                            </figure>
+                            <div class="caption">
+                                <div class="txt1">REGISTERED 2015</div>
+                                <div class="txt2">CAR M6 Sport Hybrid</div>
+                                <div class="info clearfix">
+                                    <span class="price">$24,380</span>
+                                    <span class="speed">35,000 KM</span>
+                                </div>
+                                <div class="txt3">
+                                    Used • 2015 • Automatic • White • Petrol
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumb2">
+                        <div class="thumbnail clearfix">
+                            <figure>
+                                <a href="details.html">
+                                    <img
+                                        src="customer/images/best02.jpg"
+                                        alt=""
+                                        class="img-responsive"
+                                    />
+                                </a>
+                            </figure>
+                            <div class="caption">
+                                <div class="txt1">REGISTERED 2016</div>
+                                <div class="txt2">2016 Furrori Tartarosa</div>
+                                <div class="info clearfix">
+                                    <span class="price">$95,900</span>
+                                    <span class="speed">99,000 KM</span>
+                                </div>
+                                <div class="txt3">
+                                    Used • 2016 • Manual • Red • Petrol
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumb2">
+                        <div class="thumbnail clearfix">
+                            <figure>
+                                <a href="details.html">
+                                    <img
+                                        src="customer/images/best03.jpg"
+                                        alt=""
+                                        class="img-responsive"
+                                    />
+                                </a>
+                            </figure>
+                            <div class="caption">
+                                <div class="txt1">REGISTERED 2015</div>
+                                <div class="txt2">2016 Baratto Viron</div>
+                                <div class="info clearfix">
+                                    <span class="price">$98,995</span>
+                                    <span class="speed">95,000 KM</span>
+                                </div>
+                                <div class="txt3">
+                                    Used • 2015 • Automatic • Blue • Petrol
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="thumb2">
+                        <div class="thumbnail clearfix">
+                            <figure>
+                                <a href="details.html">
+                                    <img
+                                        src="customer/images/best04.jpg"
+                                        alt=""
+                                        class="img-responsive"
+                                    />
+                                </a>
+                            </figure>
+                            <div class="caption">
+                                <div class="txt1">REGISTERED 2017</div>
+                                <div class="txt2">2017 Luxses-AMD C63</div>
+                                <div class="info clearfix">
+                                    <span class="price">$31,900</span>
+                                    <span class="speed">12,000 KM</span>
+                                </div>
+                                <div class="txt3">
+                                    Used • 2017 • Automatic • Dark Red • Petrol
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -939,40 +1090,59 @@ export default {
     layout: CustomerLayout,
     setup() {
         onMounted(() => {
-            /////////////////////// load
-            $(window).load(function () {
-                /*----------------------------------------------------*/
-                // flexslider
-                /*----------------------------------------------------*/
+            $(document).on("click", ".tabs a", function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+                    others = $this.closest("li").siblings(),
+                    target = $this.attr("href");
 
-                /////// flexslider
-                var o = $("#carousel");
-                if (o.length > 0) {
-                    o.flexslider({
-                        animation: "slide",
-                        controlNav: false,
-                        animationLoop: false,
-                        slideshow: false,
-                        itemWidth: 121,
-                        itemMargin: 13,
-                        asNavFor: "#gslider",
-                    });
-                }
+                others.removeClass("active");
+                $this.closest("li").addClass("active");
+                $(tabgroup).children("div").hide();
+                $(target).show();
 
-                var o = $("#gslider");
+                // Fix for G MAP.
+                var o = $("#google_map");
                 if (o.length > 0) {
-                    o.flexslider({
-                        animation: "slide",
-                        controlNav: false,
-                        animationLoop: false,
-                        slideshow: false,
-                        sync: "#carousel",
-                        start: function (slider) {
-                            // $('body').removeClass('loading');
-                        },
-                    });
+                    googlemapinit();
                 }
             });
+            $(".tabs .active a").trigger("click");
+            /////////////////////// load
+            // $(window).load(function () {
+            //     /*----------------------------------------------------*/
+            //     // flexslider
+            //     /*----------------------------------------------------*/
+
+            //     /////// flexslider
+            //     var o = $("#carousel");
+            //     if (o.length > 0) {
+            //         o.flexslider({
+            //             animation: "slide",
+            //             controlNav: false,
+            //             animationLoop: false,
+            //             slideshow: false,
+            //             itemWidth: 121,
+            //             itemMargin: 13,
+            //             asNavFor: "#gslider",
+            //         });
+            //     }
+
+            //     var o = $("#gslider");
+            //     if (o.length > 0) {
+            //         o.flexslider({
+            //             animation: "slide",
+            //             controlNav: false,
+            //             animationLoop: false,
+            //             slideshow: false,
+            //             sync: "#carousel",
+            //             start: function (slider) {
+            //                 // $('body').removeClass('loading');
+            //             },
+            //         });
+            //     }
+            // });
         });
     },
 };
