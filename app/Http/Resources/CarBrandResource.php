@@ -17,9 +17,8 @@ class CarBrandResource extends JsonResource
 
         $array = parent::toArray($request);
         $getmedia = $this->getFirstMedia("logos");
-        $array['logo'] = (($getmedia) ? $getmedia->getUrl() : asset('images/default_logo.png')) ;
+        $array['logo'] = (($getmedia) ? $getmedia->getUrl() : asset('images/default_logo.png'));
         $array['imgstatus'] = (($getmedia) ? true : false);
         return $array;
-
     }
 }

@@ -133,7 +133,40 @@ export default {
             });
             $(".tabs .active a").trigger("click");
 
-            
+               /////////////////////// load
+            // $(window).load(function () {
+                /*----------------------------------------------------*/
+                // flexslider
+                /*----------------------------------------------------*/
+
+                /////// flexslider
+                var o = $("#carousel");
+                if (o.length > 0) {
+                    o.flexslider({
+                        animation: "slide",
+                        controlNav: false,
+                        animationLoop: false,
+                        slideshow: false,
+                        itemWidth: 121,
+                        itemMargin: 13,
+                        asNavFor: "#gslider",
+                    });
+                }
+
+                var o = $("#gslider");
+                if (o.length > 0) {
+                    o.flexslider({
+                        animation: "slide",
+                        controlNav: false,
+                        animationLoop: false,
+                        slideshow: false,
+                        sync: "#carousel",
+                        start: function (slider) {
+                            // $('body').removeClass('loading');
+                        },
+                    });
+                }
+            // });
         });
 
         return {};

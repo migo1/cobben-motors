@@ -7,6 +7,7 @@ use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Support\Facades\Storage;
@@ -72,18 +73,42 @@ class CarController extends Controller
             ]
         );
 
+
+        $brand = CarBrand::find($request->input('car_brand_id'));
+        $model = CarModel::find($request->input('car_model_id'));
+
+
         $car = new Car();
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
+
+        $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
+
         $car->save();
 
+
+
         if ($request->has('thumbnail')) {
+            Log::info($request->thumbnail);
             $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
             Storage::disk('local')->delete('uploads/thumbnails' . $request->thumbnail);
+
         }
 
+        if ($request->has('cars_display')) {
+
+          $images =  $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
+          Log::info($images);
+            foreach ($images as $image) {
+                $car->addMedia(storage_path('app/public/' . $image))->toMediaCollection('cars_display');
+                Storage::disk('local')->delete('uploads/temp_cars' . $image);
+            }
+
+            // $car->addMedia(storage_path('app/public/' . $request->cars_display))->toMediaCollection('cars_display');
+            // Storage::disk('local')->delete('uploads/temp_cars' . $request->cars_display);
+        }
 
         return redirect()->back()->with('success', 'Car created successfully.');
     }
@@ -91,9 +116,13 @@ class CarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Car $car)
     {
-        //
+
+        return Inertia::render('Cars/Show', [
+            'car' => $car,
+        ]);
+
     }
 
     /**
@@ -107,9 +136,9 @@ class CarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Car $car)
     {
-
+        dd($request->all());
         $this->validate(
             $request,
             [
@@ -120,13 +149,18 @@ class CarController extends Controller
             ]
         );
 
+        $brand = CarBrand::find($request->input('car_brand_id'));
+        $model = CarModel::find($request->input('car_model_id'));
 
-        $car = Car::find($id);
+        // $car = Car::find($id);
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
+        $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
         $car->update();
+
+
 
         if ($request->has('thumbnail')) {
             $car->clearMediaCollection('thumbnails');
@@ -140,9 +174,13 @@ class CarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Car $car)
     {
-        //
+        $car->clearMediaCollection('thumbnails');
+        $car->clearMediaCollection('cars_display');
+        $car->delete();
+
+        return redirect()->back()->with('success', 'Car deleted successfully.');
     }
 
     public function getBrandModels(Request $request)
@@ -160,7 +198,20 @@ class CarController extends Controller
     {
 
         if ($request->hasFile('thumbnail')) {
+            Log::info($request->thumbnail);
             $path = $request->file('thumbnail')->store('uploads/thumbnails', 'public');
+            return $path;
+        };
+        return '';
+    }
+
+    public function uploadTempCars(Request $request)
+    {
+
+        // dd($request->all());
+        if ($request->hasFile('cars_display')) {
+            Log::info($request->cars_display);
+            $path = $request->file('cars_display')->store('uploads/temp_cars', 'public');
             return $path;
         };
         return '';

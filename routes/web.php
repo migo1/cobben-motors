@@ -50,5 +50,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('cars', CarController::class);
     Route::get('car_brand_models', [CarController::class, 'getBrandModels'])->name('cars.car_brand_models');
     Route::post('upload-thumbnail', [CarController::class, 'uploadThumbnail'])->name('cars.upload_thumbnail');
+    Route::post('upload-temp-cars', [CarController::class, 'uploadTempCars'])->name('cars.upload_temp_cars');
 
 });

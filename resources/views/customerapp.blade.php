@@ -14,12 +14,12 @@
     <link href="{{ asset('/customer/css/jquery-ui.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ asset('/customer/css/gflexslider.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/elegant-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/superslides.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/select2.css') }}" rel="stylesheet">
     <link href="{{ asset('/customer/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('/customer/css/gflexslider.css') }}" rel="stylesheet">
 
 
     @routes

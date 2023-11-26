@@ -30,8 +30,6 @@
                         @submit.prevent="saveFun()"
                     >
                         <div class="row">
-                        
-
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Year</label>
@@ -136,6 +134,42 @@
                                         v-on:init="handleFilePondInit"
                                     >
                                     </file-pond>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label>Car Images</label>
+                                            <file-pond
+                                                name="cars_display"
+                                                v-model="
+                                                    state.form.cars_display
+                                                "
+                                                ref="pond"
+                                                v-bind:allow-multiple="true"
+                                                accepted-file-types="image/jpeg, image/png"
+                                                v-bind:server="{
+                                                    url: '',
+                                                    timeout: 3000,
+                                                    process: {
+                                                        url: '/admin/upload-temp-cars',
+                                                        method: 'POST',
+                                                        headers: {
+                                                            'X-CSRF-TOKEN':
+                                                                $page.props
+                                                                    .csrf_token,
+                                                        },
+                                                        withCredentials: false,
+
+                                                        onload: handleFilePondCarsLoad,
+                                                        //   onerror: () => {}
+                                                    },
+                                                }"
+                                                v-bind:files="state.myCars"
+                                                v-on:init="
+                                                    handleFilePondCarsInit
+                                                "
+                                            >
+                                            </file-pond>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -165,9 +199,11 @@ export default {
                 car_brand_id: "",
                 car_model_id: "",
                 thumbnail: "",
+                cars_display: "",
             },
             myFiles: [],
             carModels: [],
+            myCars: [],
         });
 
         let saveFun = () => {
@@ -183,8 +219,10 @@ export default {
                 car_brand_id: "",
                 car_model_id: "",
                 thumbnail: "",
+                cars_display: "",
             };
             state.myFiles = [];
+            state.myCars = [];
         };
 
         let loadCarModels = async () => {
@@ -203,17 +241,38 @@ export default {
             }
         };
 
-        let handleFilePondInit = () => {
-
+        let addCarsImage = (image) => {
+            let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
+            arr.push(image);
+            state.form.cars_display = arr.join('|');
+            console.log(state.form.cars_display);
         };
 
+        let handleFilePondInit = () => {};
+
+        let handleFilePondCarsInit = () => {};
+
         let handleFilePondLoad = (response) => {
-            state.form.thumbnail = response; 
+            state.form.thumbnail = response;
+        };
+
+        let handleFilePondCarsLoad = (response) => {
+            // state.form.cars_display = response;
+            addCarsImage(response);
         };
 
         watch(() => state.form.car_brand_id, loadCarModels);
 
-        return { state, saveFun, clearData, loadCarModels, handleFilePondLoad, handleFilePondInit };
+        return {
+            state,
+            saveFun,
+            clearData,
+            loadCarModels,
+            handleFilePondLoad,
+            handleFilePondInit,
+            handleFilePondCarsLoad,
+            handleFilePondCarsInit,
+        };
     },
 };
 </script>
