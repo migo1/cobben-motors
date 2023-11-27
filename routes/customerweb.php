@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\{
     RolesController,
     HomeController,
+    LandingPageController,
     UserController
 };
 
@@ -20,18 +21,11 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get('/', function () {
-
-    return Inertia::render('LandingPage/Index');
-
-})->name('landing_page');
+Route::get('/', [LandingPageController::class, 'home'])->name('landing_page');
 
 
-Route::get('our_cars', function () {
-
-    return Inertia::render('LandingPage/OurCars');
-
-})->name('our_cars');
+Route::get('our_cars',[LandingPageController::class, 'our_cars'])->name('our_cars');
+Route::get('our_cars/{car}',[LandingPageController::class, 'car'])->name('car_select');
 
 Route::get('car_details', function() {
     return Inertia::render('LandingPage/CarDetail');

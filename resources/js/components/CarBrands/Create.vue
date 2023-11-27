@@ -46,6 +46,7 @@
                                 <div class="form-group">
                                     <label>Logo</label>
                                     <file-pond
+                                        required
                                         name="logo"
                                         v-model="state.form.logo"
                                         v-bind:allow-multiple="false"
@@ -62,8 +63,10 @@
                                                 withCredentials: false,
                                
                                                 onload: handleFilePondLoad,
+                                                
                                              //   onerror: () => {}
                                             },
+                                            revert: handleRevertImage,
                                         }"
                                         v-bind:files="state.myFiles"
                                         v-on:init="handleFilePondInit"
@@ -90,6 +93,7 @@
 <script>
 import { reactive } from "vue";
 import { useForm } from "@inertiajs/vue3";
+import axios from "axios";
 export default {
     setup() {
         const state = reactive({
@@ -131,6 +135,16 @@ export default {
             state.form.logo = response; 
         };
 
+
+
+        let handleRevertImage = (uniqueId, load, error) => {
+            axios.post('/admin/brand-image-revert', {
+                logo: state.form.logo,
+            });
+            state.form.logo = "";
+            load();
+        };
+
         let clearData = () => {
             state.form = {
                 logo: "",
@@ -139,7 +153,7 @@ export default {
             state.myFiles = [];
         };
 
-        return { state, saveFun, clearData, handleFilePondLoad, handleFilePondInit };
+        return { state, saveFun, clearData, handleFilePondLoad, handleFilePondInit, handleRevertImage };
     },
 };
 </script>

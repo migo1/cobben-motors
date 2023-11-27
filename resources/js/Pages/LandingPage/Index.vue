@@ -257,7 +257,7 @@
         </div>
 
 
-        <CategoryCar />
+        <CategoryCar :cars="cars"/>
 
         <div id="car">
             <div class="container">
@@ -646,7 +646,8 @@ export default {
     layout: CustomerLayout,
     components: {
         CategoryCar
-    }
+    },
+    props:["cars"]
 };
 </script>
 <style scoped>

@@ -78,11 +78,11 @@
                                             >OUR CARS</a
                                         >
                                     </li>
-                                    <li><a :href="route('car_details')">About</a></li>
-                                    <li><a href="#best">Best offers</a></li>
+                                    <li><a :href="route('car_details')">Car Detail</a></li>
+                                    <!-- <li><a href="#best">Best offers</a></li>
                                     <li>
                                         <a href="#testimonials">Testimonial</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>

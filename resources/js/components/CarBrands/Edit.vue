@@ -46,6 +46,7 @@
                                 <div class="form-group">
                                     <label>Logo</label>
                                     <file-pond
+                                        required
                                         name="logo"
                                         v-model="state.form.logo"
                                         ref="pond"
