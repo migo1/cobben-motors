@@ -40,7 +40,7 @@
                 <div class="container">
                     <div class="top2 clearfix">
                         <header>
-                            <div class="logo_wrapper">
+                            <a :href="route('landing_page')" class="logo_wrapper"  style="text-decoration: none;">
                                 COBBEN MOTORS
                                 <!-- <a href="index.html" class="logo scroll-to">
                                     <img
@@ -49,7 +49,7 @@
                                         class="img-responsive"
                                     />
                                 </a> -->
-                            </div>
+                            </a>
                         </header>
 
                         <div class="navbar navbar_ navbar-default">
@@ -70,6 +70,7 @@
                                 <ul class="nav navbar-nav sf-menu clearfix">
                                     <li>
                                         <a :href="route('landing_page')"
+                                       
                                             >HOME</a
                                         >
                                     </li>
@@ -78,7 +79,7 @@
                                             >OUR CARS</a
                                         >
                                     </li>
-                                    <li><a :href="route('car_details')">Car Detail</a></li>
+                                    <!-- <li><a :href="route('car_details')">Car Detail</a></li> -->
                                     <!-- <li><a href="#best">Best offers</a></li>
                                     <li>
                                         <a href="#testimonials">Testimonial</a>

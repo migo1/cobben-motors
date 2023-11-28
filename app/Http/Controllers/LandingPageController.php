@@ -78,8 +78,16 @@ class LandingPageController extends Controller
     public function car(Car $car)
     {
 
+        $images = [];
+
+        foreach ($car->getMedia('cars_display') as $key => $value) {
+            array_push($images, $value->getUrl());
+        }
+        // dd($images);
+
         return Inertia::render('LandingPage/CarDetail', [
                   'car' => $car,
+                  'images' => $images,
               ]);
 
     }

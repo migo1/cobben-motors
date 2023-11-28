@@ -201,262 +201,34 @@ Message</textarea
                     <div class="gslider-wrapper">
                         <div id="gslider" class="flexslider">
                             <ul class="slides">
-                                <li>
+                
+                                <li 
+                                v-for="(image, index) in images"
+                                        :key="index"
+                                >
                                     <img
-                                        src="customer/images/gallery01.jpg"
+                                        :src="image"
                                         alt=""
                                         class="img-responsive"
+                                        style="width:842px; height: 500px"
                                     />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery02.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery03.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery04.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery05.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery06.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery01.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery02.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery03.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery04.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery05.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery06.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery01.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery02.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery03.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery04.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery05.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/gallery06.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
+                                </li>                          
                             </ul>
                         </div>
                         <div id="carousel" class="flexslider">
                             <ul class="slides">
-                                <li>
+                                <li
+                                v-for="(image, index) in images"
+                                        :key="index"
+                                >
                                     <img
-                                        src="customer/images/thumb01.jpg"
+                                        :src="image"
                                         alt=""
                                         class="img-responsive"
+                                        style="width: 121px; height:90px;"
                                     />
                                 </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb02.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb03.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb04.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb05.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb06.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb01.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb02.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb03.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb04.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb05.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb06.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb01.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb02.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb03.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb04.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb05.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
-                                <li>
-                                    <img
-                                        src="customer/images/thumb06.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </li>
+                         
                             </ul>
                         </div>
                     </div>
@@ -470,8 +242,7 @@ Message</textarea
                                 <a href="#tabs3-1">VEHICLE OVERVIEW</a>
                             </li>
                             <li><a href="#tabs3-2">FEATURES & OPTIONS</a></li>
-                            <li><a href="#tabs3-3">VEHICLE LOCATION</a></li>
-                            <li><a href="#tabs3-4">DEALER COMMENTS</a></li>
+               
                         </ul>
                     </div>
 
@@ -800,175 +571,7 @@ Message</textarea
                                 </div>
                             </div>
                         </div>
-                        <div id="tabs3-3">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Ut tortor dui, scelerisque ac
-                                nisi sed, rutrum euismod sem. Nunc eu tincidunt
-                                nulla. In posuere lorem sit amet felis placerat,
-                                quis hendrerit est rutrum. Phasellus non dui
-                                aliquam, eleifend enim dictum, laoreet nisl. Nam
-                                arcu nisi, venenatis nec semper sed, semper eget
-                                diam. Vestibulum id lorem metus. Aliquam felis
-                                elit, imperdiet non rutrum ac, euismod ut diam.
-                                Donec iaculis at lorem et placerat. Aenean
-                                dictum orci sed lectus vulputate, ut mattis
-                                justo feugiat. Pellentesque sodales urna quis
-                                nunc iaculis lobortis. Sed vel ligula egestas,
-                                tristique urna sit amet, rutrum enim. Fusce non
-                                dignissim tellus, sed commodo nulla. Nulla
-                                posuere, nunc ac ultrices pretium, mi quam
-                                dignissim magna, vel luctus magna sapien et
-                                velit. Quisque in felis odio.
-                            </p>
-
-                            <!-- <div id="google_map"></div> -->
-                        </div>
-                        <div id="tabs3-4">
-                            <div class="comment-block clearfix">
-                                <figure>
-                                    <img
-                                        src="customer/images/user1.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </figure>
-                                <div class="caption">
-                                    <div class="top clearfix">
-                                        <div class="txt1">John Doe</div>
-                                        <div class="txt2">
-                                            30 MAY 2015
-                                            <a href="#">Posted at 12:25 AM</a>
-                                        </div>
-                                        <div class="ic10">
-                                            <a href="#">
-                                                <i class="fa fa-mail-reply"></i>
-                                                <span></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="txt3">
-                                        In eget dolor. Lorem ipsum dolor sit
-                                        amet consectetuer adipiscing elit. Ut
-                                        ornare cursus nibh. Sed lorem volutpat
-                                        purus scel erisque dapibus. Etiam
-                                        adipiscing ante nec nibh. In in felis in
-                                        metus mollis blandit.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="comment-block clearfix left1">
-                                <figure>
-                                    <img
-                                        src="customer/images/user2.jpg"
-                                        alt=""
-                                        class="img-responsive"
-                                    />
-                                </figure>
-                                <div class="caption">
-                                    <div class="top clearfix">
-                                        <div class="txt1">
-                                            Amanda Bernshtein
-                                        </div>
-                                        <div class="txt2">
-                                            30 MAY 2015
-                                            <a href="#">Posted at 12:25 AM</a>
-                                        </div>
-                                        <div class="ic10">
-                                            <a href="#">
-                                                <i class="fa fa-mail-reply"></i>
-                                                <span></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="txt3">
-                                        In eget dolor. Lorem ipsum dolor sit
-                                        amet consectetuer adipiscing elit. Ut
-                                        ornare cursus nibh. Sed lorem volu tpat
-                                        purus scelerisque dapibus. Etiam
-                                        adipiscing ante nec nibh. In in felis in
-                                        metus mollis
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="divider1"></div>
-
-                            <div class="title2">ADD A REPLY</div>
-
-                            <div id="note3"></div>
-                            <div id="fields3">
-                                <form
-                                    id="ajax-contact-form3"
-                                    class="form-horizontal"
-                                    action="javascript:;"
-                                >
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="inputName2"
-                                                            >Your Name</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="inputName2"
-                                                            name="name"
-                                                            value="Full Name"
-                                                            onBlur="if(this.value=='') this.value='Full Name'"
-                                                            onFocus="if(this.value =='Full Name' ) this.value=''"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label for="inputEmail"
-                                                            >Email</label
-                                                        >
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            id="inputEmail"
-                                                            name="email"
-                                                            value="E-mail address"
-                                                            onBlur="if(this.value=='') this.value='E-mail address'"
-                                                            onFocus="if(this.value =='E-mail address' ) this.value=''"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label for="inputMessage2"
-                                                    >Your Message</label
-                                                >
-                                                <textarea
-                                                    class="form-control"
-                                                    rows="9"
-                                                    id="inputMessage2"
-                                                    name="content"
-                                                    onBlur="if(this.value=='') this.value='Message'"
-                                                    onFocus="if(this.value =='Message' ) this.value=''"
-                                                >
-Message</textarea
-                                                >
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        class="btn-default btn-cf-submit3"
-                                    >
-                                        SEND COMMENTS
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -1088,6 +691,7 @@ import { onMounted } from "vue";
 
 export default {
     layout: CustomerLayout,
+    props: ['cars', 'images'],
     setup() {
         onMounted(() => {
             $(document).on("click", ".tabs a", function (e) {
