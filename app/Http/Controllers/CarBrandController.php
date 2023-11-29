@@ -135,9 +135,7 @@ class CarBrandController extends Controller
 
     public function revertImage(Request $request)
     {
-        Log::info($request->all());
-        dd($request->all());
-
+   
         if ($logo = $request->get('logo')) {
             $path = storage_path('app/public/' .$logo);
             if (file_exists($path)) {

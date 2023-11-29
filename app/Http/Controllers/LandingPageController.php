@@ -27,13 +27,13 @@ class LandingPageController extends Controller
                 return $q->where('year', 'LIKE', '%' . $search . '%')
                 ->orwhere('color', 'LIKE', '%' . $search . '%');
             });
+            
         })->when($brand, function ($query) use ($brand) {
             return $query->where('car_brand_id', $brand);
         })
         ->orderBy('id', 'DESC')
-        ->paginate(10)
-        ->withQueryString();
-
+        ->take(6)
+        ->get();
 
         return Inertia::render('LandingPage/Index', [
             'cars' => CarResource::collection($data)->response()->getData(true),
