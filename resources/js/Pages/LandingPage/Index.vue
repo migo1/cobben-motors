@@ -257,7 +257,7 @@
         </div>
 
 
-        <CategoryCar :cars="cars"/>
+        <CategoryCar :cars="cars" :car_brands="car_brands"/>
 
         <div id="car">
             <div class="container">
@@ -640,14 +640,14 @@
 <script>
 
 import CustomerLayout from "../../Shared/Layouts/Customer.vue"
-import CategoryCar from "../../components/Cars/CategoryCar.vue";
+import CategoryCar from "../../components/LandingPage/CategoryCar.vue";
 
 export default {
     layout: CustomerLayout,
     components: {
         CategoryCar
     },
-    props:["cars"]
+    props:["cars", "car_brands"]
 };
 </script>
 <style scoped>

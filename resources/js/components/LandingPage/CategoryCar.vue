@@ -1,5 +1,5 @@
 <template>
-    <div id="best">
+    <div id="best" style="padding-top: 0">
         <div class="container">
             <div class="title1">
                 <span>BEST OFFERS FROM COBBEN MOTORS</span>
@@ -20,15 +20,27 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-9">
                                 <div class="row">
-                                    <div
-                                        v-for="(item, index) in cars.data"
+                                <div v-if="state.loading">
+                                loading...
+                                </div>
+                                    <div v-else
+                                        v-for="(item, index) in state.car_list"
                                         :key="index"
                                     >
                                         <div class="col-sm-4">
                                             <div class="thumb2">
                                                 <div class="thumbnail clearfix">
                                                     <figure>
-                                                        <a :href="route('car_select', {car: item.slug})">
+                                                        <a
+                                                            :href="
+                                                                route(
+                                                                    'car_select',
+                                                                    {
+                                                                        car: item.slug,
+                                                                    }
+                                                                )
+                                                            "
+                                                        >
                                                             <img
                                                                 :src="
                                                                     item.thumbnail
@@ -48,21 +60,30 @@
                                                             REGISTERED 2023
                                                         </div>
                                                         <div class="txt2">
-                                                            {{ item.car_brand.name + ' ' + item.car_model.name }}
+                                                            {{
+                                                                item.car_brand
+                                                                    .name +
+                                                                " " +
+                                                                item.car_model
+                                                                    .name
+                                                            }}
                                                         </div>
                                                         <div
                                                             class="info clearfix"
                                                         >
                                                             <span class="price"
-                                                                >$18,995</span
+                                                                >KES
+                                                                18,995</span
                                                             >
                                                             <span class="speed"
                                                                 >52,000 KM</span
                                                             >
                                                         </div>
                                                         <div class="txt3">
-                                                            Used • {{ item.year }} •
-                                                            Automatic • {{ item.color }} •
+                                                            Used •
+                                                            {{ item.year }} •
+                                                            Automatic •
+                                                            {{ item.color }} •
                                                             Diesel
                                                         </div>
                                                     </div>
@@ -75,15 +96,25 @@
                             <div class="col-sm-12 col-md-3">
                                 <ul class="ul1">
                                     <li>
-                                        <a href="#">All manufacturers</a>
+                                        <a  
+                                        style="cursor: pointer"
+                                        @click="
+                                                getCarsByBrand()
+                                            ">All manufacturers</a>
                                     </li>
-                                    <li><a href="#">BENZO</a></li>
-                                    <li><a href="#">TOYOTA</a></li>
-                                    <li><a href="#">RANGE ROVER</a></li>
-                                    <li><a href="#">MITSUBISHI</a></li>
-                                    <li><a href="#">LAND ROVER</a></li>
-                                    <li><a href="#">FORD</a></li>
-                                    <li><a href="#">JEEP</a></li>
+                                    <!-- at click create an asyncronous function -->
+                                    <li
+                                        v-for="(car_brand, index) in car_brands"
+                                        :key="index"
+                                    >
+                                        <a
+                                            style="cursor: pointer"
+                                            @click="
+                                                getCarsByBrand(car_brand.id)
+                                            "
+                                            >{{ car_brand.name }}</a
+                                        >
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -95,7 +126,42 @@
 </template>
 
 <script>
+import { reactive, onMounted } from "vue";
+
 export default {
-    props: ["cars"],
+    props: ["cars", "car_brands"],
+    setup(props) {
+        const state = reactive({
+            car_list: [],
+            loading: false,
+        });
+
+        onMounted(() => {
+            state.car_list = props.cars.data;
+        });
+
+        const getCarsByBrand = async (id = null) => {
+            try {
+                state.loading = true;
+                const response = await axios.get(
+                    route("landing_page", { brand: id })
+                );
+                console.log(response);
+                state.car_list = response.data.cars.data;
+                
+            } catch (error) {
+                console.error("Error fetching cars by brand:", error);
+            }
+            setTimeout(() => {
+                state.loading = false;
+            }, 1000);
+            // state.loading = false;
+        };
+
+        return {
+            state,
+            getCarsByBrand,
+        };
+    },
 };
 </script>
