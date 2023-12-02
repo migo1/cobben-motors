@@ -1,0 +1,177 @@
+{
+  "_Customer-5b639835.js": {
+    "file": "assets/Customer-5b639835.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_Vertical-7bc4202c.js": {
+    "file": "assets/Vertical-7bc4202c.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/Pages/CarBrands/Index.css": {
+    "file": "assets/Index-d4b68c0a.css",
+    "src": "resources/js/Pages/CarBrands/Index.css"
+  },
+  "resources/js/Pages/CarBrands/Index.vue": {
+    "css": [
+      "assets/Index-d4b68c0a.css"
+    ],
+    "file": "assets/Index-782a9240.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Vertical-7bc4202c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/CarBrands/Index.vue"
+  },
+  "resources/js/Pages/CarModels/Index.css": {
+    "file": "assets/Index-89d0f4fa.css",
+    "src": "resources/js/Pages/CarModels/Index.css"
+  },
+  "resources/js/Pages/CarModels/Index.vue": {
+    "css": [
+      "assets/Index-89d0f4fa.css"
+    ],
+    "file": "assets/Index-da2be4c5.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Vertical-7bc4202c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/CarModels/Index.vue"
+  },
+  "resources/js/Pages/Cars/Index.css": {
+    "file": "assets/Index-d96c4745.css",
+    "src": "resources/js/Pages/Cars/Index.css"
+  },
+  "resources/js/Pages/Cars/Index.vue": {
+    "css": [
+      "assets/Index-d96c4745.css"
+    ],
+    "file": "assets/Index-73ddb1ff.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Vertical-7bc4202c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Cars/Index.vue"
+  },
+  "resources/js/Pages/Cars/Show.vue": {
+    "file": "assets/Show-25cf5af9.js",
+    "imports": [
+      "_Vertical-7bc4202c.js",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Cars/Show.vue"
+  },
+  "resources/js/Pages/Home.vue": {
+    "file": "assets/Home-63a5e7f2.js",
+    "imports": [
+      "_Vertical-7bc4202c.js",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Home.vue"
+  },
+  "resources/js/Pages/LandingPage/CarDetail.vue": {
+    "file": "assets/CarDetail-1653c8af.js",
+    "imports": [
+      "_Customer-5b639835.js",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/LandingPage/CarDetail.vue"
+  },
+  "resources/js/Pages/LandingPage/Index.css": {
+    "file": "assets/Index-e82b4f6e.css",
+    "src": "resources/js/Pages/LandingPage/Index.css"
+  },
+  "resources/js/Pages/LandingPage/Index.vue": {
+    "css": [
+      "assets/Index-e82b4f6e.css"
+    ],
+    "file": "assets/Index-e97640cb.js",
+    "imports": [
+      "_Customer-5b639835.js",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/LandingPage/Index.vue"
+  },
+  "resources/js/Pages/LandingPage/OurCars.vue": {
+    "file": "assets/OurCars-fdef1500.js",
+    "imports": [
+      "_Customer-5b639835.js",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/LandingPage/OurCars.vue"
+  },
+  "resources/js/Pages/Login.css": {
+    "file": "assets/Login-4d2e656e.css",
+    "src": "resources/js/Pages/Login.css"
+  },
+  "resources/js/Pages/Login.vue": {
+    "css": [
+      "assets/Login-4d2e656e.css"
+    ],
+    "file": "assets/Login-7963a4f3.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Login.vue"
+  },
+  "resources/js/Pages/Roles/index.vue": {
+    "file": "assets/index-bb0bc8d2.js",
+    "imports": [
+      "_Vertical-7bc4202c.js",
+      "resources/js/app.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Roles/index.vue"
+  },
+  "resources/js/Pages/Users/Index.vue": {
+    "file": "assets/Index-76c90027.js",
+    "imports": [
+      "resources/js/app.js",
+      "_Vertical-7bc4202c.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Users/Index.vue"
+  },
+  "resources/js/app.css": {
+    "file": "assets/app-4e3303eb.css",
+    "src": "resources/js/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-4e3303eb.css"
+    ],
+    "dynamicImports": [
+      "resources/js/Pages/CarBrands/Index.vue",
+      "resources/js/Pages/CarModels/Index.vue",
+      "resources/js/Pages/Cars/Index.vue",
+      "resources/js/Pages/Cars/Show.vue",
+      "resources/js/Pages/Home.vue",
+      "resources/js/Pages/LandingPage/CarDetail.vue",
+      "resources/js/Pages/LandingPage/Index.vue",
+      "resources/js/Pages/LandingPage/OurCars.vue",
+      "resources/js/Pages/Login.vue",
+      "resources/js/Pages/Roles/index.vue",
+      "resources/js/Pages/Users/Index.vue"
+    ],
+    "file": "assets/app-8fe746da.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-041e359a.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
+  }
+}
