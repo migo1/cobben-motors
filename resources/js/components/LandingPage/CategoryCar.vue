@@ -27,69 +27,7 @@
                                         v-for="(item, index) in state.car_list"
                                         :key="index"
                                     >
-                                        <div class="col-sm-4">
-                                            <div class="thumb2">
-                                                <div class="thumbnail clearfix">
-                                                    <figure>
-                                                        <a
-                                                            :href="
-                                                                route(
-                                                                    'car_select',
-                                                                    {
-                                                                        car: item.slug,
-                                                                    }
-                                                                )
-                                                            "
-                                                        >
-                                                            <img
-                                                                :src="
-                                                                    item.thumbnail
-                                                                "
-                                                                alt=""
-                                                                class="img-responsive"
-                                                                style="
-                                                                    max-width: 270px;
-                                                                    max-height: 150px;
-                                                                    object-fit: contain;
-                                                                "
-                                                            />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="caption">
-                                                        <div class="txt1">
-                                                            REGISTERED 2023
-                                                        </div>
-                                                        <div class="txt2">
-                                                            {{
-                                                                item.car_brand
-                                                                    .name +
-                                                                " " +
-                                                                item.car_model
-                                                                    .name
-                                                            }}
-                                                        </div>
-                                                        <div
-                                                            class="info clearfix"
-                                                        >
-                                                            <span class="price"
-                                                                >KES
-                                                                18,995</span
-                                                            >
-                                                            <span class="speed"
-                                                                >52,000 KM</span
-                                                            >
-                                                        </div>
-                                                        <div class="txt3">
-                                                            Used •
-                                                            {{ item.year }} •
-                                                            Automatic •
-                                                            {{ item.color }} •
-                                                            Diesel
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <SingleCategoryCar :item="item" />
                                     </div>
                                 </div>
                             </div>
@@ -102,18 +40,14 @@
                                                 getCarsByBrand()
                                             ">All manufacturers</a>
                                     </li>
-                                    <!-- at click create an asyncronous function -->
                                     <li
                                         v-for="(car_brand, index) in car_brands"
                                         :key="index"
                                     >
-                                        <a
-                                            style="cursor: pointer"
-                                            @click="
-                                                getCarsByBrand(car_brand.id)
-                                            "
-                                            >{{ car_brand.name }}</a
-                                        >
+                                        <BrandList
+                                            :car_brand="car_brand"
+                                            :getCarsByBrand="getCarsByBrand"
+                                        />
                                     </li>
                                 </ul>
                             </div>
@@ -127,9 +61,15 @@
 
 <script>
 import { reactive, onMounted } from "vue";
+import SingleCategoryCar from "./SingleCategoryCar.vue";
+import BrandList from "./BrandList.vue";
 
 export default {
     props: ["cars", "car_brands"],
+    components: {
+        SingleCategoryCar,
+        BrandList
+    },
     setup(props) {
         const state = reactive({
             car_list: [],
@@ -155,7 +95,6 @@ export default {
             setTimeout(() => {
                 state.loading = false;
             }, 1000);
-            // state.loading = false;
         };
 
         return {

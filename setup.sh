@@ -1,5 +1,8 @@
 sudo apt-get update
+sudo apt-get install emacs25
 
+sudo apt-get install -y python-software-properties
+sudo apt-get -y install software-properties-common
 sudo add-apt-repository -y ppa:ondrej/php
 
 sudo apt-get -y install libapache2-mod-php8.2
