@@ -6,6 +6,8 @@ use App\Http\Resources\CarResource;
 use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarModel;
+use App\Models\Condition;
+use App\Models\Fuel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
@@ -23,6 +25,10 @@ class CarController extends Controller
         $carBrands = CarBrand::all();
 
         $carModels = CarModel::all();
+
+        $conditions = Condition::all();
+
+        $fuels = Fuel::all();
 
         $search = $request->search;
 
@@ -45,6 +51,8 @@ class CarController extends Controller
             'cars' => CarResource::collection($data)->response()->getData(true),
             'car_brands' => $carBrands,
             'car_models' => $carModels,
+            'conditions' => $conditions,
+            'fuels' => $fuels,
         ]);
 
     }
@@ -70,6 +78,8 @@ class CarController extends Controller
                 'car_model_id' => 'required',
                 'color' => 'required',
                 'year' => 'required',
+                'fuel_id' => 'required',
+                'condition_id' => 'required',
             ]
         );
 
@@ -81,6 +91,8 @@ class CarController extends Controller
         $car = new Car();
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
+        $car->fuel_id = $request->input('fuel_id');
+        $car->condition_id = $request->input('condition_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
 
@@ -155,6 +167,8 @@ class CarController extends Controller
         // $car = Car::find($id);
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
+        $car->fuel_id = $request->input('fuel_id');
+        $car->condition_id = $request->input('condition_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
