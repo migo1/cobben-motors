@@ -212,6 +212,7 @@
                                                         onload: handleFilePondCarsLoad,
                                                         //   onerror: () => {}
                                                     },
+                                                    revert: handleRevertCarsImage,
                                                 }"
                                                 v-bind:files="state.myCars"
                                                 v-on:init="
@@ -306,6 +307,13 @@ export default {
             console.log(state.form.cars_display);
         };
 
+        let removeCarsImage = (image) => {
+         let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
+                arr.remove(image);
+                state.form.cars_display = arr.join('|');
+                console.log(state.form.cars_display);
+        };
+
         let handleFilePondInit = () => {};
 
         let handleFilePondCarsInit = () => {};
@@ -314,9 +322,19 @@ export default {
             state.form.thumbnail = response;
         };
 
+        let handleRevertCarsImage = (uniqueId, load, error) => {
+            removeCarsImage(uniqueId);
+            axios.post('/admin/temp-cars-revert', {
+                cars_display: uniqueId,
+            });
+            // state.form.logo = "";
+            load();
+        };
+
         let handleFilePondCarsLoad = (response) => {
             // state.form.cars_display = response;
             addCarsImage(response);
+            return response;
         };
 
         watch(() => state.form.car_brand_id, loadCarModels);
@@ -330,9 +348,20 @@ export default {
             handleFilePondInit,
             handleFilePondCarsLoad,
             handleFilePondCarsInit,
+            handleRevertCarsImage
         };
     },
 };
+    Array.prototype.remove = function() {
+        var what, a = arguments, L = a.length, ax;
+        while (L && this.length) {
+            what = a[--L];
+            while ((ax = this.indexOf(what)) !== -1) {
+                this.splice(ax, 1);
+            }
+        }
+        return this;
+    };
 </script>
 
 <style scoped>

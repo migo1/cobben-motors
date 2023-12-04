@@ -230,5 +230,25 @@ class CarController extends Controller
         };
         return '';
     }
+
+       public function revertImage(Request $request)
+    {
+        if ($cars_display = $request->get('cars_display')) {
+            $carImages = $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
+
+            foreach ($carImages as $carImage) {
+                $path = storage_path('app/public/' .$carImage);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+            }
+
+            // $path = storage_path('app/public/' .$cars_display);
+            // if (file_exists($path)) {
+            //     unlink($path);
+            // }
+
+        };
+    }
     
 }
