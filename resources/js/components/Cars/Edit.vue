@@ -277,6 +277,7 @@ export default {
 
         let loadCarModels = async () => {
             if (state.form.car_brand_id) {
+                state.form.car_model_id = "";
                 try {
                     const response = await fetch(
                         `/admin/car_brand_models?car_brand_id=${state.form.car_brand_id}`

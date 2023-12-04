@@ -60,34 +60,26 @@
                     >
                         <div class="sidebar-form-wrapper">
                             <div class="sidebar-form">
-                                <form action="javascript:;" class="form2">
+                                <form class="form2" @submit.prevent="searchFun">
                                     <div class="select1_wrapper">
                                         <label>SELECT A MANUFACTURER</label>
                                         <div class="select1_inner">
                                             <select
-                                                class="select2 select"
-                                                style="width: 100%"
+                                                class=""
+                                                style="width: 100%;padding:10px"
+                                                v-model="state.filter.car_brand_id"
+                                               @change="loadCarModels"
                                             >
-                                                <option value="1">
+                                                <option value="">
                                                     Any Make
                                                 </option>
-                                                <option value="2">
-                                                    Car Brand 1
-                                                </option>
-                                                <option value="3">
-                                                    Car Brand 2
-                                                </option>
-                                                <option value="4">
-                                                    Car Brand 3
-                                                </option>
-                                                <option value="5">
-                                                    Car Brand 4
-                                                </option>
-                                                <option value="6">
-                                                    Car Brand 5
-                                                </option>
-                                                <option value="7">
-                                                    Car Brand 6
+                                                <option
+                                                    v-for="(car_brand, index) in car_brands"
+                                                    :key="index"
+                                                    :value="car_brand.id"
+                                                    
+                                                >
+                                                    {{ car_brand.name }}
                                                 </option>
                                             </select>
                                         </div>
@@ -97,156 +89,93 @@
                                         <label>SELECT A MODEL</label>
                                         <div class="select1_inner">
                                             <select
-                                                class="select2 select"
-                                                style="width: 100%"
+                                                class=""
+                                                style="width: 100%;padding:10px"
+                                                v-model="state.filter.car_model_id"
                                             >
-                                                <option value="1">
+                                                <option value="">
                                                     Any Model
                                                 </option>
-                                                <option value="2">
-                                                    Car Model 1
-                                                </option>
-                                                <option value="3">
-                                                    Car Model 2
-                                                </option>
-                                                <option value="4">
-                                                    Car Model 3
-                                                </option>
-                                                <option value="5">
-                                                    Car Model 4
-                                                </option>
-                                                <option value="6">
-                                                    Car Model 5
-                                                </option>
-                                                <option value="7">
-                                                    Car Model 6
+                                                <option
+                                                    v-for="(car_model, index) in state.carModels"
+                                                    :key="index"
+                                                    :value="car_model.id"
+                                                >
+                                                    {{ car_model.name }}
                                                 </option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="select1_wrapper">
-                                        <label>SELECT A TYPE</label>
-                                        <div class="select1_inner">
-                                            <select
-                                                class="select2 select"
-                                                style="width: 100%"
-                                            >
-                                                <option value="1">
-                                                    Any Type
-                                                </option>
-                                                <option value="2">
-                                                    Type 1
-                                                </option>
-                                                <option value="3">
-                                                    Type 2
-                                                </option>
-                                                <option value="4">
-                                                    Type 3
-                                                </option>
-                                                <option value="5">
-                                                    Type 4
-                                                </option>
-                                                <option value="6">
-                                                    Type 5
-                                                </option>
-                                                <option value="7">
-                                                    Type 6
-                                                </option>
-                                            </select>
-                                        </div>
+                                        <label>MIN PRICE</label>
+
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            name="min_price"
+                                            v-model="state.filter.min_price"
+                                            placeholder="Min Price"
+                                            style="
+                                                border-radius: 0px;
+                                                border: 1px solid #c7bebe;
+                                                box-shadow: none;
+                                                color: #000;
+                                            "
+                                        />
                                     </div>
 
                                     <div class="select1_wrapper">
-                                        <label>SELECT A STATUS</label>
-                                        <div class="select1_inner">
-                                            <select
-                                                class="select2 select"
-                                                style="width: 100%"
-                                            >
-                                                <option value="1">
-                                                    Any Status
-                                                </option>
-                                                <option value="2">
-                                                    Status 1
-                                                </option>
-                                                <option value="3">
-                                                    Status 2
-                                                </option>
-                                                <option value="4">
-                                                    Status 3
-                                                </option>
-                                                <option value="5">
-                                                    Status 4
-                                                </option>
-                                                <option value="6">
-                                                    Status 5
-                                                </option>
-                                                <option value="7">
-                                                    Status 6
-                                                </option>
-                                            </select>
-                                        </div>
+                                        <label>MAX PRICE</label>
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            name="max_price"
+                                            v-model="state.filter.max_price"
+                                            placeholder="Max Price"
+                                            style="
+                                                border-radius: 0px;
+                                                border: 1px solid #c7bebe;
+                                                box-shadow: none;
+                                                color: #000;
+                                            "
+                                        />
                                     </div>
 
                                     <div class="select1_wrapper">
-                                        <label>SELECT A MIN YEAR</label>
-                                        <div class="select1_inner">
-                                            <select
-                                                class="select2 select"
-                                                style="width: 100%"
-                                            >
-                                                <option value="1">
-                                                    Min Year
-                                                </option>
-                                                <option value="2">2018</option>
-                                                <option value="3">2017</option>
-                                                <option value="4">2016</option>
-                                                <option value="5">2015</option>
-                                                <option value="6">2014</option>
-                                                <option value="7">2013</option>
-                                            </select>
-                                        </div>
+                                        <label>MIN YEAR</label>
+
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            name="min_year"
+                                            v-model="state.filter.min_year"
+                                            placeholder="Min Year"
+                                            style="
+                                                border-radius: 0px;
+                                                border: 1px solid #c7bebe;
+                                                box-shadow: none;
+                                                color: #000;
+                                            "
+                                        />
                                     </div>
 
                                     <div class="select1_wrapper">
-                                        <label>SELECT A MAX YEAR</label>
-                                        <div class="select1_inner">
-                                            <select
-                                                class="select2 select"
-                                                style="width: 100%"
-                                            >
-                                                <option value="1">
-                                                    Max Year
-                                                </option>
-                                                <option value="2">2018</option>
-                                                <option value="3">2017</option>
-                                                <option value="4">2016</option>
-                                                <option value="5">2015</option>
-                                                <option value="6">2014</option>
-                                                <option value="7">2013</option>
-                                            </select>
-                                        </div>
+                                        <label>MAX YEAR</label>
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            name="max_year"
+                                            v-model="state.filter.max_year"
+                                            placeholder="Max Year"
+                                            style="
+                                                border-radius: 0px;
+                                                border: 1px solid #c7bebe;
+                                                box-shadow: none;
+                                                color: #000;
+                                            "
+                                        />
                                     </div>
-
-                                    <!-- <div id="slider-range-wrapper">
-                                        <div class="txt">PRICE RANGE</div>
-
-                                        <div id="slider-range"></div>
-
-                                        <div class="clearfix">
-                                            <input
-                                                type="text"
-                                                id="amount"
-                                                readonly
-                                            />
-                                            <input
-                                                type="text"
-                                                id="amount2"
-                                                readonly
-                                            />
-                                        </div>
-                                    </div> -->
 
                                     <button
                                         type="submit"
@@ -261,7 +190,7 @@
                     <div
                         class="col-sm-12 col-md-9 col-md-push-9-l column-content"
                     >
-                       <OurCarsListVue :cars="cars"/> 
+                        <OurCarsListVue :cars="cars" />
                     </div>
                 </div>
             </div>
@@ -271,12 +200,60 @@
 <script>
 import CustomerLayout from "../../Shared/Layouts/Customer.vue";
 import OurCarsListVue from "../../components/LandingPage/OurCarsList.vue";
+import { reactive, watch } from "vue";
+import { router } from "@inertiajs/vue3";
 
 export default {
     layout: CustomerLayout,
     components: {
         OurCarsListVue,
     },
-    props: ["cars"],
+    props: ["cars", "car_brands"],
+
+    setup() {
+        const state = reactive({
+            filter: {
+                car_brand_id: "",
+                car_model_id: "",
+                min_price: "",
+                max_price: "",
+                min_year: "",
+                max_year: "",
+            },
+            carModels: [],
+        });
+
+        let loadCarModels = async () => {
+            if (state.filter.car_brand_id) {
+                state.filter.car_model_id = "";
+                try {
+                    const response = await fetch(
+                        `/car_brand_models?car_brand_id=${state.filter.car_brand_id}`
+                    );
+                    const data = await response.json();
+                    state.carModels = data;
+                } catch (error) {
+                    console.error("Error fetching car models:", error);
+                }
+            } else {
+                state.carModels = [];
+            }
+        };
+
+           let searchFun = async () => {
+            await router.get(route("our_cars"), state.filter, {
+                preserveState: true,
+            });
+        };
+        watch(() => state.filter.car_brand_id, loadCarModels);
+
+        return { state, loadCarModels, searchFun };
+    },
 };
 </script>
+<style scoped>
+ .select1_inner:after {
+    content: '';
+    display: none;
+}
+</style>
