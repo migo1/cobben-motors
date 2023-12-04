@@ -20,10 +20,10 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-9">
                                 <div class="row">
-                                <div v-if="state.loading">
-                                loading...
-                                </div>
-                                    <div v-else
+                                   <DefaultSingleCategoryCar v-if="state.loading" v-for="index in 6" />
+                                    <!-- <div v-if="state.loading">loading...</div> -->
+                                    <div
+                                        v-else
                                         v-for="(item, index) in state.car_list"
                                         :key="index"
                                     >
@@ -34,11 +34,11 @@
                             <div class="col-sm-12 col-md-3">
                                 <ul class="ul1">
                                     <li>
-                                        <a  
-                                        style="cursor: pointer"
-                                        @click="
-                                                getCarsByBrand()
-                                            ">All manufacturers</a>
+                                        <a
+                                            style="cursor: pointer"
+                                            @click="getCarsByBrand()"
+                                            >All manufacturers</a
+                                        >
                                     </li>
                                     <li
                                         v-for="(car_brand, index) in car_brands"
@@ -62,13 +62,15 @@
 <script>
 import { reactive, onMounted } from "vue";
 import SingleCategoryCar from "./SingleCategoryCar.vue";
+import DefaultSingleCategoryCar from "./DefaultSingleCategoryCar.vue";
 import BrandList from "./BrandList.vue";
 
 export default {
     props: ["cars", "car_brands"],
     components: {
         SingleCategoryCar,
-        BrandList
+        BrandList,
+        DefaultSingleCategoryCar,
     },
     setup(props) {
         const state = reactive({
@@ -88,7 +90,6 @@ export default {
                 );
                 console.log(response);
                 state.car_list = response.data.cars.data;
-                
             } catch (error) {
                 console.error("Error fetching cars by brand:", error);
             }
@@ -104,3 +105,4 @@ export default {
     },
 };
 </script>
+
