@@ -21,7 +21,6 @@
                             <div class="col-sm-12 col-md-9">
                                 <div class="row">
                                    <DefaultSingleCategoryCar v-if="state.loading" v-for="index in 6" />
-                                    <!-- <div v-if="state.loading">loading...</div> -->
                                     <div
                                         v-else
                                         v-for="(item, index) in state.car_list"
@@ -88,7 +87,6 @@ export default {
                 const response = await axios.get(
                     route("landing_page", { brand: id })
                 );
-                console.log(response);
                 state.car_list = response.data.cars.data;
             } catch (error) {
                 console.error("Error fetching cars by brand:", error);

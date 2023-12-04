@@ -9,11 +9,11 @@
         </div>
         <div class="detail-text">
             <p class="status skeleton"></p>
-            •
+            
             <p class="status skeleton"></p>
-            •
+            
             <p class="status skeleton"></p>
-            •
+            
             <p class="status skeleton"></p>
         </div>
         <hr class="skeleton"/>
@@ -32,13 +32,13 @@ export default {
 }
 
 .skeleton {
-    background-color: #ccc;
-    animation: skeleton-loading 1s linear infinite alternate;
+    background-color: #e0e0e0;
+    animation: skeleton-loading 0.5s linear infinite alternate;
 }
 
 @keyframes skeleton-loading {
     0% {
-        opacity: 0.3;
+        opacity: 0.5;
     }
     100% {
         opacity: 1;
