@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="pager_wrapper">
+            <!-- <div class="pager_wrapper">
                 <ul class="pager clearfix">
                     <li class="prev"><a href="#"></a></li>
                     <li class="active">
@@ -84,7 +84,7 @@
                     <li class="dots">....</li>
                     <li class="next"><a href="#"></a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>

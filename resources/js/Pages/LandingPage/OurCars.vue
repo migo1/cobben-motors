@@ -47,7 +47,7 @@
         <div class="breadcrumbs1_wrapper">
             <div class="container">
                 <div class="breadcrumbs1">
-                    <a href="index.html">Home</a><span></span>Search Results
+                    <a href="#">Home</a><span></span>Search Results
                 </div>
             </div>
         </div>
