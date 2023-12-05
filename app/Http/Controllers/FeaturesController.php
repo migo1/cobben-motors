@@ -4,33 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Feature;
 
 class FeaturesController extends Controller
 {
     public function addFeatures(Request $request)
     {
-
-        // dd($request->all());
-
-
         $car = Car::find($request->car_id);
+        if($car->features->isEmpty()) {
 
-        $features = $request->features;
 
-        $features->each(function($feature) use ($car) {
-            dd($feature);
-            // $car->features()->create([
-            //     'name' => $feature['name'],
-            //     'value' => $feature['value'],
-            // ]);
-        });
-
-            if($car->features) {
-                foreach($car->features as $feature) {
-                    dd($feature);
-                }
+            foreach ($request->input('features') as $featureData) {
+                $feature = new Feature([
+                    'car_id' => $car->id,
+                    'feature' => $featureData['value'],
+                ]);
+                $feature->save();
             }
-        
+        } else {
+            foreach($car->features as $feature) {
+                $feature->delete();
+            }
+
+
+        }
+
         // $car->features()->sync($request->features);
 
         // $car = Car::find($request->car_id);
@@ -42,17 +40,16 @@ class FeaturesController extends Controller
         // $car = Car::find($request->car_id);
         // $car->features()->syncWithoutDetaching($request->features);
 
-        
-$car = Car::find($request->car_id);
 
-$car->features()->createMany($request->features);
+        // $car = Car::find($request->car_id);
 
-return response()->json([
-    'message' => 'Features added successfully',
-], 200);
+        // $car->features()->createMany($request->features);
+
+        return redirect()->back()->with('success', 'Car Feature created successfully');
 
 
 
-  
+
+
     }
 }

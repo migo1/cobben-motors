@@ -9,6 +9,11 @@ class Feature extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'car_id',
+        'feature',
+    ];
+
     public function car()
     {
         return $this->belongsTo(Car::class);
