@@ -36,7 +36,7 @@
                                     <feather type="plus"></feather>
                                 </button>
                                 <div class="btn-group dropstart float-right">
-                        
+
                                 </div>
                                 <button
                                     class="btn btn-outline-primary float-right mr-1 btn-sm"
@@ -152,7 +152,7 @@
 
                                                         <span>Delete</span>
                                                     </a>
-                                                    
+
                                                 </div>
                                             </div>
                                         </td>

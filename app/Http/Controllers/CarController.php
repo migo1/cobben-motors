@@ -37,14 +37,14 @@ class CarController extends Controller
         $data = Car::with(['carBrand', 'carModel'])->when($search, function ($query) use ($search) {
             return $query->where(function ($q) use ($search) {
                 return $q->where('year', 'LIKE', '%' . $search . '%')
-                ->orwhere('color', 'LIKE', '%' . $search . '%');
+                    ->orwhere('color', 'LIKE', '%' . $search . '%');
             });
         })->when($brand, function ($query) use ($brand) {
             return $query->where('car_brand_id', $brand);
         })
-        ->orderBy('id', 'DESC')
-        ->paginate(10)
-        ->withQueryString();
+            ->orderBy('id', 'DESC')
+            ->paginate(10)
+            ->withQueryString();
 
 
         return Inertia::render('Cars/Index', [
@@ -54,7 +54,6 @@ class CarController extends Controller
             'conditions' => $conditions,
             'fuels' => $fuels,
         ]);
-
     }
 
     /**
@@ -106,13 +105,12 @@ class CarController extends Controller
             Log::info($request->thumbnail);
             $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
             Storage::disk('local')->delete('uploads/thumbnails' . $request->thumbnail);
-
         }
 
         if ($request->has('cars_display')) {
 
-          $images =  $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
-          Log::info($images);
+            $images =  $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
+            Log::info($images);
             foreach ($images as $image) {
                 $car->addMedia(storage_path('app/public/' . $image))->toMediaCollection('cars_display');
                 Storage::disk('local')->delete('uploads/temp_cars' . $image);
@@ -134,7 +132,6 @@ class CarController extends Controller
         return Inertia::render('Cars/Show', [
             'car' => $car,
         ]);
-
     }
 
     /**
@@ -150,7 +147,6 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        dd($request->all());
         $this->validate(
             $request,
             [
@@ -174,7 +170,9 @@ class CarController extends Controller
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
         $car->update();
 
-
+        if ($request->has('deleted_from_collection')) {
+            Media::whereIn('id', $request->deleted_from_collection)->delete();
+        }
 
         if ($request->has('thumbnail')) {
             $car->clearMediaCollection('thumbnails');
@@ -205,7 +203,6 @@ class CarController extends Controller
         $carModels = CarModel::where('car_brand_id', $carBrandId)->get();
 
         return response()->json($carModels);
-
     }
 
     public function uploadThumbnail(Request $request)
@@ -231,13 +228,13 @@ class CarController extends Controller
         return '';
     }
 
-       public function revertImage(Request $request)
+    public function revertImage(Request $request)
     {
         if ($cars_display = $request->get('cars_display')) {
             $carImages = $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
 
             foreach ($carImages as $carImage) {
-                $path = storage_path('app/public/' .$carImage);
+                $path = storage_path('app/public/' . $carImage);
                 if (file_exists($path)) {
                     unlink($path);
                 }
@@ -250,5 +247,4 @@ class CarController extends Controller
 
         };
     }
-    
 }
