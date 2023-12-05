@@ -3,7 +3,7 @@
         <div class="top3-wrapper">
             <div class="container">
                 <div class="top3 clearfix">
-                    <div class="tabs-wrapper">
+                    <!-- <div class="tabs-wrapper">
                         <div class="txt">SELECT VIEW</div>
                         <div class="tabs1-wrapper">
                             <ul
@@ -22,9 +22,9 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="sort-wrapper">
+                    <!-- <div class="sort-wrapper">
                         <div class="txt">sort by</div>
                         <div class="select1_wrapper">
                             <label>Sort</label>
@@ -39,7 +39,7 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
