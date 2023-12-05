@@ -10,16 +10,31 @@ class FeaturesController extends Controller
     public function addFeatures(Request $request)
     {
 
-        dd($request->all());
-        // i want to add or update the features based on the car_id
-        // if the car_id exists, then update the features
-        // if the car_id does not exist, then create the features
+        // dd($request->all());
 
-        $car = Car::find($request->car_id);  
-        $car->features()->sync($request->features);
 
         $car = Car::find($request->car_id);
-        $car->features()->syncWithoutDetaching($request->features);
+
+        $features = $request->features;
+
+        $features->each(function($feature) use ($car) {
+            dd($feature);
+            // $car->features()->create([
+            //     'name' => $feature['name'],
+            //     'value' => $feature['value'],
+            // ]);
+        });
+
+            if($car->features) {
+                foreach($car->features as $feature) {
+                    dd($feature);
+                }
+            }
+        
+        // $car->features()->sync($request->features);
+
+        // $car = Car::find($request->car_id);
+        // $car->features()->syncWithoutDetaching($request->features);
 
         // $car = Car::find($request->car_id);
         // $car->features()->syncWithoutDetaching($request->features);

@@ -114,7 +114,7 @@ export default {
 
         let addFeature = () => {
             console.log(state.form);
-            var submitdata = useForm({features :state.form, car_id: state.car_id});
+            var submitdata = useForm({features :state.form.fields, car_id: state.car_id});
             submitdata.post(route("cars.add_features"));
             $("#addFeature").modal("toggle");
             clearData();
@@ -126,6 +126,7 @@ export default {
 
         const addField = (index) => {
             state.form.fields.splice(index + 1, 0, { value: "" });
+            console.log("car_id",state.car_id);
         };
 
         const removeField = (index) => {
@@ -138,14 +139,14 @@ export default {
         //     }
         // });
 
-         watch(
-            () => state.car_id,
-            (newval) => {
-                if (newval !== null) {
-                    state.car_id = newval;
-                }
-            }
-        );
+        //  watch(
+        //     () => state.car_id,
+        //     (newval) => {
+        //         if (newval !== null) {
+        //             state.car_id = newval;
+        //         }
+        //     }
+        // );
 
         // watch(() => state.form.car_brand_id, loadCarModels);
 

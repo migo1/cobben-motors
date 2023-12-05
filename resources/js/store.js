@@ -54,6 +54,7 @@ const store = createStore({
 
         featureCarIdState(state, data) {
             state.featureCarId = data;
+            console.log(state.featureCarId)
         },
         clearEditData(state) {
             state.editData = null;
