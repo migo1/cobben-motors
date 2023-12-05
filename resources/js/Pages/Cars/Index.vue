@@ -107,17 +107,23 @@
                                                     ></feather>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                  <!-- <Link
+                                                  <a
                                                         class="dropdown-item bg-light-primary"
-                                                        :href="route('cars.show', {car: item.slug})"
+                                                         href="javascript:void(0);"
+                                                         data-toggle="modal"
+                                                        data-target="#addFeature"
+                                                        @click="
+                                                            featureData(
+                                                                item.id
+                                                            )"
                                                     >
                                                         <feather
                                                             type="eye"
                                                             class="mr-50"
                                                         ></feather>
 
-                                                        <span>View</span>
-                                                    </Link> -->
+                                                        <span>Features</span>
+                                                    </a>
                                                     <a
                                                         class="dropdown-item bg-light-warning"
                                                         href="javascript:void(0);"
@@ -172,6 +178,7 @@
         </div>
          <Create :car_brands="car_brands" :conditions="conditions" :fuels="fuels"></Create>
         <Edit :car_brands="car_brands" :conditions="conditions" :fuels="fuels"></Edit>
+        <Feature />
     </div>
 </template>
 
@@ -184,13 +191,15 @@ import MainLayout from "../../Shared/Layouts/Vertical.vue";
 import Search from "../../components/Cars/Search.vue";
 import Create from "../../components/Cars/Create.vue";
 import Edit from "../../components/Cars/Edit.vue";
+import Feature from "../../components/Cars/Feature.vue";
 export default {
     layout: MainLayout,
     components: {
         Search,
         Create,
         Edit,
-        Link
+        Link,
+        Feature,
     },
     props: ["cars","car_models", "car_brands", "fuels", "conditions"],
 
@@ -207,6 +216,10 @@ export default {
         let editFun = (data) => {
             store.commit("editDataState", data);
         };
+
+        let featureData = (car_id) => {
+            store.commit("featureCarIdState", car_id);
+        };
         let toggleSearchForm = () => {
             store.commit("toggleSearch");
         };
@@ -222,7 +235,8 @@ export default {
             getFun,
             editFun,
             toggleSearchForm,
-            deleteFun,
+              deleteFun,
+            featureData,
             state
         };
 

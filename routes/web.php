@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     CarBrandController,
     CarController,
     CarModelController,
+    FeaturesController,
     RolesController,
     HomeController,
     UserController
@@ -53,5 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('upload-temp-cars', [CarController::class, 'uploadTempCars'])->name('cars.upload_temp_cars');
     Route::post('temp-cars-revert', [CarController::class, 'revertImage'])->name('cars.revert_image');
     Route::post(('brand-image-revert'), [CarBrandController::class, 'revertImage'])->name('car_brands.revert_image');
+
+    Route::post('add-features', [FeaturesController::class, 'addFeatures'])->name('cars.add_features');
 
 });
