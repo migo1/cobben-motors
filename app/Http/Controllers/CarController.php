@@ -6,6 +6,8 @@ use App\Http\Resources\CarResource;
 use App\Models\Car;
 use App\Models\CarBrand;
 use App\Models\CarModel;
+use App\Models\Condition;
+use App\Models\Fuel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
@@ -24,6 +26,10 @@ class CarController extends Controller
 
         $carModels = CarModel::all();
 
+        $conditions = Condition::all();
+
+        $fuels = Fuel::all();
+
         $search = $request->search;
 
         $brand = $request->car_brand_id;
@@ -31,22 +37,23 @@ class CarController extends Controller
         $data = Car::with(['carBrand', 'carModel'])->when($search, function ($query) use ($search) {
             return $query->where(function ($q) use ($search) {
                 return $q->where('year', 'LIKE', '%' . $search . '%')
-                ->orwhere('color', 'LIKE', '%' . $search . '%');
+                    ->orwhere('color', 'LIKE', '%' . $search . '%');
             });
         })->when($brand, function ($query) use ($brand) {
             return $query->where('car_brand_id', $brand);
         })
-        ->orderBy('id', 'DESC')
-        ->paginate(10)
-        ->withQueryString();
+            ->orderBy('id', 'DESC')
+            ->paginate(10)
+            ->withQueryString();
 
 
         return Inertia::render('Cars/Index', [
             'cars' => CarResource::collection($data)->response()->getData(true),
             'car_brands' => $carBrands,
             'car_models' => $carModels,
+            'conditions' => $conditions,
+            'fuels' => $fuels,
         ]);
-
     }
 
     /**
@@ -70,6 +77,8 @@ class CarController extends Controller
                 'car_model_id' => 'required',
                 'color' => 'required',
                 'year' => 'required',
+                'fuel_id' => 'required',
+                'condition_id' => 'required',
             ]
         );
 
@@ -81,6 +90,8 @@ class CarController extends Controller
         $car = new Car();
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
+        $car->fuel_id = $request->input('fuel_id');
+        $car->condition_id = $request->input('condition_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
 
@@ -94,13 +105,12 @@ class CarController extends Controller
             Log::info($request->thumbnail);
             $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
             Storage::disk('local')->delete('uploads/thumbnails' . $request->thumbnail);
-
         }
 
         if ($request->has('cars_display')) {
 
-          $images =  $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
-          Log::info($images);
+            $images =  $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
+            Log::info($images);
             foreach ($images as $image) {
                 $car->addMedia(storage_path('app/public/' . $image))->toMediaCollection('cars_display');
                 Storage::disk('local')->delete('uploads/temp_cars' . $image);
@@ -122,7 +132,6 @@ class CarController extends Controller
         return Inertia::render('Cars/Show', [
             'car' => $car,
         ]);
-
     }
 
     /**
@@ -154,13 +163,15 @@ class CarController extends Controller
         // $car = Car::find($id);
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
+        $car->fuel_id = $request->input('fuel_id');
+        $car->condition_id = $request->input('condition_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
         $car->update();
 
-        if($request->has('deleted_from_collection')){
-            Media::whereIn('id',$request->deleted_from_collection)->delete();
+        if ($request->has('deleted_from_collection')) {
+            Media::whereIn('id', $request->deleted_from_collection)->delete();
         }
 
         if ($request->has('thumbnail')) {
@@ -192,7 +203,6 @@ class CarController extends Controller
         $carModels = CarModel::where('car_brand_id', $carBrandId)->get();
 
         return response()->json($carModels);
-
     }
 
     public function uploadThumbnail(Request $request)
@@ -218,4 +228,23 @@ class CarController extends Controller
         return '';
     }
 
+    public function revertImage(Request $request)
+    {
+        if ($cars_display = $request->get('cars_display')) {
+            $carImages = $request->get('cars_display') ? explode('|', $request->get('cars_display')) : [];
+
+            foreach ($carImages as $carImage) {
+                $path = storage_path('app/public/' . $carImage);
+                if (file_exists($path)) {
+                    unlink($path);
+                }
+            }
+
+            // $path = storage_path('app/public/' .$cars_display);
+            // if (file_exists($path)) {
+            //     unlink($path);
+            // }
+
+        };
+    }
 }

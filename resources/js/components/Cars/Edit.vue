@@ -105,10 +105,59 @@
                                 </div>
                             </div>
 
+                               <div class="col-12">
+                                <div class="form-group">
+                                    <label>Select Condition</label>
+                                    <select
+                                        class="select2 form-control form-control-lg"
+                                        v-model="state.form.condition_id"
+                                        required
+                                    >
+                                        <option value="" class="first-option">
+                                            --- Conditions ---
+                                        </option>
+                                        <option
+                                            v-for="(
+                                                condition, index
+                                            ) in conditions"
+                                            :value="condition.id"
+                                            :key="index"
+                                        >
+                                            {{ condition.status }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label>Select Fuel Type</label>
+                                    <select
+                                        class="select2 form-control form-control-lg"
+                                        v-model="state.form.fuel_id"
+                                        required
+                                    >
+                                        <option value="" class="first-option">
+                                            --- Fuels ---
+                                        </option>
+                                        <option
+                                            v-for="(
+                                                fuel, index
+                                            ) in fuels"
+                                            :value="fuel.id"
+                                            :key="index"
+                                        >
+                                            {{ fuel.type }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Thumbnail</label>
                                     <file-pond
+                                        required
                                         name="thumbnail"
                                         v-model="state.form.thumbnail"
                                         ref="pond"
@@ -138,8 +187,9 @@
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label>Thumbnail</label>
+                                    <label>Car Images</label>
                                     <file-pond
+                                        required
                                         name="cars_display"
                                         v-model="state.form.cars_display"
                                         ref="pond1"
@@ -189,7 +239,7 @@ import { useForm } from "@inertiajs/vue3";
 import { useStore } from "vuex";
 
 export default {
-    props: ["car_brands", "car_models"],
+    props: ["car_brands", "car_models", "fuels", "conditions"],
     setup() {
         let store = useStore();
         const state = reactive({
@@ -198,6 +248,8 @@ export default {
                 car_model_id: "",
                 thumbnail: "",
                 cars_display: "",
+                fuel_id: "",
+                condition_id: "",
             },
             myFiles: [],
             myThumbnail: [],
@@ -224,6 +276,7 @@ export default {
 
         let loadCarModels = async () => {
             if (state.form.car_brand_id) {
+                state.form.car_model_id = "";
                 try {
                     const response = await fetch(
                         `/admin/car_brand_models?car_brand_id=${state.form.car_brand_id}`

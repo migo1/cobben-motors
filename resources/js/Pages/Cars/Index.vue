@@ -170,8 +170,8 @@
                 </div>
             </div>
         </div>
-         <Create :car_brands="car_brands"></Create>
-        <Edit :car_brands="car_brands"></Edit>
+         <Create :car_brands="car_brands" :conditions="conditions" :fuels="fuels"></Create>
+        <Edit :car_brands="car_brands" :conditions="conditions" :fuels="fuels"></Edit>
     </div>
 </template>
 
@@ -192,7 +192,7 @@ export default {
         Edit,
         Link
     },
-    props: ["cars","car_models", "car_brands"],
+    props: ["cars","car_models", "car_brands", "fuels", "conditions"],
 
     setup() {
    const store = useStore();

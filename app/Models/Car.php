@@ -18,6 +18,8 @@ class Car extends Model implements HasMedia
     protected $fillable = [
         'car_brand_id',
         'car_model_id',
+        'fuel_id',
+        'condition_id',
         'color',
         'year',
     ];

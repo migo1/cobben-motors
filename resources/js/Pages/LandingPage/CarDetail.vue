@@ -210,7 +210,7 @@ Message</textarea
                                         :src="image"
                                         alt=""
                                         class="img-responsive"
-                                        style="width:842px; height: 500px"
+                                        style="width:842px; height: 500px; object-fit:contain;"
                                     />
                                 </li>                          
                             </ul>
@@ -225,7 +225,7 @@ Message</textarea
                                         :src="image"
                                         alt=""
                                         class="img-responsive"
-                                        style="width: 121px; height:90px;"
+                                        style="width: 121px; height:90px;object-fit:contain;"
                                     />
                                 </li>
                          
