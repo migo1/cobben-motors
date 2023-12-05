@@ -144,6 +144,7 @@
                                         v-model="state.form.cars_display"
                                         ref="pond1"
                                         v-bind:allow-multiple="true"
+                                        @removefile="handleFilePondRemove"
                                         accepted-file-types="image/jpeg, image/png"
                                         v-bind:server="{
                                             url: '',
@@ -156,9 +157,7 @@
                                                         $page.props.csrf_token,
                                                 },
                                                 withCredentials: false,
-
                                                 onload: handleMultipleFilePondLoad,
-                                               //  remove: handleFilePondRemove,
                                                 //   onerror: () => {}
                                             },
                                         }"
@@ -219,7 +218,7 @@ export default {
         let clearData = () => {
             state.form = {};
             state.myFiles = [];
-            state.myThumbnail=[];
+            state.myThumbnail = [];
             store.commit("clearEditData");
         };
 
@@ -249,24 +248,27 @@ export default {
         };
 
         let addCarsImage = (image) => {
-            let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
+            let arr = state.form.cars_display
+                ? state.form.cars_display.split("|")
+                : [];
             arr.push(image);
-            state.form.cars_display = arr.join('|');
+            state.form.cars_display = arr.join("|");
             console.log(state.form.cars_display);
         };
 
         let removeCarsImage = (image) => {
-             let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
+            let arr = state.form.cars_display
+                ? state.form.cars_display.split("|")
+                : [];
             arr.remove(image);
-            state.form.cars_display = arr.join('|');
+            state.form.cars_display = arr.join("|");
             console.log(state.form.cars_display);
-        }
-
-        let handleFilePondRemove = (source, load, error) => {
-            removeCarsImage(source.replace(/^\//, ''));
-            load();
         };
-        
+
+        let handleFilePondRemove = (error,file) => {
+            var data =state.form.collection.filter(item => item.path == file.serverId);
+            state.form.deleted_from_collection.push(data[0].id);
+        };
 
         watch(() => state.form.car_brand_id, loadCarModels);
         watch(
@@ -274,6 +276,8 @@ export default {
             (newval) => {
                 if (newval !== null) {
                     state.form = newval;
+                    state.form.deleted_from_collection=[];
+
 
                     state.myThumbnail = [
                         {
@@ -294,11 +298,12 @@ export default {
                         index++
                     ) {
                         collection.push({
-                            source: state.form.collection[index],
+                            source: state.form.collection[index].path,
+                            id:state.form.collection[index].id,
                             options: {
                                 type: "local",
                                 metadata: {
-                                    poster: state.form.collection[index],
+                                    poster: state.form.collection[index].path,
                                 },
                             },
                         });
@@ -316,21 +321,24 @@ export default {
             handleFilePondLoad,
             handleFilePondInit,
             handleMultipleFilePondLoad,
-            handleFilePondRemove
+            handleFilePondRemove,
         };
     },
 };
 
-    Array.prototype.remove = function() {
-        var what, a = arguments, L = a.length, ax;
-        while (L && this.length) {
-            what = a[--L];
-            while ((ax = this.indexOf(what)) !== -1) {
-                this.splice(ax, 1);
-            }
+Array.prototype.remove = function () {
+    var what,
+        a = arguments,
+        L = a.length,
+        ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
         }
-        return this;
-    };
+    }
+    return this;
+};
 </script>
 
 <style scoped>

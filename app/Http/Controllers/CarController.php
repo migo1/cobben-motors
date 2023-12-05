@@ -138,7 +138,6 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        dd($request->all());
         $this->validate(
             $request,
             [
@@ -160,7 +159,9 @@ class CarController extends Controller
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
         $car->update();
 
-
+        if($request->has('deleted_from_collection')){
+            Media::whereIn('id',$request->deleted_from_collection)->delete();
+        }
 
         if ($request->has('thumbnail')) {
             $car->clearMediaCollection('thumbnails');
@@ -216,5 +217,5 @@ class CarController extends Controller
         };
         return '';
     }
-    
+
 }
