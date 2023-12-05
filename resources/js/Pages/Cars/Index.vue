@@ -114,7 +114,7 @@
                                                         data-target="#addFeature"
                                                         @click="
                                                             featureData(
-                                                                item.id
+                                                                item
                                                             )"
                                                     >
                                                         <feather
@@ -217,8 +217,8 @@ export default {
             store.commit("editDataState", data);
         };
 
-        let featureData = (car_id) => {
-            store.commit("featureCarIdState", car_id);
+        let featureData = (car_details) => {
+            store.commit("featureCarIdState", car_details);
         };
         let toggleSearchForm = () => {
             store.commit("toggleSearch");

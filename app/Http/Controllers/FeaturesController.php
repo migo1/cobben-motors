@@ -12,8 +12,6 @@ class FeaturesController extends Controller
     {
         $car = Car::find($request->car_id);
         if($car->features->isEmpty()) {
-
-
             foreach ($request->input('features') as $featureData) {
                 $feature = new Feature([
                     'car_id' => $car->id,
@@ -25,31 +23,16 @@ class FeaturesController extends Controller
             foreach($car->features as $feature) {
                 $feature->delete();
             }
-
-
+            foreach ($request->input('features') as $featureData) {
+                $feature = new Feature([
+                    'car_id' => $car->id,
+                    'feature' => $featureData['value'],
+                ]);
+                $feature->save();
+            }
         }
 
-        // $car->features()->sync($request->features);
-
-        // $car = Car::find($request->car_id);
-        // $car->features()->syncWithoutDetaching($request->features);
-
-        // $car = Car::find($request->car_id);
-        // $car->features()->syncWithoutDetaching($request->features);
-
-        // $car = Car::find($request->car_id);
-        // $car->features()->syncWithoutDetaching($request->features);
-
-
-        // $car = Car::find($request->car_id);
-
-        // $car->features()->createMany($request->features);
-
         return redirect()->back()->with('success', 'Car Feature created successfully');
-
-
-
-
 
     }
 }

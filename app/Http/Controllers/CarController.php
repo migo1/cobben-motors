@@ -34,7 +34,7 @@ class CarController extends Controller
 
         $brand = $request->car_brand_id;
 
-        $data = Car::with(['carBrand', 'carModel'])->when($search, function ($query) use ($search) {
+        $data = Car::with(['carBrand', 'carModel', 'features'])->when($search, function ($query) use ($search) {
             return $query->where(function ($q) use ($search) {
                 return $q->where('year', 'LIKE', '%' . $search . '%')
                     ->orwhere('color', 'LIKE', '%' . $search . '%');

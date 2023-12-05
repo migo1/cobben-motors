@@ -27,7 +27,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form form-vertical"
+                    <form
+                        class="form form-vertical"
                         @submit.prevent="addFeature"
                     >
                         <div class="row">
@@ -51,7 +52,7 @@
 
                                 <div class="col-2 feature-btn">
                                     <a
-                                    href="javascript:void(0);"
+                                        href="javascript:void(0);"
                                         class="btn btn-sm btn-success"
                                         @click="addField(index)"
                                         v-if="
@@ -65,7 +66,7 @@
 
                                 <div class="col-2 feature-btn">
                                     <a
-                                    href="javascript:void(0);"
+                                        href="javascript:void(0);"
                                         class="btn btn-sm btn-danger"
                                         @click="removeField(index)"
                                         v-if="state.form.fields.length > 1"
@@ -104,17 +105,20 @@ export default {
             },
 
             car_id: computed(() => {
-                return store.state.featureCarId;
+                return store.state.featureCar.id;
             }),
 
-            // editdata: computed(() => {
-            //     return store.state.editData;
-            // }),
+            editdata: computed(() => {
+                return store.state.featureCar;
+            }),
         });
 
         let addFeature = () => {
             console.log(state.form);
-            var submitdata = useForm({features :state.form.fields, car_id: state.car_id});
+            var submitdata = useForm({
+                features: state.form.fields,
+                car_id: state.car_id,
+            });
             submitdata.post(route("cars.add_features"));
             $("#addFeature").modal("toggle");
             clearData();
@@ -126,29 +130,27 @@ export default {
 
         const addField = (index) => {
             state.form.fields.splice(index + 1, 0, { value: "" });
-            console.log("car_id",state.car_id);
+            // console.log("car_id",state.car_id);
         };
 
         const removeField = (index) => {
             state.form.fields.splice(index, 1);
         };
 
-        // watch(() => state.car_id, () => {
-        //     if (state.car_id) {
-        //         loadCarFeatures();
-        //     }
-        // });
+   watch(
+    () => state.editdata,
+    (newval) => {
+        if (newval !== null && Array.isArray(newval.features) && newval.features.length > 0) {
+            // console.log("fields", newval.features);
 
-        //  watch(
-        //     () => state.car_id,
-        //     (newval) => {
-        //         if (newval !== null) {
-        //             state.car_id = newval;
-        //         }
-        //     }
-        // );
+            // Assuming newval.features is an array
+            state.form.fields = newval.features.map(featureObj => ({
+                value: featureObj.feature, // Update this line based on the actual structure
+            }));
+        }
+    }
+);
 
-        // watch(() => state.form.car_brand_id, loadCarModels);
 
         return {
             state,

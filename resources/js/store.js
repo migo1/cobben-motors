@@ -16,7 +16,7 @@ const store = createStore({
         displaysearch: false,
         search: false,
         editData: null,
-        featureCarId: null,
+        featureCar: null,
         items: [],
         currentLayout: "",
         pagetext: "",
@@ -53,8 +53,8 @@ const store = createStore({
         },
 
         featureCarIdState(state, data) {
-            state.featureCarId = data;
-            console.log(state.featureCarId)
+            state.featureCar = data;
+            // console.log(state.featureCar);
         },
         clearEditData(state) {
             state.editData = null;
