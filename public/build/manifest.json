@@ -1,12 +1,12 @@
 {
-  "_Customer-5b639835.js": {
-    "file": "assets/Customer-5b639835.js",
+  "_Customer-fb747e9d.js": {
+    "file": "assets/Customer-fb747e9d.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Vertical-7bc4202c.js": {
-    "file": "assets/Vertical-7bc4202c.js",
+  "_Vertical-a8e1a7bb.js": {
+    "file": "assets/Vertical-a8e1a7bb.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -19,10 +19,10 @@
     "css": [
       "assets/Index-d4b68c0a.css"
     ],
-    "file": "assets/Index-782a9240.js",
+    "file": "assets/Index-2b7454b6.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-7bc4202c.js"
+      "_Vertical-a8e1a7bb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/CarBrands/Index.vue"
@@ -35,77 +35,84 @@
     "css": [
       "assets/Index-89d0f4fa.css"
     ],
-    "file": "assets/Index-da2be4c5.js",
+    "file": "assets/Index-d60e1447.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-7bc4202c.js"
+      "_Vertical-a8e1a7bb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/CarModels/Index.vue"
   },
   "resources/js/Pages/Cars/Index.css": {
-    "file": "assets/Index-d96c4745.css",
+    "file": "assets/Index-e5a3e5ca.css",
     "src": "resources/js/Pages/Cars/Index.css"
   },
   "resources/js/Pages/Cars/Index.vue": {
     "css": [
-      "assets/Index-d96c4745.css"
+      "assets/Index-e5a3e5ca.css"
     ],
-    "file": "assets/Index-73ddb1ff.js",
+    "file": "assets/Index-ef9b1d2a.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-7bc4202c.js"
+      "_Vertical-a8e1a7bb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Cars/Index.vue"
   },
   "resources/js/Pages/Cars/Show.vue": {
-    "file": "assets/Show-25cf5af9.js",
+    "file": "assets/Show-e7c66744.js",
     "imports": [
-      "_Vertical-7bc4202c.js",
+      "_Vertical-a8e1a7bb.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Cars/Show.vue"
   },
   "resources/js/Pages/Home.vue": {
-    "file": "assets/Home-63a5e7f2.js",
+    "file": "assets/Home-4fcd8bed.js",
     "imports": [
-      "_Vertical-7bc4202c.js",
+      "_Vertical-a8e1a7bb.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Home.vue"
   },
   "resources/js/Pages/LandingPage/CarDetail.vue": {
-    "file": "assets/CarDetail-1653c8af.js",
+    "file": "assets/CarDetail-da8c483c.js",
     "imports": [
-      "_Customer-5b639835.js",
+      "_Customer-fb747e9d.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/LandingPage/CarDetail.vue"
   },
   "resources/js/Pages/LandingPage/Index.css": {
-    "file": "assets/Index-e82b4f6e.css",
+    "file": "assets/Index-32230a11.css",
     "src": "resources/js/Pages/LandingPage/Index.css"
   },
   "resources/js/Pages/LandingPage/Index.vue": {
     "css": [
-      "assets/Index-e82b4f6e.css"
+      "assets/Index-32230a11.css"
     ],
-    "file": "assets/Index-e97640cb.js",
+    "file": "assets/Index-af73c110.js",
     "imports": [
-      "_Customer-5b639835.js",
+      "_Customer-fb747e9d.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/LandingPage/Index.vue"
   },
+  "resources/js/Pages/LandingPage/OurCars.css": {
+    "file": "assets/OurCars-cad6aec6.css",
+    "src": "resources/js/Pages/LandingPage/OurCars.css"
+  },
   "resources/js/Pages/LandingPage/OurCars.vue": {
-    "file": "assets/OurCars-fdef1500.js",
+    "css": [
+      "assets/OurCars-cad6aec6.css"
+    ],
+    "file": "assets/OurCars-f609d403.js",
     "imports": [
-      "_Customer-5b639835.js",
+      "_Customer-fb747e9d.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -119,7 +126,7 @@
     "css": [
       "assets/Login-4d2e656e.css"
     ],
-    "file": "assets/Login-7963a4f3.js",
+    "file": "assets/Login-4c8754e2.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -127,19 +134,19 @@
     "src": "resources/js/Pages/Login.vue"
   },
   "resources/js/Pages/Roles/index.vue": {
-    "file": "assets/index-bb0bc8d2.js",
+    "file": "assets/index-ccc8d844.js",
     "imports": [
-      "_Vertical-7bc4202c.js",
+      "_Vertical-a8e1a7bb.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Roles/index.vue"
   },
   "resources/js/Pages/Users/Index.vue": {
-    "file": "assets/Index-76c90027.js",
+    "file": "assets/Index-7146b384.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-7bc4202c.js"
+      "_Vertical-a8e1a7bb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Users/Index.vue"
@@ -165,7 +172,7 @@
       "resources/js/Pages/Roles/index.vue",
       "resources/js/Pages/Users/Index.vue"
     ],
-    "file": "assets/app-8fe746da.js",
+    "file": "assets/app-cfb6104e.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
