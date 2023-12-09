@@ -1,1 +1,0 @@
-import{M as o}from"./Vertical-a8e1a7bb.js";import{_ as t,o as e,c as a}from"./app-cfb6104e.js";const r={layout:o};function c(s,n,p,_,f,i){return e(),a("div")}const d=t(r,[["render",c]]);export{d as default};
