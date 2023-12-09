@@ -28,7 +28,7 @@
                         {{ item.car_brand.name + " " + item.car_model.name }}
                     </div>
                     <div class="info clearfix">
-                        <span class="price">KES 18,995</span>
+                        <span class="price">KES {{ formatPrice(item.price) }}</span>
                         <span class="speed">52,000 KM</span>
                     </div>
                     <div class="txt3">
@@ -43,6 +43,11 @@
 <script>
 export default {
     props: ["item"],
+      methods: {
+        formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    }
  
 };
 </script>

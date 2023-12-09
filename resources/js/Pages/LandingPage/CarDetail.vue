@@ -314,75 +314,18 @@ Message</textarea
                         <div id="tabs3-2">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="title2">EXTRA FEATURES</div>
+                                    <div class="title2">FEATURES</div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <ul class="ul3">
+                                            
                                                 <li>
                                                     <a href="#">Alloy Wheels</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Starter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Security System</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Air Conditioning</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Starter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Security System</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Air Conditioning</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
+                                          
                                             </ul>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <!-- <div class="col-sm-6">
                                             <ul class="ul3">
                                                 <li>
                                                     <a href="#">Alloy Wheels</a>
@@ -438,137 +381,10 @@ Message</textarea
                                                     <a href="#">Alloy Wheels</a>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="title2">LOREM IPSUM</div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <ul class="ul3">
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Starter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Security System</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Air Conditioning</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Starter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Security System</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Air Conditioning</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <ul class="ul3">
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Starter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Security System</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Air Conditioning</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Anti-Lock Brakes
-                                                        (ABS)</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Theft</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Anti-Starter</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Security System</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        >Air Conditioning</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">Alloy Wheels</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                        
                             </div>
                         </div>
                       
@@ -751,3 +567,13 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.banner2 {
+    border-top: 8px solid #48ba7e;
+}
+
+.gslider-wrapper {
+    border-top: 8px solid #48ba7e;
+}
+</style>

@@ -141,11 +141,8 @@ export default {
     () => state.editdata,
     (newval) => {
         if (newval !== null && Array.isArray(newval.features) && newval.features.length > 0) {
-            // console.log("fields", newval.features);
-
-            // Assuming newval.features is an array
             state.form.fields = newval.features.map(featureObj => ({
-                value: featureObj.feature, // Update this line based on the actual structure
+                value: featureObj.feature, 
             }));
         }
     }
