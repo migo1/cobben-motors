@@ -103,6 +103,14 @@ class CarBrandController extends Controller
         }
 
         $carBrand->name = $request->input('name');
+
+        foreach($carBrand->cars as $car) {
+            $car->name = $carBrand->name . ' ' . $car->carModel->name . ' ' . $car->color;
+            $car->update();
+        }
+
+        $carBrand->cars;
+
         $carBrand->update();
 
         return back()->with('success', 'CarBrand updated Succesfully');
@@ -113,9 +121,19 @@ class CarBrandController extends Controller
      */
     public function destroy(string $id)
     {
+
         // first delete the logo if exists then deletye the car brand
         $carBrand = CarBrand::find($id);
+
+        if($carBrand->cars->count() > 0 || $carBrand->carModels->count() > 0) {
+            return back()->with('success', 'Car Brand has cars or models');
+        };
+
         $carBrand->clearMediaCollection('logos');
+
+        //check if the car brand has cars or models
+
+
         $carBrand->delete();
 
         return back()->with('success', 'car brand deleted successfully');
@@ -135,9 +153,9 @@ class CarBrandController extends Controller
 
     public function revertImage(Request $request)
     {
-   
+
         if ($logo = $request->get('logo')) {
-            $path = storage_path('app/public/' .$logo);
+            $path = storage_path('app/public/' . $logo);
             if (file_exists($path)) {
                 unlink($path);
             }

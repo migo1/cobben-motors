@@ -20,4 +20,9 @@ class CarBrand extends Model implements HasMedia
     {
         return $this->hasMany(CarModel::class);
     }
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
 }

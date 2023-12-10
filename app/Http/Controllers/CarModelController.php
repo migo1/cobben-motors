@@ -95,6 +95,12 @@ class CarModelController extends Controller
         $carModel = CarModel::find($id);
         $carModel->name = $request->input('name');
         $carModel->car_brand_id = $request->input('car_brand_id');
+
+        foreach ($carModel->cars as $car) {
+            $car->name = $carModel->carBrand->name . ' ' . $carModel->name . ' ' . $car->color;
+            $car->update();
+        }
+
         $carModel->update();
 
         return redirect()->back()->with('success', 'Car Model updated successfully');
@@ -105,7 +111,13 @@ class CarModelController extends Controller
      */
     public function destroy(string $id)
     {
-        CarModel::find($id)->delete();
+
+        $carModel = CarModel::find($id);
+        if ($carModel->cars->count() > 0) {
+            return redirect()->back()->with('success', 'Car Model has cars, cannot delete');
+        }
+
+        $carModel->delete();
 
         return redirect()->back()->with('success', 'Car Model deleted successfully');
     }
