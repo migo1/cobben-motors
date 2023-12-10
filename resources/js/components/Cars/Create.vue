@@ -13,7 +13,7 @@
         >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel17">New Model</h4>
+                    <h4 class="modal-title" id="myModalLabel17">New Car</h4>
                     <button
                         type="button"
                         class="close"
@@ -30,7 +30,7 @@
                         @submit.prevent="saveFun()"
                     >
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Year</label>
                                     <input
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Color</label>
                                     <input
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Car Brand</label>
                                     <select
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Car Model</label>
                                     <select
@@ -105,7 +105,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Condition</label>
                                     <select
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Fuel Type</label>
                                     <select
@@ -141,9 +141,7 @@
                                             --- Fuels ---
                                         </option>
                                         <option
-                                            v-for="(
-                                                fuel, index
-                                            ) in fuels"
+                                            v-for="(fuel, index) in fuels"
                                             :value="fuel.id"
                                             :key="index"
                                         >
@@ -153,6 +151,31 @@
                                 </div>
                             </div>
 
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Price (KES)</label>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="Price"
+                                        v-model="state.form.price"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Mileage (KM)</label>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="mileage"
+                                        v-model="state.form.mileage"
+                                        required
+                                    />
+                                </div>
+                            </div>
 
                             <div class="col-12">
                                 <div class="form-group">
@@ -254,6 +277,8 @@ export default {
                 cars_display: "",
                 fuel_id: "",
                 condition_id: "",
+                price: "",
+                mileage: "",
             },
             myFiles: [],
             carModels: [],
@@ -274,8 +299,10 @@ export default {
                 car_model_id: "",
                 thumbnail: "",
                 cars_display: "",
-                 fuel_id: "",
+                fuel_id: "",
                 condition_id: "",
+                price: "",
+                mileage: "",
             };
             state.myFiles = [];
             state.myCars = [];
@@ -308,10 +335,12 @@ export default {
         };
 
         let removeCarsImage = (image) => {
-         let arr = state.form.cars_display ? state.form.cars_display.split('|') : [];
-                arr.remove(image);
-                state.form.cars_display = arr.join('|');
-                console.log(state.form.cars_display);
+            let arr = state.form.cars_display
+                ? state.form.cars_display.split("|")
+                : [];
+            arr.remove(image);
+            state.form.cars_display = arr.join("|");
+            console.log(state.form.cars_display);
         };
 
         let handleFilePondInit = () => {};
@@ -324,7 +353,7 @@ export default {
 
         let handleRevertCarsImage = (uniqueId, load, error) => {
             removeCarsImage(uniqueId);
-            axios.post('/admin/temp-cars-revert', {
+            axios.post("/admin/temp-cars-revert", {
                 cars_display: uniqueId,
             });
             // state.form.logo = "";
@@ -348,20 +377,23 @@ export default {
             handleFilePondInit,
             handleFilePondCarsLoad,
             handleFilePondCarsInit,
-            handleRevertCarsImage
+            handleRevertCarsImage,
         };
     },
 };
-    Array.prototype.remove = function() {
-        var what, a = arguments, L = a.length, ax;
-        while (L && this.length) {
-            what = a[--L];
-            while ((ax = this.indexOf(what)) !== -1) {
-                this.splice(ax, 1);
-            }
+Array.prototype.remove = function () {
+    var what,
+        a = arguments,
+        L = a.length,
+        ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
         }
-        return this;
-    };
+    }
+    return this;
+};
 </script>
 
 <style scoped>

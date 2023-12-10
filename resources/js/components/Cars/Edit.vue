@@ -30,7 +30,7 @@
                         @submit.prevent="updateFun()"
                     >
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Year</label>
                                     <input
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Color</label>
                                     <input
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Car Brand</label>
                                     <select
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Car Model</label>
                                     <select
@@ -105,7 +105,7 @@
                                 </div>
                             </div>
 
-                               <div class="col-12">
+                               <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Condition</label>
                                     <select
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="form-group">
                                     <label>Select Fuel Type</label>
                                     <select
@@ -150,6 +150,32 @@
                                             {{ fuel.type }}
                                         </option>
                                     </select>
+                                </div>
+                            </div>
+
+                                   <div class="col-6">
+                                <div class="form-group">
+                                    <label>Price (KES)</label>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="Price"
+                                        v-model="state.form.price"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label>Mileage (KM)</label>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="mileage"
+                                        v-model="state.form.mileage"
+                                        required
+                                    />
                                 </div>
                             </div>
 
@@ -250,6 +276,9 @@ export default {
                 cars_display: "",
                 fuel_id: "",
                 condition_id: "",
+                year: "",
+                price: "",
+                mileage: "",
             },
             myFiles: [],
             myThumbnail: [],

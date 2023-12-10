@@ -79,6 +79,8 @@ class CarController extends Controller
                 'year' => 'required',
                 'fuel_id' => 'required',
                 'condition_id' => 'required',
+                'price' => 'required',
+                'mileage' => 'required',
             ]
         );
 
@@ -94,6 +96,8 @@ class CarController extends Controller
         $car->condition_id = $request->input('condition_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
+        $car->price = $request->input('price');
+        $car->mileage = $request->input('mileage');
 
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
 
@@ -147,6 +151,7 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
+
         $this->validate(
             $request,
             [
@@ -159,14 +164,14 @@ class CarController extends Controller
 
         $brand = CarBrand::find($request->input('car_brand_id'));
         $model = CarModel::find($request->input('car_model_id'));
-
-        // $car = Car::find($id);
         $car->car_brand_id = $request->input('car_brand_id');
         $car->car_model_id = $request->input('car_model_id');
         $car->fuel_id = $request->input('fuel_id');
         $car->condition_id = $request->input('condition_id');
         $car->color = $request->input('color');
         $car->year = $request->input('year');
+        $car->price = $request->input('price');
+        $car->mileage = $request->input('mileage');
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
         $car->update();
 
@@ -174,7 +179,8 @@ class CarController extends Controller
             Media::whereIn('id', $request->deleted_from_collection)->delete();
         }
 
-        if ($request->has('thumbnail')) {
+        $get_media = $car->getFirstMedia("thumbnails");
+        if ($request->has('thumbnail') && $request->thumbnail != $get_media->getUrl()) {
             $car->clearMediaCollection('thumbnails');
             $car->addMedia(storage_path('app/public/' . $request->thumbnail))->toMediaCollection('thumbnails');
             Storage::disk('local')->delete('uploads/thumbnails' . $request->thumbnail);
