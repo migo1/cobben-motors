@@ -15,8 +15,8 @@
                             alt=""
                             class="img-responsive"
                             style="
-                                max-width: 270px;
-                                max-height: 150px;
+                                width: 270px;
+                                height: 150px;
                                 object-fit: contain;
                             "
                         />

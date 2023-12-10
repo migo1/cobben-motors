@@ -27,21 +27,10 @@ class LandingPageController extends Controller
         if($request->brand && !is_null($request->brand)) {
             $data = Car::with(['carBrand', 'carModel'])->where('car_brand_id', $request->brand)->orderBy('id', 'DESC')->take(6)->get();
         } else {
-
             $data = Car::with(['carBrand', 'carModel'])
-            // ->when($search, function ($query) use ($search) {
-            //     return $query->where(function ($q) use ($search) {
-            //         return $q->where('year', 'LIKE', '%' . $search . '%')
-            //         ->orwhere('color', 'LIKE', '%' . $search . '%');
-            //     });
-
-            // })->when($car_brand, function ($query) use ($car_brand) {
-            //     return $query->where('car_brand_id', $car_brand);
-            // })
                  ->orderBy('id', 'DESC')
                  ->take(6)
                  ->get();
-
         }
 
 
