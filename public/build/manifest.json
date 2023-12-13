@@ -1,12 +1,12 @@
 {
-  "_Customer-1fff29f6.js": {
-    "file": "assets/Customer-1fff29f6.js",
+  "_Customer-67dc560d.js": {
+    "file": "assets/Customer-67dc560d.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_Vertical-abaa6c02.js": {
-    "file": "assets/Vertical-abaa6c02.js",
+  "_Vertical-91ce2f08.js": {
+    "file": "assets/Vertical-91ce2f08.js",
     "imports": [
       "resources/js/app.js"
     ]
@@ -19,10 +19,10 @@
     "css": [
       "assets/Index-d4b68c0a.css"
     ],
-    "file": "assets/Index-c484f943.js",
+    "file": "assets/Index-4fdb8167.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-abaa6c02.js"
+      "_Vertical-91ce2f08.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/CarBrands/Index.vue"
@@ -35,10 +35,10 @@
     "css": [
       "assets/Index-89d0f4fa.css"
     ],
-    "file": "assets/Index-2a46273d.js",
+    "file": "assets/Index-fe54efd5.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-abaa6c02.js"
+      "_Vertical-91ce2f08.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/CarModels/Index.vue"
@@ -51,43 +51,43 @@
     "css": [
       "assets/Index-33661764.css"
     ],
-    "file": "assets/Index-e233526a.js",
+    "file": "assets/Index-d4cea4b8.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-abaa6c02.js"
+      "_Vertical-91ce2f08.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Cars/Index.vue"
   },
   "resources/js/Pages/Cars/Show.vue": {
-    "file": "assets/Show-ebf38ecd.js",
+    "file": "assets/Show-8451308b.js",
     "imports": [
-      "_Vertical-abaa6c02.js",
+      "_Vertical-91ce2f08.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Cars/Show.vue"
   },
   "resources/js/Pages/Home.vue": {
-    "file": "assets/Home-6337f6ba.js",
+    "file": "assets/Home-4f3a0490.js",
     "imports": [
-      "_Vertical-abaa6c02.js",
+      "_Vertical-91ce2f08.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Home.vue"
   },
   "resources/js/Pages/LandingPage/CarDetail.css": {
-    "file": "assets/CarDetail-8ec01ae7.css",
+    "file": "assets/CarDetail-d4827ce8.css",
     "src": "resources/js/Pages/LandingPage/CarDetail.css"
   },
   "resources/js/Pages/LandingPage/CarDetail.vue": {
     "css": [
-      "assets/CarDetail-8ec01ae7.css"
+      "assets/CarDetail-d4827ce8.css"
     ],
-    "file": "assets/CarDetail-dd4cad69.js",
+    "file": "assets/CarDetail-d5b478a6.js",
     "imports": [
-      "_Customer-1fff29f6.js",
+      "_Customer-67dc560d.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -101,9 +101,9 @@
     "css": [
       "assets/Index-32230a11.css"
     ],
-    "file": "assets/Index-07975cc7.js",
+    "file": "assets/Index-fdff2c47.js",
     "imports": [
-      "_Customer-1fff29f6.js",
+      "_Customer-67dc560d.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -117,9 +117,9 @@
     "css": [
       "assets/OurCars-cad6aec6.css"
     ],
-    "file": "assets/OurCars-7021aa55.js",
+    "file": "assets/OurCars-f5da6baa.js",
     "imports": [
-      "_Customer-1fff29f6.js",
+      "_Customer-67dc560d.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
@@ -133,7 +133,7 @@
     "css": [
       "assets/Login-4d2e656e.css"
     ],
-    "file": "assets/Login-aed8961f.js",
+    "file": "assets/Login-b6687c6e.js",
     "imports": [
       "resources/js/app.js"
     ],
@@ -141,19 +141,19 @@
     "src": "resources/js/Pages/Login.vue"
   },
   "resources/js/Pages/Roles/index.vue": {
-    "file": "assets/index-6483cbfd.js",
+    "file": "assets/index-f9d85ba0.js",
     "imports": [
-      "_Vertical-abaa6c02.js",
+      "_Vertical-91ce2f08.js",
       "resources/js/app.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Roles/index.vue"
   },
   "resources/js/Pages/Users/Index.vue": {
-    "file": "assets/Index-6a06f047.js",
+    "file": "assets/Index-42e26dc7.js",
     "imports": [
       "resources/js/app.js",
-      "_Vertical-abaa6c02.js"
+      "_Vertical-91ce2f08.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Users/Index.vue"
@@ -179,7 +179,7 @@
       "resources/js/Pages/Roles/index.vue",
       "resources/js/Pages/Users/Index.vue"
     ],
-    "file": "assets/app-25f9a344.js",
+    "file": "assets/app-9f83cdd8.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
