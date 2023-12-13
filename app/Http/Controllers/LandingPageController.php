@@ -100,6 +100,8 @@ class LandingPageController extends Controller
     {
 
         $images = [];
+        //car with its relations
+        $car = Car::with(['carBrand', 'carModel', 'features', 'fuel', 'condition', 'operationMode'])->where('id', $car->id)->first();
 
         foreach ($car->getMedia('cars_display') as $key => $value) {
             array_push($images, $value->getUrl());
