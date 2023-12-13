@@ -39,6 +39,21 @@ class Car extends Model implements HasMedia
         return $this->hasMany(Feature::class);
     }
 
+    public function fuel()
+    {
+        return $this->belongsTo(Fuel::class);
+    }
+
+    public function condition()
+    {
+        return $this->belongsTo(Condition::class);
+    }
+
+    public function operationMode()
+    {
+        return $this->belongsTo(OperationMode::class);
+    }
+
     public function generateName()
     {
         $name = $this->name = $this->carBrand->name . ' ' . $this->carModel->name . ' ' . $this->color;

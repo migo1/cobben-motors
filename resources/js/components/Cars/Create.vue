@@ -105,7 +105,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label>Select Condition</label>
                                     <select
@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-4">
                                 <div class="form-group">
                                     <label>Select Fuel Type</label>
                                     <select
@@ -146,6 +146,30 @@
                                             :key="index"
                                         >
                                             {{ fuel.type }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label>Select Operation Mode</label>
+                                    <select
+                                        class="select2 form-control form-control-lg"
+                                        v-model="state.form.operation_mode_id"
+                                        required
+                                    >
+                                        <option value="" class="first-option">
+                                            --- Mode Types ---
+                                        </option>
+                                        <option
+                                            v-for="(
+                                                mode_type, index
+                                            ) in mode_types"
+                                            :value="mode_type.id"
+                                            :key="index"
+                                        >
+                                            {{ mode_type.mode_type }}
                                         </option>
                                     </select>
                                 </div>
@@ -267,7 +291,7 @@
 import { reactive, watch } from "vue";
 import { useForm } from "@inertiajs/vue3";
 export default {
-    props: ["car_brands", "car_models", "fuels", "conditions"],
+    props: ["car_brands", "car_models", "fuels", "conditions", "mode_types"],
     setup() {
         const state = reactive({
             form: {
@@ -279,6 +303,7 @@ export default {
                 condition_id: "",
                 price: "",
                 mileage: "",
+                operation_mode_id: "",
             },
             myFiles: [],
             carModels: [],
@@ -303,6 +328,7 @@ export default {
                 condition_id: "",
                 price: "",
                 mileage: "",
+                operation_mode_id: "",
             };
             state.myFiles = [];
             state.myCars = [];

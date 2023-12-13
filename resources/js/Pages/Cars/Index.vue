@@ -176,8 +176,8 @@
                 </div>
             </div>
         </div>
-         <Create :car_brands="car_brands" :conditions="conditions" :fuels="fuels"></Create>
-        <Edit :car_brands="car_brands" :conditions="conditions" :fuels="fuels"></Edit>
+         <Create :car_brands="car_brands" :conditions="conditions" :fuels="fuels" :mode_types="mode_types"></Create>
+        <Edit :car_brands="car_brands" :conditions="conditions" :fuels="fuels" :mode_types="mode_types"></Edit>
         <Feature />
     </div>
 </template>
@@ -201,7 +201,7 @@ export default {
         Link,
         Feature,
     },
-    props: ["cars","car_models", "car_brands", "fuels", "conditions"],
+    props: ["cars","car_models", "car_brands", "fuels", "conditions", "mode_types"],
 
     setup() {
    const store = useStore();

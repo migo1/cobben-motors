@@ -25,9 +25,9 @@ class LandingPageController extends Controller
         $car_brand = $request->car_brand_id;
 
         if($request->brand && !is_null($request->brand)) {
-            $data = Car::with(['carBrand', 'carModel'])->where('car_brand_id', $request->brand)->orderBy('id', 'DESC')->take(6)->get();
+            $data = Car::with(['carBrand', 'carModel', 'features', 'fuel', 'condition', 'operationMode'])->where('car_brand_id', $request->brand)->orderBy('id', 'DESC')->take(6)->get();
         } else {
-            $data = Car::with(['carBrand', 'carModel'])
+            $data = Car::with(['carBrand', 'carModel', 'features', 'fuel', 'condition', 'operationMode'])
                  ->orderBy('id', 'DESC')
                  ->take(6)
                  ->get();
@@ -70,7 +70,7 @@ class LandingPageController extends Controller
         $max_year = $request->max_year;
         $min_year = $request->min_year;
 
-        $data = Car::with(['carBrand', 'carModel'])->when($brand, function ($query) use ($brand) {
+        $data = Car::with(['carBrand', 'carModel', 'features', 'fuel', 'condition', 'operationMode'])->when($brand, function ($query) use ($brand) {
             return $query->where('car_brand_id', $brand);
         })->when($model, function ($query) use ($model) {
             return $query->where('car_model_id', $model);

@@ -29,11 +29,11 @@
                     </div>
                     <div class="info clearfix">
                         <span class="price">KES {{ formatPrice(item.price) }}</span>
-                        <span class="speed">52,000 KM</span>
+                        <span class="speed">{{ formatPrice(item.mileage) }} KM</span>
                     </div>
                     <div class="txt3">
-                        Used •
-                        {{ item.year }} • Automatic • {{ item.color }} • Diesel
+                        {{ item.operation_mode.mode_type }} •
+                        {{ item.condition.status }} • {{ item.fuel.type}} 
                     </div>
                 </div>
             </div>

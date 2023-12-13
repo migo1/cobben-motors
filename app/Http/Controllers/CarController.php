@@ -8,6 +8,7 @@ use App\Models\CarBrand;
 use App\Models\CarModel;
 use App\Models\Condition;
 use App\Models\Fuel;
+use App\Models\OperationMode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
@@ -28,13 +29,15 @@ class CarController extends Controller
 
         $conditions = Condition::all();
 
+        $mode_types = OperationMode::all();
+
         $fuels = Fuel::all();
 
         $search = $request->search;
 
         $brand = $request->car_brand_id;
 
-        $data = Car::with(['carBrand', 'carModel', 'features'])->when($search, function ($query) use ($search) {
+        $data = Car::with(['carBrand', 'carModel', 'features', 'fuel', 'condition', 'operationMode'])->when($search, function ($query) use ($search) {
             return $query->where(function ($q) use ($search) {
                 return $q->where('year', 'LIKE', '%' . $search . '%')
                     ->orwhere('color', 'LIKE', '%' . $search . '%');
@@ -53,6 +56,7 @@ class CarController extends Controller
             'car_models' => $carModels,
             'conditions' => $conditions,
             'fuels' => $fuels,
+            'mode_types' => $mode_types,
         ]);
     }
 
@@ -81,6 +85,7 @@ class CarController extends Controller
                 'condition_id' => 'required',
                 'price' => 'required',
                 'mileage' => 'required',
+                'operation_mode_id' => 'required',
             ]
         );
 
@@ -98,6 +103,7 @@ class CarController extends Controller
         $car->year = $request->input('year');
         $car->price = $request->input('price');
         $car->mileage = $request->input('mileage');
+        $car->operation_mode_id = $request->input('operation_mode_id');
 
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
 
@@ -159,6 +165,7 @@ class CarController extends Controller
                 'car_model_id' => 'required',
                 'color' => 'required',
                 'year' => 'required',
+
             ]
         );
 
@@ -173,6 +180,7 @@ class CarController extends Controller
         $car->price = $request->input('price');
         $car->mileage = $request->input('mileage');
         $car->name = $brand->name . ' ' . $model->name . ' ' . $request->input('color');
+        $car->operation_mode_id = $request->input('operation_mode_id');
         $car->update();
 
         if ($request->has('deleted_from_collection')) {
